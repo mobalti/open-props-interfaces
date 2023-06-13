@@ -1,0 +1,125 @@
+{
+  "sectionTitle": "Top sights in Dubai",
+  "sights": [
+    {
+      "imageUrl": "/img/burj-khalifa.jpg",
+      "imageAlt": "A photo of Burj Khalifa",
+      "sightName": "Burj Khalifa",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "129,636"
+      },
+      "sightType": "Landmark"
+    },
+    {
+      "imageUrl": "/img/dubai-mall.jpg",
+      "imageAlt": "A photo of Dubai Mall",
+      "sightName": "Dubai Mall",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "234,581"
+      },
+      "sightType": "Shopping Centre"
+    },
+    {
+      "imageUrl": "/img/burj-al-arab.jpg",
+      "imageAlt": "A photo of Burj Al Arab",
+      "sightName": "Burj Al Arab",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "25,357"
+      },
+      "sightType": "Landmark"
+    },
+    {
+      "imageUrl": "/img/dubai-miracle-garden.jpg",
+      "imageAlt": "A photo of Dubai Miracle Garden",
+      "sightName": "Dubai Miracle Garden",
+      "rating": {
+        "value": 4.6,
+        "totalReviews": "69,805"
+      },
+      "sightType": "Garden"
+    },
+    {
+      "imageUrl": "/img/the-dubai-fountain.jpg",
+      "imageAlt": "A photo of Dubai Fountain",
+      "sightName": "The Dubai Fountain",
+      "rating": {
+        "value": 4.8,
+        "totalReviews": "87,910"
+      },
+      "sightType": "Landmark"
+    },
+    {
+      "imageUrl": "/img/ski-dubai.jpg",
+      "imageAlt": "A photo of Ski Dubai",
+      "sightName": "Ski Dubai",
+      "rating": {
+        "value": 4.5,
+        "totalReviews": "28,466"
+      },
+      "sightType": "Landmark"
+    },
+    {
+      "imageUrl": "/img/ain-dubai.jpg",
+      "imageAlt": "A photo of Ain Dubai by Dubai Holding",
+      "sightName": "Ain Dubai by Dubai Holding",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "13,700"
+      },
+      "sightType": "Tourist attraction"
+    },
+    {
+      "imageUrl": "/img/aquaventure-waterpark.jpg",
+      "imageAlt": "A photo of Aquaventure Waterpark",
+      "sightName": "Aquaventure Waterpark",
+      "rating": {
+        "value": 4.5,
+        "totalReviews": "22,610"
+      },
+      "sightType": "Water park"
+    },
+    {
+      "imageUrl": "/img/dubai-frame.jpg",
+      "imageAlt": "A photo of Dubai Frame",
+      "sightName": "Dubai Frame",
+      "rating": {
+        "value": 4.6,
+        "totalReviews": "48,642"
+      },
+      "sightType": "Monument"
+    },
+    {
+      "imageUrl": "/img/the-lost-chambers.jpg",
+      "imageAlt": "A photo of The Lost Chambers Aquarium",
+      "sightName": "The Lost Chambers Aquarium",
+      "rating": {
+        "value": 4.5,
+        "totalReviews": "9,246"
+      },
+      "sightType": "Aquarium"
+    },
+    {
+      "imageUrl": "/img/img-worlds-of-adventure.jpg",
+      "imageAlt": "A photo of IMG Worlds of Adventure",
+      "sightName": "IMG Worlds of Adventure",
+      "rating": {
+        "value": 4.4,
+        "totalReviews": "26,060"
+      },
+      "sightType": "Theme park"
+    },
+    {
+      "imageUrl": "/img/motiongate-dubai.jpg",
+      "imageAlt": "A photo of Motiongate Dubai",
+      "sightName": "Motiongate Dubai",
+      "rating": {
+        "value": 4.6,
+        "totalReviews": "18,117"
+      },
+      "sightType": "Theme park"
+    }
+  ]
+}

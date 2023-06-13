@@ -1,0 +1,215 @@
+@import 'open-props/normalize' layer(library);
+
+:root {
+  --sm-space: var(--size-3);
+  --md-space: var(--size-7);
+  --brand-color: var(--link);
+}
+
+h2,
+ul,
+li,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding-block: var(--md-space);
+
+  display: grid;
+  place-content: center;
+
+  background: var(--surface-3);
+}
+
+section {
+  --gap: calc(var(--md-space) * 2);
+  background-color: var(--surface-1);
+  border-radius: 1ex;
+  box-shadow: var(--shadow-4);
+
+  display: grid;
+  padding: var(--sm-space);
+
+  @media (min-width: 400px) {
+    padding: var(--md-space);
+  }
+
+  & > header {
+    display: flex;
+    gap: calc(var(--sm-space) / 2);
+    align-items: center;
+    justify-content: space-between;
+
+    & button {
+      background-color: transparent;
+      border-radius: var(--radius-1);
+      border: var(--border-size-1) solid var(--brand-color);
+      box-sizing: border-box;
+      color: var(--brand-color);
+      font-size: 0.875rem;
+      line-height: var(--font-lineheight-5);
+      padding: 0 0.875rem;
+      transition: all 200ms ease;
+
+      &:hover {
+        color: var(--surface-1);
+        background-color: var(--brand-color);
+        border-color: var(--surface-1);
+      }
+    }
+
+    > h2 {
+      margin: 0;
+      text-wrap: balance;
+    }
+  }
+}
+
+.sights-list {
+  display: grid;
+  --columns: 2;
+  --column-gap: var(--sm-space);
+  row-gap: calc(var(--column-gap) * 1.2);
+  column-gap: var(--column-gap);
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  padding-block-start: calc(var(--gap) / 2);
+  padding-block-end: calc(var(--gap) / 2);
+  list-style: none;
+
+  /* img animation */
+
+  /* @media (prefers-reduced-motion: no-preference) {
+    & a:hover img {
+      transform: scale(1.1);
+      transform-origin: center center;
+      transition: 0.5s;
+    }
+
+    & img {
+      transform: scale(1);
+      transition: 0.5s;
+    }
+  } */
+
+  & a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+    outline-offset: 12px;
+
+    margin: 0;
+    padding: 0;
+    inline-size: 100%;
+
+    &:focus {
+      outline-offset: 7px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      & {
+        transition: outline-offset 0.25s ease;
+      }
+    }
+  }
+
+  & figcaption {
+    color: var(--text-2);
+  }
+
+  .star {
+    color: var(--yellow-6);
+    box-shadow: var(--shadow-1);
+  }
+
+  .sight-name {
+    font-weight: var(--font-weight-6);
+    color: var(--text-1);
+
+    /* control grid inline-size  */
+    max-inline-size: 22ch;
+  }
+
+  @media (max-width: 515px) {
+    & figcaption {
+      line-height: var(--font-lineheight-2);
+    }
+  }
+
+  @media (max-width: 320px) {
+    & figcaption {
+      font-size: var(--font-size-0);
+      line-height: var(--font-lineheight-1);
+    }
+  }
+
+  @media (min-width: 320px) {
+    --columns: 2;
+  }
+
+  @media (min-width: 720px) {
+    --columns: 3;
+  }
+
+  @media (min-width: 1024px) {
+    --column-gap: 1.75rem;
+  }
+}
+
+figure {
+  display: grid;
+  margin: 0;
+  justify-items: start;
+
+  cursor: pointer;
+  user-select: none;
+
+  & > picture {
+    inline-size: 100%;
+    block-size: 114px;
+    overflow: hidden;
+    border-radius: 1ex;
+  }
+
+  & img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+
+    overflow: hidden;
+
+    background-image: linear-gradient(to bottom, hsl(0 0% 40%), hsl(0 0% 20%));
+  }
+
+  & > figcaption {
+    display: flex;
+    flex-direction: column;
+    word-break: break-word;
+  }
+}
+
+h2 {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-5);
+}
+
+/* bug with text-wrap: balance; "Aquaventure" on galaxy s8 */
+/*
+figcaption {
+  text-wrap: balance;
+} */
+
+#app {
+  @media (prefers-reduced-motion: no-preference) {
+    opacity: 0;
+    animation: var(--animation-fade-in) forwards;
+  }
+
+  /* & img {
+    opacity: 0;
+    animation: var(--animation-fade-in) forwards;
+  } */
+}

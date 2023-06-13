@@ -1,0 +1,125 @@
+{
+  "sectionTitle": "أبرز المعالم في دبي",
+  "sights": [
+    {
+      "imageUrl": "/img/burj-khalifa.jpg",
+      "imageAlt": "صورة لبرج خليفة",
+      "sightName": "برج خليفة",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "129,636"
+      },
+      "sightType": "معلم"
+    },
+    {
+      "imageUrl": "/img/dubai-mall.jpg",
+      "imageAlt": "صورة لدبي مول",
+      "sightName": "دبي مول",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "234,581"
+      },
+      "sightType": "مركز تسوق"
+    },
+    {
+      "imageUrl": "/img/burj-al-arab.jpg",
+      "imageAlt": "صورة لبرج العرب",
+      "sightName": "برج العرب",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "25,357"
+      },
+      "sightType": "معلم"
+    },
+    {
+      "imageUrl": "/img/dubai-miracle-garden.jpg",
+      "imageAlt": "صورة لحديقة دبي ميراكل",
+      "sightName": "حديقة دبي ميراكل",
+      "rating": {
+        "value": 4.6,
+        "totalReviews": "69,805"
+      },
+      "sightType": "حديقة"
+    },
+    {
+      "imageUrl": "/img/the-dubai-fountain.jpg",
+      "imageAlt": "صورة لنافورة دبي",
+      "sightName": "نافورة دبي",
+      "rating": {
+        "value": 4.8,
+        "totalReviews": "87,910"
+      },
+      "sightType": "معلم"
+    },
+    {
+      "imageUrl": "/img/ski-dubai.jpg",
+      "imageAlt": "صورة لمنتجع سكي دبي",
+      "sightName": "منتجع سكي دبي",
+      "rating": {
+        "value": 4.5,
+        "totalReviews": "28,466"
+      },
+      "sightType": "معلم"
+    },
+    {
+      "imageUrl": "/img/ain-dubai.jpg",
+      "imageAlt": "صورة لعين دبي بواسطة دبي هولدينج",
+      "sightName": "عين دبي بواسطة دبي هولدينج",
+      "rating": {
+        "value": 4.7,
+        "totalReviews": "13,700"
+      },
+      "sightType": "معلم سياحي"
+    },
+    {
+      "imageUrl": "/img/aquaventure-waterpark.jpg",
+      "imageAlt": "صورة لأكوافنتشر واتربارك",
+      "sightName": "أكوافنتشر واتربارك",
+      "rating": {
+        "value": 4.5,
+        "totalReviews": "22,610"
+      },
+      "sightType": "حديقة مائية"
+    },
+    {
+      "imageUrl": "/img/dubai-frame.jpg",
+      "imageAlt": "صورة لإطار دبي",
+      "sightName": "إطار دبي",
+      "rating": {
+        "value": 4.6,
+        "totalReviews": "48,642"
+      },
+      "sightType": "نصب تذكاري"
+    },
+    {
+      "imageUrl": "/img/the-lost-chambers.jpg",
+      "imageAlt": "صورة لحجرات الضياع للأحواض البحرية",
+      "sightName": "حجرات الضياع للأحواض البحرية",
+      "rating": {
+        "value": 4.5,
+        "totalReviews": "9,246"
+      },
+      "sightType": "أكواريوم"
+    },
+    {
+      "imageUrl": "/img/img-worlds-of-adventure.jpg",
+      "imageAlt": "صورة لآي إم جي ورلدز أوف أدفنتشر",
+      "sightName": "آي إم جي ورلدز أوف أدفنتشر",
+      "rating": {
+        "value": 4.4,
+        "totalReviews": "26,060"
+      },
+      "sightType": "حديقة ترفيهية"
+    },
+    {
+      "imageUrl": "/img/motiongate-dubai.jpg",
+      "imageAlt": "صورة لموشن جيت دبي",
+      "sightName": "موشن جيت دبي",
+      "rating": {
+        "value": 4.6,
+        "totalReviews": "18,117"
+      },
+      "sightType": "حديقة ترفيهية"
+    }
+  ]
+}
