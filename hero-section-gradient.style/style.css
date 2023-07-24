@@ -1,0 +1,42 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.min.css' layer(demo.support);
+@import url('https://fonts.googleapis.com/css2?family=Marko+One&display=swap');
+section {
+  --animation-float-custom: float 3s var(--ease-in-out-2) infinite;
+  min-block-size: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: grid;
+  place-content: center;
+  background-image: linear-gradient(
+    180deg in oklab,
+    oklch(63% 0.1 204) 0%,
+    70%,
+    oklch(98% 0.01 170) 101% 101%
+  );
+
+  & h1 {
+    font-family: 'Marko One', serif;
+    color: white;
+    text-shadow: var(--shadow-4);
+    font-size: clamp(3rem, 10vw, 6rem);
+    text-align: center;
+  }
+
+  > picture {
+    position: absolute;
+    inset-block-end: -200px;
+    inset-inline-start: 0;
+    inline-size: 500px;
+    transform-origin: left bottom;
+    inline-size: var(--size-fluid-11);
+    animation: var(--animation-float-custom) forwards;
+    animation-duration: 8s;
+    filter: blur(4px);
+  }
+}
+@keyframes float {
+  50% {
+    transform: rotateX(30deg);
+  }
+}
