@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Switch Component with Normalize</title>
+    <script src="theme-toggle.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <body>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        title="Toggles light & dark"
+        aria-label="auto"
+        aria-live="polite"
+      ></button>
+      <h1>Hello, Open Props</h1>
+      <div class="surface-samples">
+        <div class="surface1 rad-shadow">var(--surface-1)</div>
+        <div class="surface2 rad-shadow">var(--surface-2)</div>
+        <div class="surface3 rad-shadow">var(--surface-3)</div>
+        <div class="surface4 rad-shadow">var(--surface-4)</div>
+      </div>
+
+      <div class="text-samples">
+        <h5 class="text1">
+          <span class="swatch link"></span>
+          var(--link)
+        </h5>
+        <h5 class="text1">
+          <span class="swatch link-visited"></span>
+          var(--link-visited)
+        </h5>
+        <h5 class="text1">
+          <span class="swatch text1"></span>
+          var(--text-1)
+        </h5>
+        <h5 class="text2">
+          <span class="swatch text2"></span>
+          var(--text-2)
+        </h5>
+      </div>
+    </body>
+  </body>
+</html>

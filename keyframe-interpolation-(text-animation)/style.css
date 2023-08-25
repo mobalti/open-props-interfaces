@@ -1,0 +1,130 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  display: grid;
+  place-content: center;
+  background-color: var(--sand-12);
+}
+
+h1 {
+  text-transform: lowercase;
+  display: flex;
+
+  text-align: center;
+  /* filter: var(--noise-filter-1); */
+}
+
+.shadow {
+  text-align: center;
+  rotate: x 106deg;
+  filter: blur(60px);
+}
+
+.text {
+  display: grid;
+  font-weight: var(--font-weight-9);
+
+  /* font-size: var(--size-fluid-5); */
+  font-size: clamp(3.5rem, 5vw, 5rem);
+}
+
+.letter {
+  grid-area: 1/1;
+
+  display: flex;
+
+  > * {
+    /* animation: rotate 4s var(--ease-squish-5); */
+    animation: rotate 4s
+      linear(
+        0 0%,
+        0 1.8%,
+        0.01 3.6%,
+        0.03 6.35%,
+        0.07 9.1%,
+        0.13 11.4%,
+        0.19 13.4%,
+        0.27 15%,
+        0.34 16.1%,
+        0.54 18.35%,
+        0.66 20.6%,
+        0.72 22.4%,
+        0.77 24.6%,
+        0.81 27.3%,
+        0.85 30.4%,
+        0.88 35.1%,
+        0.92 40.6%,
+        0.94 47.2%,
+        0.96 55%,
+        0.98 64%,
+        0.99 74.4%,
+        1 86.4%,
+        1 100%
+      );
+
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    transform-origin: bottom;
+  }
+
+  &:not(:last-child) {
+    filter: blur(1px);
+  }
+
+  &:nth-child(4) {
+    color: white;
+
+    > * {
+      animation-delay: 0.12s;
+    }
+  }
+  &:nth-child(3) {
+    color: oklch(58% 0.24 262);
+
+    > * {
+      animation-delay: 0.07s;
+    }
+  }
+
+  &:nth-child(2) {
+    color: oklch(91% 0.18 99);
+
+    > * {
+      animation-delay: 0.03s;
+    }
+  }
+
+  &:nth-child(1) {
+    color: oklch(67% 0.22 25);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    scale: 0;
+    rotate: 180deg;
+  }
+
+  25% {
+    scale: 1;
+    rotate: 0deg;
+  }
+
+  75% {
+    scale: 1;
+    rotate: 0deg;
+  }
+
+  100% {
+    scale: 0;
+    rotate: 180deg;
+  }
+}

@@ -1,0 +1,64 @@
+@import 'https://unpkg.com/open-props' layer(demo.support);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(demo.support);
+@import 'https://unpkg.com/open-props/buttons.dark.min.css' layer(demo.support);
+@import 'https://unpkg.com/open-props/oklch-hues.min.css' layer(demo.support);
+@import 'https://unpkg.com/open-props/colors-oklch.min.css' layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+header {
+  text-align: center;
+  padding: var(--size-3);
+  display: grid;
+  place-content: center;
+}
+
+h1 {
+  font-size: var(--font-size-fluid-2);
+  font-weight: var(--font-weight-4);
+  max-inline-size: var(--size-header-3);
+}
+
+section {
+  background: var(--gradient-18);
+  animation: hueRot 10s ease-in infinite;
+
+  display: grid;
+  place-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  gap: var(--size-relative-2);
+  align-items: center;
+
+  /*change the logo size from here */
+  font-size: var(--font-size-8);
+
+  .icon {
+    fill: white;
+    inline-size: var(--size-relative-10);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    line-height: var(--font-lineheight-0);
+    font-weight: var(--font-weight-7);
+  }
+}
+
+@keyframes hueRot {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}

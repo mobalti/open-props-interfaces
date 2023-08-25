@@ -1,0 +1,112 @@
+@import 'https://unpkg.com/open-props' layer(demo.support);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(demo.support);
+@import 'https://unpkg.com/open-props/buttons.dark.min.css' layer(demo.support);
+@import 'https://unpkg.com/open-props/oklch-hues.min.css' layer(demo.support);
+@import 'https://unpkg.com/open-props/colors-oklch.min.css' layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+}
+
+section {
+  display: grid;
+  gap: var(--size-7);
+  background-color: var(--surface-1);
+  padding: var(--size-8);
+  border-radius: var(--radius-3);
+  box-shadow: var(--shadow-1);
+
+  & p {
+    padding-inline: var(--size-2);
+    font-size: var(--font-size-4);
+    color: white;
+    text-wrap: balance;
+  }
+}
+
+.props {
+  padding: var(--size-2);
+  flex-wrap: wrap;
+  text-wrap: balance;
+  max-inline-size: 72ch;
+
+  > a {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    padding: var(--size-2) var(--size-5);
+    background-color: white;
+    font-size: var(--font-size-1);
+    border-radius: var(--radius-5);
+    margin-inline-end: var(--size-3);
+    margin-block-end: var(--size-3);
+    white-space: nowrap;
+    transition: 0.2s ease;
+  }
+
+  > a:hover {
+    background-color: var(--text-2);
+  }
+}
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+nav {
+  padding-block: var(--size-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* padding-inline: var(--size-fluid-4); */
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.btn-custom {
+  --color-hue: var(--hue-indigo);
+  --_bg: linear-gradient(var(--color-5), var(--color-7));
+  --_border: var(--color-6);
+  --_text: var(--color-0);
+  --_ink-shadow: 0 1px 0 var(--color-9);
+  --_size: var(--font-size-3);
+
+  & svg {
+    fill: var(--text-1);
+  }
+}
+
+.logo {
+  --delay: 0.4s;
+  display: flex;
+  gap: var(--size-relative-2);
+  align-items: center;
+  font-size: var(--font-size-5);
+
+  .icon {
+    fill: white;
+    inline-size: var(--size-relative-10);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    line-height: var(--font-lineheight-0);
+    font-weight: var(--font-weight-7);
+  }
+}
+
+main {
+  position: relative;
+  display: grid;
+  place-content: center;
+  padding-inline: var(--size-fluid-4);
+  justify-items: center;
+  background: var(--gradient-17);
+  padding-block: var(--size-6);
+}

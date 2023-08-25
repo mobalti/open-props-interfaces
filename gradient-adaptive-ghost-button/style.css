@@ -1,0 +1,98 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.min.css' layer(demo.support);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+:root {
+  font-family: 'Inter', sans-serif;
+  /* fallback */
+  --brand-gradient: radial-gradient(
+    farthest-corner circle at 100% 0%,
+    #912beb 0%,
+    #e6009e 50%,
+    #ff4d2a 100%
+  );
+
+  --brand-gradient: radial-gradient(
+    farthest-corner circle at 100% 0% in oklab,
+    oklch(55% 0.26 302) 0%,
+    oklch(61% 0.26 348) 50%,
+    oklch(67% 0.22 33) 100%
+  );
+}
+body {
+  display: grid;
+}
+
+.button {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-7);
+  inline-size: max-content;
+  white-space: nowrap;
+  padding-block: var(--size-4);
+  padding-inline: var(--size-7);
+  letter-spacing: calc(var(--font-letterspacing-3) / 3);
+  line-height: var(--font-lineheight-0);
+
+  border: var(--border-size-2) solid transparent;
+  color: black;
+  position: relative;
+  isolation: isolate;
+
+  background: linear-gradient(white, white) padding-box,
+    var(--brand-gradient) border-box;
+  border-radius: var(--radius-6);
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+
+    background: var(--brand-gradient);
+    mix-blend-mode: screen;
+  }
+
+  &:hover {
+    color: white;
+
+    &::before {
+      background: var(--brand-gradient) padding-box,
+        var(--brand-gradient) border-box;
+
+      background-repeat: no-repeat;
+      background-size: contain;
+      mix-blend-mode: normal;
+      z-index: -1;
+    }
+  }
+}
+
+section {
+  display: grid;
+  place-content: center;
+
+  &.light {
+    background-color: white;
+  }
+
+  &.dark {
+    background-color: black;
+
+    .button {
+      color: white;
+
+      background: linear-gradient(black, black) padding-box,
+        var(--brand-gradient) border-box;
+
+      &::before {
+        mix-blend-mode: multiply;
+      }
+
+      &:hover {
+        &::before {
+          mix-blend-mode: normal;
+        }
+      }
+    }
+  }
+}

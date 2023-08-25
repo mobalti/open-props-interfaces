@@ -1,0 +1,68 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.min.css' layer(demo.support);
+/* @import 'https://unpkg.com/open-props/buttons.min.css' layer(demo.support); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+:root {
+  font-family: 'Inter', sans-serif;
+
+  --text-gradient: linear-gradient(
+    83.84deg,
+    #0088ff -6.87%,
+    #a033ff 26.54%,
+    #ff5c87 58.58%
+  );
+
+  --text-gradient: linear-gradient(
+    83deg in oklab,
+    oklch(63% 0.2 254) -6.87% -6.87%,
+    oklch(59% 0.27 303) 26.54% 26.54%,
+    oklch(70% 0.2 8) 58.58% 58.58%
+  );
+
+  --link: hsl(0 0% 0%);
+  --link-visited: hsl(0 0% 0%);
+}
+
+body {
+  display: grid;
+}
+
+.link {
+  text-decoration: underline;
+  color: black;
+  font-size: var(--font-size-6);
+  text-decoration-color: black;
+
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    background: var(--text-gradient);
+    mix-blend-mode: screen;
+  }
+}
+
+section {
+  display: grid;
+  place-content: center;
+
+  &.light {
+    background-color: white;
+  }
+
+  &.dark {
+    background-color: black;
+    .link {
+      color: white;
+
+      text-decoration-color: white;
+
+      &::before {
+        mix-blend-mode: multiply;
+      }
+    }
+  }
+}

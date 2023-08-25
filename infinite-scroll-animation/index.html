@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinite Scroll Animation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <button id="open-menu-btn" class="btn-custom">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path>
+        </svg>
+      </button>
+      <div class="logo">
+        <svg
+          width="195"
+          height="195"
+          viewBox="0 0 195 195"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M97.5 0C43.6522 0 0 43.6522 0 97.5C0 151.348 43.6522 195 97.5 195C151.348 195 195 151.348 195 97.5C195 43.6522 151.348 0 97.5 0ZM25 97.5C25 57.4594 57.4594 25 97.5 25C137.541 25 170 57.4594 170 97.5C170 137.541 137.541 170 97.5 170C89.6457 170 82.0831 168.751 75 166.441V139.343C81.697 142.952 89.3593 145 97.5 145C123.734 145 145 123.734 145 97.5C145 71.2665 123.734 50 97.5 50C71.2665 50 50 71.2665 50 97.5V152.274C34.6849 138.981 25 119.371 25 97.5ZM97.5 75C85.0736 75 75 85.0736 75 97.5C75 109.926 85.0736 120 97.5 120C109.926 120 120 109.926 120 97.5C120 85.0736 109.926 75 97.5 75Z"
+            fill="url(#paint0_radial_1_50)"
+          />
+          <defs>
+            <radialGradient
+              id="paint0_radial_1_50"
+              cx="0"
+              cy="0"
+              r="1"
+              gradientUnits="userSpaceOnUse"
+              gradientTransform="translate(172 170) rotate(-135) scale(195.161)"
+            >
+              <stop offset="0.238054" stop-color="#167DFF" />
+              <stop offset="1" stop-color="#FF45ED" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div id="menu" class="menu">
+        <div>
+          <header>
+            <button id="close-menu-btn" class="close-menu">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"
+                ></path>
+              </svg>
+            </button>
+
+            <div class="logo">
+              <svg
+                width="195"
+                height="195"
+                viewBox="0 0 195 195"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M97.5 0C43.6522 0 0 43.6522 0 97.5C0 151.348 43.6522 195 97.5 195C151.348 195 195 151.348 195 97.5C195 43.6522 151.348 0 97.5 0ZM25 97.5C25 57.4594 57.4594 25 97.5 25C137.541 25 170 57.4594 170 97.5C170 137.541 137.541 170 97.5 170C89.6457 170 82.0831 168.751 75 166.441V139.343C81.697 142.952 89.3593 145 97.5 145C123.734 145 145 123.734 145 97.5C145 71.2665 123.734 50 97.5 50C71.2665 50 50 71.2665 50 97.5V152.274C34.6849 138.981 25 119.371 25 97.5ZM97.5 75C85.0736 75 75 85.0736 75 97.5C75 109.926 85.0736 120 97.5 120C109.926 120 120 109.926 120 97.5C120 85.0736 109.926 75 97.5 75Z"
+                  fill="white"
+                />
+              </svg>
+            </div>
+          </header>
+          <ul>
+            <li><a href="#"> Try in browser</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Showcase</a></li>
+            <li><a href="#">Connect</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <section>
+        <ul class="props">
+          <li><a href="#colors">colors</a></li>
+          <li><a href="#gradients">gradients</a></li>
+          <li><a href="#shadows">shadows</a></li>
+          <li><a href="#aspect-ratios">aspect ratios</a></li>
+          <li><a href="#typography">typography</a></li>
+          <li><a href="#easings">easing</a></li>
+          <li><a href="#animations">animations</a></li>
+          <li><a href="#sizes">sizes</a></li>
+          <li><a href="#borders">borders</a></li>
+          <li><a href="#z-indexes">z-indexes</a></li>
+          <li><a href="#media-queries">media-queries</a></li>
+          <li><a href="#media-queries">masks</a></li>
+          <li><a href="#colors">colors</a></li>
+          <li><a href="#gradients">gradients</a></li>
+          <li><a href="#shadows">shadows</a></li>
+          <li><a href="#aspect-ratios">aspect ratios</a></li>
+          <li><a href="#typography">typography</a></li>
+          <li><a href="#easings">easing</a></li>
+          <li><a href="#animations">animations</a></li>
+          <li><a href="#sizes">sizes</a></li>
+          <li><a href="#borders">borders</a></li>
+          <li><a href="#z-indexes">z-indexes</a></li>
+          <li><a href="#media-queries">media-queries</a></li>
+          <li><a href="#media-queries">masks</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <a href="#">Get Started </a>
+      <a href="#">Features </a>
+      <a href="#">Overview </a>
+      <a href="#">Tooling </a>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

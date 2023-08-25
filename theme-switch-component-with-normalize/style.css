@@ -1,0 +1,129 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.min.css' layer(demo.support);
+@import 'https://unpkg.com/open-props/buttons.min.css' layer(demo.support);
+
+@import 'https://unpkg.com/open-props/theme.light.switch.min.css'
+  layer(demo.theme);
+@import 'https://unpkg.com/open-props/theme.dark.switch.min.css'
+  layer(demo.theme);
+
+html {
+  --theme-icon: '\e518';
+}
+
+html[data-theme='dark'] {
+  --theme-icon: '\e51c';
+}
+
+.theme-toggle {
+  color: var(--text-1);
+  background-color: var(--surface-1);
+}
+
+.theme-toggle::after {
+  content: var(--theme-icon);
+  font-family: 'Material Icons Outlined';
+  font-size: var(--font-size-5);
+  font-weight: var(--font-weight-4);
+}
+
+/* demo purpose only */
+
+body {
+  display: grid;
+  place-content: center;
+  padding: var(--size-7);
+  gap: var(--size-7);
+
+  justify-items: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.surface-samples {
+  display: grid;
+  --size: var(--size-content-1);
+  grid-template-columns: var(--size) var(--size);
+  grid-auto-rows: var(--size);
+  gap: var(--size-5);
+  margin-block-start: var(--size-6);
+}
+
+@media (width <= 480px) {
+  .surface-samples {
+    --size: 40vw;
+  }
+}
+
+.surface-samples > * {
+  border-radius: var(--radius-3);
+  display: grid;
+  place-content: center;
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-2);
+  box-shadow: var(--shadow-6);
+}
+
+.surface1 {
+  background-color: var(--surface-1);
+  color: var(--text-2);
+}
+
+.surface2 {
+  background-color: var(--surface-2);
+  color: var(--text-2);
+}
+
+.surface3 {
+  background-color: var(--surface-3);
+  color: var(--text-1);
+}
+
+.surface4 {
+  background-color: var(--surface-4);
+  color: var(--text-1);
+}
+
+.text-samples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: var(--size-3);
+  row-gap: var(--size-6);
+  align-items: center;
+  align-content: center;
+}
+
+.link {
+  color: var(--link);
+  background-color: var(--link);
+}
+
+.link-visited {
+  color: var(--link-visited);
+  background-color: var(--link-visited);
+}
+
+.text-samples h5 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+}
+
+.swatch {
+  /* display: inline-block; */
+  display: flex;
+  flex-shrink: 0;
+  inline-size: var(--size-8);
+  block-size: var(--size-8);
+  border-radius: var(--radius-round);
+  box-shadow: var(--shadow-4);
+}
+.swatch.text1 {
+  background-color: var(--text-1);
+}
+.swatch.text2 {
+  background-color: var(--text-2);
+}

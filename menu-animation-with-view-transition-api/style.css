@@ -1,0 +1,194 @@
+@import 'https://unpkg.com/open-props' layer(demo.support);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(demo.support);
+/* @import 'https://unpkg.com/open-props/buttons.dark.min.css' layer(demo.support); */
+@import 'https://unpkg.com/open-props/oklch-hues.min.css' layer(demo.support);
+@import 'https://unpkg.com/open-props/colors-oklch.min.css' layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  --surface-1: black;
+  --brand: oklch(65% 0.3 18);
+
+  --nav-block-size: 8.75rem;
+}
+
+nav {
+  padding-block: var(--size-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  block-size: var(--nav-block-size);
+  position: sticky;
+  inset-block-start: 0;
+
+  /* padding-inline: var(--size-fluid-4); */
+  padding-inline: clamp(1rem, 4vw, 3rem);
+
+  .nav-controller {
+    display: flex;
+    gap: var(--size-3);
+  }
+}
+
+.menu {
+  display: none;
+  position: absolute;
+  inset: 0;
+  /* fallback */
+  block-size: 100vh;
+
+  block-size: 100dvh;
+  background: var(--surface-1);
+  padding-block: var(--size-9);
+  padding-inline: var(--size-fluid-5);
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-8);
+  }
+
+  & ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    gap: var(--size-7);
+
+    block-size: 100%;
+    padding-block: var(--size-6);
+  }
+
+  & a {
+    color: white;
+    font-size: var(--font-size-6);
+    inline-size: 100%;
+    margin: 0;
+    padding: var(--size-3);
+
+    text-decoration-color: var(--brand);
+    text-underline-offset: 0.5ex;
+  }
+
+  &.open {
+    display: unset;
+  }
+
+  #close-menu-btn {
+    margin-inline-start: var(--size-3);
+  }
+}
+
+.hamburger {
+  --brandHSL: 328 100% 54%;
+  --size: var(--size-9);
+  display: flex;
+  place-content: center;
+  padding: var(--size-3);
+  box-sizing: border-box;
+  border-radius: var(--radius-round);
+  border: var(--border-size-2) solid var(--brand);
+  block-size: var(--size);
+  inline-size: var(--size);
+  outline: none;
+  background-color: inherit;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+
+  &:hover {
+    border-color: hsl(var(--brandHSL) / 50%);
+  }
+
+  &:focus {
+    border-color: hsl(var(--brandHSL) / 12%);
+    background: hsl(var(--brandHSL) / 10%);
+  }
+
+  &:hover svg > line {
+    stroke: hsl(var(--brandHSL));
+  }
+
+  &:active {
+    background: hsl(var(--brandHSL) / 20%);
+  }
+
+  & > svg {
+    width: 100%;
+    fill: var(--brand);
+
+    & > line {
+      stroke: var(--brand);
+      stroke-width: 7px;
+      transition: stroke 0.25s ease;
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  gap: var(--size-relative-2);
+  align-items: center;
+  font-size: var(--font-size-5);
+
+  .icon {
+    fill: white;
+    inline-size: var(--size-relative-10);
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    line-height: var(--font-lineheight-0);
+    font-weight: var(--font-weight-7);
+  }
+}
+
+main {
+  display: grid;
+  place-content: center;
+  padding-inline: var(--size-fluid-4);
+  justify-items: center;
+  /* fallback */
+  background: white;
+
+  background-image: radial-gradient(
+    farthest-corner circle at 74% 47% in oklab,
+    oklch(89% 0.22 263) 3% 3%,
+    37%,
+    oklch(100% 0 325) 85% 85%
+  );
+
+  /* fallback */
+  min-block-size: calc(100vh - var(--nav-block-size));
+
+  min-block-size: calc(100dvh - var(--nav-block-size));
+
+  padding-block: var(--size-6);
+}
+
+section {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  gap: var(--size-5);
+  & h1 {
+    color: var(--gray-8);
+    text-align: center;
+    max-inline-size: var(--size-content-3);
+    font-size: var(--font-size-7);
+  }
+
+  & a {
+    background-color: var(--brand);
+    color: white;
+    text-decoration: none;
+    padding-inline: var(--size-6);
+    padding-block: var(--size-2);
+    border-radius: var(--radius-2);
+    font-weight: var(--font-weight-5);
+  }
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adaptive Cards with 'text-wrap: balance'</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <svg
+          class="icon"
+          width="200"
+          height="200"
+          viewBox="0 0 200 200"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="black"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M100 2.5C46.1522 2.5 2.5 46.1522 2.5 100C2.5 153.848 46.1522 197.5 100 197.5C153.848 197.5 197.5 153.848 197.5 100C197.5 46.1522 153.848 2.5 100 2.5ZM27.5 100C27.5 59.9594 59.9594 27.5 100 27.5C140.041 27.5 172.5 59.9594 172.5 100C172.5 140.041 140.041 172.5 100 172.5C92.1457 172.5 84.5831 171.251 77.5 168.941V141.843C84.197 145.452 91.8593 147.5 100 147.5C126.234 147.5 147.5 126.234 147.5 100C147.5 73.7665 126.234 52.5 100 52.5C73.7665 52.5 52.5 73.7665 52.5 100V154.774C37.1849 141.481 27.5 121.871 27.5 100ZM100 77.5C87.5736 77.5 77.5 87.5736 77.5 100C77.5 112.426 87.5736 122.5 100 122.5C112.426 122.5 122.5 112.426 122.5 100C122.5 87.5736 112.426 77.5 100 77.5Z"
+          />
+        </svg>
+
+        <span class="logo-text">
+          <span>Open</span>
+          <span>Props</span>
+        </span>
+      </div>
+
+      <button id="open-search" class="btn-custom">
+        <!-- Search -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M11 2C15.968 2 20 6.032 20 11C20 15.968 15.968 20 11 20C6.032 20 2 15.968 2 11C2 6.032 6.032 2 11 2ZM11 18C14.8675 18 18 14.8675 18 11C18 7.1325 14.8675 4 11 4C7.1325 4 4 7.1325 4 11C4 14.8675 7.1325 18 11 18ZM19.4853 18.0711L22.3137 20.8995L20.8995 22.3137L18.0711 19.4853L19.4853 18.0711Z"
+          ></path>
+        </svg>
+      </button>
+    </nav>
+    <main>
+      <section>
+        <header class="just-stretch">
+          <h2>Why Use Open Props?</h2>
+          <p>It's <b>non-prescriptive</b>.</p>
+        </header>
+        <div class="cards">
+          <a href="">
+            <dt>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"
+                  stroke="currentColor"
+                  fill="none"
+                ></path>
+                <path
+                  d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"
+                  stroke="currentColor"
+                  fill="none"
+                ></path>
+              </svg>
+              Design Consistently
+            </dt>
+            <dd>Incidentally harmonious.</dd></a
+          >
+          <a href="">
+            <dt>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  stroke="currentColor"
+                  fill="none"
+                ></path>
+              </svg>
+              Predictable
+            </dt>
+            <dd>Thanks to consistent naming conventions.</dd></a
+          >
+          <a href="">
+            <div>
+              <dt>
+                <svg viewBox="0 0 24 24">
+                  <path
+                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                    stroke="currentColor"
+                    fill="none"
+                  ></path>
+                  <path
+                    d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                    stroke="currentColor"
+                    fill="none"
+                  ></path>
+                </svg>
+                Incrementally Adoptable
+              </dt>
+              <dd>Grab all the props, props as JS, or only what you need.</dd>
+            </div>
+          </a>
+          <a href="">
+            <dt>
+              <svg viewBox="0 0 24 24">
+                <path
+                  d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
+                  stroke="currentColor"
+                  fill="none"
+                ></path>
+              </svg>
+              Customizable
+            </dt>
+            <dd>
+              Map the props from JS or customize builds from the command line.
+            </dd>
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

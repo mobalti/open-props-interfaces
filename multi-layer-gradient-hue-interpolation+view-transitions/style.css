@@ -1,0 +1,80 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.light.min.css'
+  layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  view-transition-name: none;
+}
+
+body {
+  --chroma: 0.16;
+
+  display: grid;
+  place-content: center;
+  color: oklch(8% 0.04 328);
+
+  background-color: oklch(80% var(--chroma) 272);
+  background-image: radial-gradient(
+      farthest-corner circle at 48% 52% in oklab,
+      oklch(100% 0 0) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 48% 40% in oklab, oklch(100% 0 0) 0px, transparent 50%),
+    radial-gradient(at 64% 48% in oklab, oklch(100% 0 0) 0px, transparent 50%),
+    radial-gradient(
+      farthest-corner circle at 0% 96% in oklab,
+      oklch(80% var(--chroma) 272) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      farthest-corner circle at 0% 64% in oklab,
+      oklch(80% var(--chroma) 272) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      farthest-corner circle at 96% 96% in oklab,
+      oklch(80% var(--chroma) 272) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      farthest-corner circle at 64% 0% in oklab,
+      oklch(80% var(--chroma) 272) 0px,
+      transparent 50%
+    ),
+    radial-gradient(
+      farthest-corner circle at 56% 96% in oklab,
+      oklch(80% var(--chroma) 216) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 0% 0% in oklab, oklch(80% 0.16 216) 0px, transparent 50%),
+    radial-gradient(
+      farthest-corner circle at 96% 0% in oklab,
+      oklch(80% var(--chroma) 216) 0px,
+      transparent 50%
+    ),
+    var(--noise-5);
+}
+
+h1 {
+  font-weight: var(--font-weight-9);
+  /* font-size: var(--size-fluid-6); */
+  font-size: clamp(3.5rem, 7vw, 7.5rem);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  h1 {
+    view-transition-name: hero;
+  }
+
+  ::view-transition-old(hero),
+  ::view-transition-new(hero) {
+    height: 100%;
+    width: 100%;
+
+    animation-timing-function: var(--ease-spring-3);
+  }
+}
