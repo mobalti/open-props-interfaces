@@ -21,3 +21,4 @@ A collection of customizable and responsive interfaces built with [Open Props](h
 1.  Adaptive Cards - Gradient Animation - Dark [`Demo`](https://codepen.io/mobalti/full/WNLQKWY)
 1.  Hero Section with Variable Font Animation [`Demo`](https://codepen.io/mobalti/full/eYbZQeK)
 1.  Sidenav with View Transitions API [`Demo`](https://codepen.io/mobalti/full/qBLrKpW)
+1.  Carousel with Scroll-Driven Animations [`Demo`](https://codepen.io/mobalti/full/GRPMpyj)
