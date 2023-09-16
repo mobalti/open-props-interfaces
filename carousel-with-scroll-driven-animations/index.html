@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Media Carousel - Scroll-Driven Animations API</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <header>
+        <img src="../assets/carousel-img/profile.png" alt="" />
+        <div>
+          <p>Buster</p>
+          <i class="ri-verified-badge-fill"></i>
+        </div>
+      </header>
+      <div class="card">
+        <div id="carousel" class="visual">
+          <img
+            id="card1"
+            src="../assets/carousel-img/img-01.webp"
+            alt="Cute dogs"
+          />
+          <img
+            id="card2"
+            src="../assets/carousel-img/img-02.webp"
+            alt="Cute dogs"
+          />
+          <img
+            id="card3"
+            src="../assets/carousel-img/img-03.webp"
+            alt="Cute dogs"
+          />
+          <img
+            id="card4"
+            src="../assets/carousel-img/img-04.webp"
+            alt="Cute dogs"
+          />
+          <img
+            id="card5"
+            src="../assets/carousel-img/img-05.webp"
+            alt="Cute dogs"
+          />
+          <img
+            id="card6"
+            src="../assets/carousel-img/img-06.webp"
+            alt="Cute dogs"
+          />
+
+          <div class="controls">
+            <button
+              id="prev"
+              class="previous"
+              onclick="carousel.scrollBy(-100, 0)"
+            >
+              <i class="ri-arrow-left-circle-fill"></i>
+            </button>
+            <button id="next" class="next" onclick="carousel.scrollBy(100, 0)">
+              <i class="ri-arrow-right-circle-fill"></i>
+            </button>
+          </div>
+
+          <div id="pagination" class="pagination"></div>
+        </div>
+      </div>
+      <div class="social">
+        <div class="inter">
+          <div>
+            <button>
+              <i class="ri-heart-line"></i>
+            </button>
+
+            <button>
+              <i class="ri-chat-3-line"></i>
+            </button>
+            <button>
+              <i class="ri-share-line"></i>
+            </button>
+          </div>
+
+          <button>
+            <i class="ri-bookmark-line"></i>
+          </button>
+        </div>
+
+        <p>3,802 likes</p>
+        <p>Getting ready to paw-ty! 🎉🐾</p>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

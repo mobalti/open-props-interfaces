@@ -1,0 +1,150 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.min.css' layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..700&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  --nav-block-size: var(--size-10);
+
+  --op-surface-0: white;
+  --op-surface-1: black;
+
+  --op-brand-0: oklch(88% 0.15 191);
+  --op-brand-1: oklch(62% 0.25 14);
+  --op-brand-gradient: linear-gradient(
+    270deg,
+    oklch(67% 0.22 14) 0%,
+    oklch(78% 0.14 8) 100%
+  );
+  --custom-radius: 8px;
+}
+
+body {
+  background-color: var(--op-surface-0);
+  color: var(--op-surface-1);
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  color: var(--op-surface-1);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  block-size: var(--nav-block-size);
+  padding-inline: var(--size-fluid-3);
+  background-color: var(--op-surface-1);
+  & img {
+    block-size: var(--size-8);
+  }
+}
+
+.custom-button {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-6);
+  padding: var(--size-2) var(--size-4);
+  background-color: var(--op-brand-1);
+  color: var(--op-surface-0);
+  border-radius: var(--radius-5);
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  &:hover {
+    background-color: color-mix(
+      in oklch,
+      var(--op-brand-1) 90%,
+      var(--op-surface-0) 10%
+    );
+  }
+}
+
+main {
+  min-block-size: calc(100dvh - var(--nav-block-size));
+  padding-block: var(--size-fluid-5);
+  max-inline-size: 1312px;
+  margin-inline: auto;
+  padding-inline: var(--size-fluid-3);
+}
+
+section {
+  --gap: var(--size-7);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--gap) * 2);
+
+  & h1 {
+    font-size: var(--font-size-fluid-3);
+    min-inline-size: calc(var(--size-relative-8) * 4);
+    color: var(--op-surface-1);
+  }
+
+  & header {
+    background-color: var(--op-surface-1);
+    color: var(--op-surface-0);
+    display: flex;
+    align-items: flex-end;
+    padding: calc(var(--gap) * 0.75);
+    border-radius: var(--custom-radius);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: calc(var(--gap) * 0.5);
+
+    > div {
+      display: grid;
+      gap: calc(var(--gap) / 3);
+    }
+
+    & h2 {
+      color: var(--op-surface-0);
+      font-size: var(--font-size-4);
+    }
+  }
+}
+
+.section-header {
+  inline-size: min-content;
+}
+
+.hero-content {
+  display: grid;
+  gap: var(--gap);
+
+  flex: 1;
+}
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(28ch, 1fr));
+  gap: var(--gap);
+
+  & h3 {
+    font-size: var(--font-size-3);
+    color: var(--op-surface-1);
+  }
+
+  & a {
+    border: var(--border-size-1) solid var(--op-surface-1);
+    padding: calc(var(--gap) * 0.75);
+    border-radius: var(--custom-radius);
+    display: grid;
+    gap: calc(var(--gap) / 2);
+    align-content: start;
+
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+      box-shadow: 8px 8px var(--op-brand-0);
+    }
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+  }
+}

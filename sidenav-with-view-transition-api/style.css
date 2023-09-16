@@ -1,0 +1,140 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..700&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+  --link-font-size: 0.875rem;
+  --nav-block-size: var(--size-10);
+  view-transition-name: none;
+
+  --surface-1: black;
+}
+nav {
+  display: flex;
+  gap: var(--size-3);
+  padding-inline: var(--size-fluid-3);
+  padding-block: var(--size-4);
+  align-items: center;
+  block-size: var(--nav-block-size);
+
+  & button {
+    font-size: var(--font-size-5);
+    background-color: inherit;
+    color: white;
+  }
+
+  & a {
+    color: white;
+  }
+
+  .logo {
+    max-inline-size: calc(var(--size-11) + var(--size-2));
+  }
+}
+.menu {
+  --gap: var(--size-8);
+  position: absolute;
+  inset: 0;
+  z-index: var(--layer-2);
+  inline-size: 100%;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+
+  .logo {
+    max-inline-size: var(--size-12);
+  }
+
+  > div {
+    padding-block: var(--size-3);
+    padding-inline: var(--size-fluid-3);
+    background-color: var(--surface-1);
+    overscroll-behavior: contain;
+    overflow: auto;
+
+    inline-size: min(352px, 70vw);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--gap);
+  }
+
+  & button {
+    padding: 0;
+    margin: 0;
+  }
+
+  & dl {
+    padding-block: var(--size-3);
+    display: grid;
+    gap: var(--gap);
+
+    > div {
+      display: grid;
+      gap: var(--size-1);
+    }
+  }
+
+  & dt {
+    color: var(--gray-6);
+
+    font-weight: var(--font-weight-5);
+    font-size: var(--link-font-size);
+  }
+
+  & dd {
+    font-weight: var(--font-weight-5);
+    font-size: var(--font-size-1);
+  }
+
+  & a {
+    text-underline-offset: 0.5ex;
+    text-decoration-color: hsl(7, 90%, 47%);
+    text-decoration-thickness: var(--border-size-2);
+  }
+
+  #close-menu-bg {
+    inline-size: 100%;
+    block-size: 100%;
+  }
+}
+main {
+  display: grid;
+  place-content: center;
+  min-block-size: calc(100dvh - var(--nav-block-size));
+  background: var(--gradient-10);
+
+  & h1 {
+    text-align: center;
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+}
+
+/* animation */
+
+.menu {
+  display: none;
+  &.open {
+    display: grid;
+  }
+}
+
+body:has(.menu.open) {
+  overflow-y: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .menu {
+    view-transition-name: menu;
+  }
+
+  ::view-transition-old(menu) {
+    animation: var(--animation-slide-out-left);
+  }
+
+  ::view-transition-new(menu) {
+    animation: var(--animation-slide-in-right);
+  }
+}

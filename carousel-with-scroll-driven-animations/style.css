@@ -1,0 +1,227 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+
+@layer demo.base {
+  :root {
+    font-family: 'Inter', sans-serif;
+    --sm-font-size: 0.875rem;
+    --size: min(470px, 100dvw);
+  }
+  body {
+    display: grid;
+    place-content: center;
+    background-color: black;
+    padding-block: var(--size-fluid-3);
+  }
+  section {
+    display: grid;
+    gap: var(--size-2);
+  }
+  .social {
+    display: grid;
+    gap: var(--size-1);
+    & button {
+      background-color: unset;
+      font-size: var(--font-size-3);
+      padding: 0;
+    }
+
+    .inter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > div {
+        display: flex;
+        gap: var(--size-3);
+      }
+    }
+
+    @media (width < 468px) {
+      padding-inline: var(--size-3);
+    }
+
+    & p {
+      font-size: var(--sm-font-size);
+      font-weight: var(--font-weight-6);
+    }
+  }
+
+  header {
+    display: flex;
+    gap: var(--size-2);
+    align-items: center;
+
+    > img {
+      inline-size: 2.5rem;
+      /* block-size: var(--size-5); */
+      aspect-ratio: var(--ratio-square);
+      border-radius: var(--radius-round);
+    }
+
+    & p {
+      font-size: var(--sm-font-size);
+      font-weight: var(--font-weight-6);
+    }
+
+    & i {
+      color: var(--blue-5);
+    }
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: var(--size-1);
+    }
+
+    @media (width < 468px) {
+      padding-inline: var(--size-3);
+    }
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-3);
+    position: relative;
+
+    & button {
+      background: transparent;
+    }
+
+    .visual {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: var(--size);
+      inline-size: var(--size);
+      block-size: var(--size);
+      overflow-x: auto;
+
+      /* Hide scrollbar */
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      & img {
+        inline-size: var(--size);
+        border-radius: var(--radius-1);
+        border: var(--border-size-1) solid var(--stone-11);
+      }
+    }
+
+    .controls {
+      position: absolute;
+      z-index: 1;
+
+      inset-inline: var(--size-2);
+
+      inset-block-start: 50%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    & button {
+      inline-size: var(--size-8);
+      border-radius: var(--radius-round);
+      aspect-ratio: var(--ratio-square);
+      font-size: 1.75rem;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-shadow: var(--shadow-1);
+      color: var(--stone-1);
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--stone-2);
+      }
+    }
+  }
+
+  .pagination {
+    position: absolute;
+    z-index: 1;
+    inset-inline: 0;
+    inset-block-end: var(--size-5);
+
+    display: flex;
+
+    justify-content: center;
+    gap: var(--size-1);
+
+    & button {
+      display: inline-flex;
+      place-content: center;
+      inline-size: 0.5ex;
+      flex-shrink: 0;
+      aspect-ratio: var(--ratio-square);
+      border-radius: var(--radius-round);
+      background-color: hsl(0 0% 100%/ 60%);
+    }
+  }
+}
+
+@layer demo.scroll-driven-animation {
+  .visual {
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+    scroll-timeline: --carousel inline;
+
+    > * {
+      scroll-snap-align: center;
+    }
+
+    & img {
+      view-timeline-axis: inline;
+      perspective: var(--size);
+    }
+  }
+
+  .pagination > button {
+    /* every dot use the scale animation */
+    animation: scale linear both;
+  }
+
+  .next {
+    animation: auto next ease;
+    animation-timeline: --carousel;
+  }
+
+  .previous {
+    animation: auto prev ease;
+    animation-timeline: --carousel;
+  }
+}
+
+/* pagination dots effect */
+/* scaled out, until in view, then scale 1 */
+@keyframes scale {
+  0%,
+  100% {
+    scale: 0.75;
+  }
+  50% {
+    scale: 1;
+    background-color: white;
+  }
+}
+
+@keyframes prev {
+  from {
+    visibility: hidden;
+  }
+}
+
+@keyframes next {
+  to {
+    visibility: hidden;
+  }
+}

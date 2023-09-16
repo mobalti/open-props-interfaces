@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Props - Navbar animation</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav>
+      <button id="open-menu-btn" title="Open Menu" aria-label="Open Menu">
+        <i class="ri-menu-line"></i>
+      </button>
+
+      <div class="logo">
+        <img
+          src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/f103889b54bea1194dd70658b525e5d06db3fee3/assets/logo/op-logo-w-w-t.svg"
+          alt="Open Props logo"
+        />
+      </div>
+
+      <aside id="menu" class="menu">
+        <div>
+          <button
+            id="close-menu-btn"
+            title="Close Menu"
+            aria-label="Close Menu"
+          >
+            <i class="ri-close-line"></i>
+          </button>
+
+          <div class="logo">
+            <img
+              src="https://raw.githubusercontent.com/mobalti/open-props-interfaces/f103889b54bea1194dd70658b525e5d06db3fee3/assets/logo/op-logo-w-w-t.svg"
+              alt="Open Props logo"
+            />
+          </div>
+
+          <div>
+            <dl>
+              <div>
+                <dt>Getting Started</dt>
+                <dd><a href="#" class="nav-link">Features</a></dd>
+                <dd><a href="#" class="nav-link">Overview</a></dd>
+                <dd><a href="#" class="nav-link">CDN</a></dd>
+              </div>
+
+              <div>
+                <dt>Tooling</dt>
+                <dd>
+                  <a href="#" class="nav-link">PostCSS</a>
+                  <a href="#" class="nav-link">JIT Props</a>
+                </dd>
+                <dd>
+                  <a href="#" class="nav-link">NPM</a>
+                </dd>
+              </div>
+
+              <div>
+                <dt>Showcase</dt>
+                <dd>
+                  <a href="#" class="nav-link">Color helper</a>
+                </dd>
+              </div>
+
+              <div>
+                <dt>Connect</dt>
+                <dd>
+                  <a href="#" class="nav-link">GitHub</a>
+                </dd>
+                <dd><a href="#" class="nav-link">Discord</a></dd>
+                <dd><a href="#" class="nav-link">Twitter</a></dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <button
+          id="close-menu-bg"
+          title="Close Menu"
+          aria-label="Close Menu"
+        ></button>
+      </aside>
+    </nav>
+
+    <main>
+      <h1>Supercharged CSS variables.</h1>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

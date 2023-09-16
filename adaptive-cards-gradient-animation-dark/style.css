@@ -1,0 +1,149 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(demo.support);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..700&display=swap');
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  --nav-block-size: var(--size-10);
+
+  --op-brand-0: oklch(61% 0.21 258);
+  --op-brand-1: oklch(72% 0.28 332);
+
+  --op-card-gradient: radial-gradient(
+      farthest-corner circle var(--gradient-center) in oklch,
+      var(--op-brand-1) 0%,
+      oklch(72% 0.28 332 / 0%) calc(0% + 200px)
+    )
+    no-repeat border-box border-box var(--op-brand-0);
+
+  --custom-radius: 8px;
+  --surface-1: var(--gray-9);
+  --text-1: white;
+}
+
+a {
+  text-decoration: none;
+  margin: 0;
+  color: var(--text-1);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  block-size: var(--nav-block-size);
+  padding-inline: var(--size-fluid-3);
+
+  & img {
+    block-size: var(--size-8);
+  }
+}
+
+.btn-custom {
+  background-color: inherit;
+  color: var(--text-1);
+  border: var(--border-size-1) solid currentColor;
+  padding: var(--size-2) var(--size-4);
+  border-radius: var(--radius-5);
+  transition: background-color 0.2s ease;
+  &:hover {
+    background-color: oklch(100% 0 0 / 4.8%);
+  }
+}
+
+main {
+  min-block-size: calc(100dvh - var(--nav-block-size));
+  padding-block: var(--size-fluid-5);
+  max-inline-size: 1312px;
+  margin-inline: auto;
+  padding-inline: var(--size-fluid-3);
+}
+
+section {
+  --gap: var(--size-7);
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--gap) * 2);
+
+  & h1 {
+    font-size: var(--font-size-fluid-3);
+    min-inline-size: calc(var(--size-relative-8) * 4);
+  }
+
+  & header {
+    display: flex;
+    align-items: flex-end;
+    padding: calc(var(--gap) * 0.75);
+    border-radius: var(--custom-radius);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: calc(var(--gap) * 0.5);
+    background: var(--gradient-16);
+
+    > div {
+      display: grid;
+      gap: calc(var(--gap) / 3);
+    }
+
+    & h2 {
+      font-size: var(--font-size-4);
+    }
+
+    & p {
+      color: var(--text-1);
+    }
+  }
+}
+
+.section-header {
+  inline-size: min-content;
+}
+
+.hero-content {
+  display: grid;
+  gap: var(--gap);
+
+  flex: 1;
+}
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(28ch, 1fr));
+  gap: var(--gap);
+
+  & h3 {
+    font-size: var(--font-size-3);
+  }
+
+  .card {
+    border: var(--border-size-1) solid currentColor;
+    padding: calc(var(--gap) * 0.75);
+    border-radius: var(--custom-radius);
+    display: grid;
+    gap: calc(var(--gap) / 2);
+    align-content: start;
+
+    transition: background 0.3s ease-in-out;
+
+    --gradient-center: at 115.047px 111.562px;
+
+    &:hover {
+      background: radial-gradient(
+          farthest-corner circle var(--gradient-center) in oklch,
+          var(--op-brand-1) 0%,
+          oklch(72% 0.28 332 / 0%) calc(0% + 200px)
+        )
+        no-repeat border-box border-box var(--op-brand-0);
+    }
+  }
+
+  .head {
+    display: flex;
+    justify-content: space-between;
+  }
+}
