@@ -1,0 +1,31 @@
+.navbar {
+  position: sticky;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  background-color: var(--surface-1);
+  z-index: var(--layer-2);
+
+  & header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--size-fluid-3);
+    gap: var(--size-3);
+  }
+
+  & a {
+    text-align: center;
+  }
+
+  .logo {
+    inline-size: max(10rem, 28vw);
+    inline-size: clamp(10rem, 28vw, 28rem);
+    padding-block: var(--size-fluid-3);
+  }
+
+  @media (--mobile) {
+    & a {
+      font-size: var(--op-small-font);
+    }
+  }
+}

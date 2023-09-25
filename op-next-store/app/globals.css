@@ -1,0 +1,33 @@
+@import 'open-props/style';
+@import 'open-props/normalize/light';
+
+:root {
+  font-family: 'Inter', sans-serif;
+
+  --surface-1: white;
+  --text-1: black;
+  --link: black;
+  --link-visited: black;
+
+  --op-small-font: 0.875rem;
+}
+
+body {
+  color: var(--text-1);
+  background-color: var(--surface-1);
+  font-weight: var(--font-weight-3);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:is(ul, li, a) {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}

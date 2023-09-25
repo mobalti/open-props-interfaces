@@ -1,0 +1,28 @@
+.siteSearch {
+  border-radius: 0;
+  background-color: var(--surface-1);
+  border-block: var(--border-size-1) solid var(--text-1);
+  inline-size: 100%;
+  font-size: calc(var(--font-size-1) - 2px);
+  padding-block: var(--size-4);
+  padding-inline: var(--size-fluid-4);
+  outline: none;
+  caret-color: currentColor;
+  text-transform: uppercase;
+
+  &::placeholder {
+    color: black;
+    font-weight: var(--font-weight-3);
+  }
+
+  &::-webkit-search-cancel-button {
+    --size: var(--size-7);
+    -webkit-appearance: none;
+    inline-size: var(--size);
+    block-size: var(--size);
+    background-size: cover;
+    cursor: pointer;
+
+    background-image: url('/../../../../images/cancel-search.svg');
+  }
+}

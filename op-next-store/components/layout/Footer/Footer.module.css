@@ -1,0 +1,37 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--size-fluid-8);
+  padding-block: var(--size-11);
+  padding-inline: var(--size-fluid-4);
+
+  font-weight: var(--font-weight-3);
+  & small {
+    max-inline-size: var(--size-content-3);
+  }
+
+  > dl {
+    display: flex;
+    gap: var(--size-9);
+    flex-wrap: wrap;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: var(--size-2);
+    }
+  }
+
+  & small a {
+    font-weight: var(--font-weight-6);
+  }
+
+  & a:hover {
+    text-decoration: underline;
+  }
+
+  :is(dt, dd) {
+    font-size: var(--op-small-font);
+  }
+}

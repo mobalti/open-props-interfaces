@@ -1,0 +1,74 @@
+.section {
+  padding-block: var(--size-5);
+  overflow-x: hidden;
+
+  & header {
+    display: flex;
+    justify-content: flex-end;
+    padding: var(--size-5);
+  }
+
+  & p {
+    font-weight: var(--font-weight-2);
+    font-size: var(--op-small-font);
+  }
+}
+
+.products {
+  margin-inline-end: -1px;
+
+  --columns: 6;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  border-block: var(--border-size-1) solid var(--text-1);
+  grid-row-end: span 4;
+
+  @media (width < 724px) {
+    --columns: 2;
+  }
+}
+
+.card {
+  border-block-end: var(--border-size-1) solid var(--text-1);
+  border-inline-end: var(--border-size-1) solid var(--text-1);
+  /* Remove the border-block-end from the last row */
+  &:nth-child(6n + 1):nth-last-child(-n + 6),
+  &:nth-child(6n + 1):nth-last-child(-n + 6) ~ & {
+    border-block-end: unset;
+  }
+  @media (width < 724px) {
+    &:nth-child(2n + 1):nth-last-child(-n + 2),
+    &:nth-child(2n + 1):nth-last-child(-n + 2) ~ & {
+      border-block-end: unset;
+    }
+  }
+
+  & figure {
+    justify-items: unset;
+    gap: 0;
+  }
+
+  & figcaption {
+    --size: var(--size-3);
+    padding-inline: var(--size);
+    padding-block: var(--size);
+    overflow: hidden;
+    white-space: nowrap;
+    text-transform: uppercase;
+
+    font-size: clamp(0.8rem, 0.8vw, 2rem);
+
+    border-block-start: var(--border-size-1) solid var(--text-1);
+
+    > div {
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+
+  & img {
+    aspect-ratio: var(--ratio-portrait);
+    object-fit: cover;
+    background: linear-gradient(180deg, #f6f7fb 0%, #e7e8ec 100%);
+  }
+}

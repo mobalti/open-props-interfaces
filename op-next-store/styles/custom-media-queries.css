@@ -1,0 +1,2 @@
+@custom-media --mobile (width < 700px);
+@custom-media --desktop (width >= 700px);

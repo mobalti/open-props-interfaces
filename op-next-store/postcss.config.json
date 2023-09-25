@@ -1,0 +1,27 @@
+{
+  "plugins": [
+    "postcss-flexbugs-fixes",
+    "postcss-nesting",
+    [
+      "@csstools/postcss-global-data",
+      {
+        "files": ["./styles/custom-media-queries.css"]
+      }
+    ],
+
+    "postcss-custom-media",
+
+    [
+      "postcss-preset-env",
+      {
+        "autoprefixer": {
+          "flexbox": "no-2009"
+        },
+        "stage": 3,
+        "features": {
+          "custom-properties": false
+        }
+      }
+    ]
+  ]
+}

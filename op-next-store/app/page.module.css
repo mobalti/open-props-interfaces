@@ -1,0 +1,6 @@
+.main {
+  & > p {
+    padding-inline: var(--size-fluid-3);
+    padding-block: var(--size-4);
+  }
+}
