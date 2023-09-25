@@ -1,6 +1,6 @@
 ## Overview
 
-Next Store is a frontend e-commerce demo built using [Next.js](https://nextjs.org/) and [Open Props](https://open-props.style/). This project showcases a product listing page with search functionality and a product details page.
+A storefront interface built using [Next.js](https://nextjs.org/) and [Open Props](https://open-props.style/). This project showcases a product listing page with search functionality and a product details page.
 
 ## Getting Started
 
