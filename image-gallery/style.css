@@ -1,0 +1,261 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(base.normalize);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&family=Lobster&display=swap');
+
+@layer base.override-normalize {
+  :root {
+    font-family: 'Inter Variable', sans-serif;
+    --surface-1: oklch(0 0 0);
+    --text-1: oklch(0.97 0 0);
+    --text-2: oklch(0.73 0 0);
+    --link-visited: oklch(0.73 0 0);
+  }
+
+  a {
+    color: var(--text-2);
+    display: flex;
+    gap: var(--size-1);
+  }
+}
+
+@layer base.app {
+  body {
+    --max-inline: 935px;
+    --gap: var(--size-fluid-4);
+  }
+
+  section {
+    display: grid;
+    justify-content: center;
+    padding-inline: var(--size-1);
+    gap: var(--size-7);
+  }
+}
+
+@layer components.header {
+  header {
+    display: flex;
+    justify-content: center;
+    padding-block: var(--gap);
+    background-color: var(--surface-1);
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--layer-1);
+
+    & h1 {
+      font-family: 'Lobster', sans-serif;
+
+      font-weight: var(--font-weight-1);
+      font-size: clamp(1.5rem, 6vw, 3rem);
+    }
+  }
+}
+
+@layer components.gallery {
+  .imageGallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-inline-size: var(--max-inline);
+    gap: calc(var(--border-size-2) * 2);
+
+    & img {
+      aspect-ratio: var(--ratio-square);
+      max-inline-size: 100%;
+      background-image: var(--gradient-8);
+    }
+
+    & > button {
+      position: relative;
+      padding: 0;
+      margin: 0;
+      border: none;
+
+      &::after {
+        content: '';
+        inset: 0;
+        display: block;
+        background-color: oklch(0 0 0 / 0.4);
+        position: absolute;
+        background-image: url(./images/pushpin-fill.svg);
+        background-size: var(--size-5);
+        background-repeat: no-repeat;
+        background-position: top var(--size-1) right var(--size-1);
+        opacity: 0;
+        transition: 0.2s ease;
+      }
+
+      &:hover::after {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@layer components.dialog {
+  .dialog {
+    --sm-font-size: 0.875rem;
+    --size: min(80dvh, 100%);
+    --fade-duration: 1s;
+
+    inline-size: var(--size);
+    max-inline-size: 600px;
+    border-radius: unset;
+
+    padding: 0;
+
+    .dialog-container {
+      display: flex;
+      flex-direction: column;
+      gap: var(--size-3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .controls {
+      position: fixed;
+      z-index: var(--layer-1);
+      inset-block-start: calc(50% - var(--size-5) / 2);
+      inset-inline: var(--size-3);
+      display: flex;
+      justify-content: space-between;
+      opacity: 0;
+      animation: var(--animation-fade-in) var(--fade-duration) forwards;
+
+      & button {
+        inline-size: var(--size-8);
+        border-radius: var(--radius-round);
+        aspect-ratio: var(--ratio-square);
+        font-size: 1.75rem;
+        background: transparent;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        box-shadow: var(--shadow-1);
+        color: var(--stone-1);
+        transition: color 0.2s ease;
+        @media (width > 600px) {
+          font-size: 3rem;
+        }
+
+        &:hover {
+          color: var(--stone-6);
+        }
+      }
+    }
+
+    .closeDialog {
+      position: fixed;
+      inset-block-start: var(--size-2);
+      inset-inline-end: var(--size-2);
+      block-size: 48px;
+      inline-size: 48px;
+      background-color: transparent;
+      font-size: var(--font-size-5);
+      padding: 0;
+    }
+
+    .carousel {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: var(--size);
+      inline-size: var(--size);
+      block-size: var(--size);
+      /* overflow-x: auto; */
+      isolation: isolate;
+
+      /* Hide scrollbar */
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      & img {
+        inline-size: 100%;
+        block-size: 100%;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+
+        background-color: var(--surface-1);
+
+        background-image: url(./images/bars-rotate-fade.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: var(--layer-3);
+
+        /* <Suspense> */
+        animation: var(--animation-fade-out) var(--fade-duration) forwards,
+          var(--fade-duration) op-hide 1s forwards;
+      }
+    }
+  }
+}
+
+@layer animation.base {
+  @keyframes op-hide {
+    100% {
+      visibility: hidden;
+    }
+  }
+}
+
+@layer animation.scroll-driven {
+  body {
+    timeline-scope: --carousel;
+  }
+  #carousel {
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+    scroll-behavior: smooth;
+
+    scroll-timeline: --carousel inline;
+
+    > * {
+      scroll-snap-align: center;
+    }
+  }
+
+  #nextBtn {
+    animation: auto next ease;
+    animation-timeline: --carousel;
+
+    /* fix bug scrollPort end nextBtn visibility */
+    animation-range: 0% 101%;
+  }
+
+  #prevBtn {
+    animation: auto prev ease;
+    animation-timeline: --carousel;
+  }
+
+  @keyframes prev {
+    from {
+      visibility: hidden;
+    }
+  }
+
+  @keyframes next {
+    99%,
+    100% {
+      visibility: hidden;
+    }
+  }
+}
+
+@layer components.footer {
+  footer {
+    display: flex;
+    justify-content: center;
+    padding-block: var(--gap);
+    font-weight: var(--font-weight-8);
+    color: var(--stone-8);
+  }
+}
