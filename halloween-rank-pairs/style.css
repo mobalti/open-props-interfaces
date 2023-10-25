@@ -1,0 +1,247 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(base.normalize);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&family=Pacifico&display=swap');
+@layer base.override-normalize {
+  :root {
+    font-family: 'Inter', sans-serif;
+    --surface-1: oklch(0 0 0);
+    --text-1: oklch(0.97 0 0);
+    --text-2: oklch(0.73 0 0);
+    --link-visited: oklch(0.73 0 0);
+  }
+
+  a {
+    color: var(--text-2);
+    display: flex;
+    gap: var(--size-1);
+  }
+}
+
+@layer base.utilities {
+  /* sensible defaults for the utility are set */
+  /* but it exposed an API for overrides with a matching prop for a utilitiy name */
+  /* without needing a new classname */
+  /* one name to remember, multiple value capable */
+  /* props don't cascade */
+  /* utilities use :where() and have no specificty */
+  /* no !importants anywhere */
+  /* use media queries, container queries, etc, without a funky class syntax */
+
+  /* rounded(--_rounded:Length) */
+  :where(.rounded) {
+    --_rounded: initial;
+    border-radius: var(--_rounded, var(--radius-2));
+  }
+  /* why the initial value on the class itself? */
+  /* https://increment.com/frontend/a-users-guide-to-css-variables/#:~:text=Preventing%20inheritance */
+
+  :where(.padding) {
+    --_padding: initial;
+    --_padding-inline: initial;
+    --_padding-block: initial;
+
+    padding-inline: var(--_padding-inline, var(--_padding, var(--size-3)));
+    padding-block: var(--_padding-block, var(--_padding, var(--size-3)));
+  }
+
+  :where(.margin) {
+    --_margin: initial;
+    --_margin-inline: initial;
+    --_margin-block: initial;
+
+    margin-inline: var(--_margin-inline, var(--_margin, var(--size-3)));
+    margin-block: var(--_margin-block, var(--_margin, var(--size-3)));
+  }
+
+  :where(.inline) {
+    --_gap: initial;
+    display: flex;
+    align-items: center;
+    gap: var(--_gap, var(--size-3));
+  }
+
+  :where(.inline-wrap) {
+    --_gap: initial;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--_gap, var(--size-3));
+  }
+
+  :where(.block) {
+    --_gap: initial;
+    display: grid;
+    gap: var(--_gap, var(--size-3));
+  }
+
+  :where(.surface) {
+    --_surface: initial;
+    background: var(--_surface, var(--surface-2));
+  }
+
+  :where(.shadow) {
+    --_shadow: initial;
+    box-shadow: var(--_shadow, var(--shadow-3));
+  }
+
+  :where(.border) {
+    --_border-size: initial;
+    --_border-style: initial;
+    --_border-color: initial;
+
+    border: var(--_border-size, var(--border-size-1))
+      var(--_border-style, solid) var(--_border-color, var(--surface-2));
+
+    /* smart exceptions for combinations using defaults */
+    &:where(.surface) {
+      --_border-color: var(--surface-3);
+    }
+  }
+
+  :where(.container) {
+    --_container: ;
+    max-inline-size: var(--_container, var(--content-2));
+  }
+
+  :where(.scroll) {
+    --_scroll: initial;
+    --_scroll-x: initial;
+    --_scroll-y: initial;
+
+    overflow: var(--_scroll-x, var(--_scroll, auto))
+      var(--_scroll-y, var(--_scroll, auto));
+  }
+
+  :where(.snaps) {
+    --_snap-strictness: initial;
+    scroll-snap-type: both var(--_snap-strictness, mandatory);
+  }
+
+  :where(.snaps-x) {
+    --_snap-strictness: initial;
+    scroll-snap-type: x var(--_snap-strictness, mandatory);
+  }
+
+  :where(.snaps-y) {
+    --_snap-strictness: initial;
+    scroll-snap-type: y var(--_snap-strictness, mandatory);
+  }
+
+  :where(.snap) {
+    --_snap: initial;
+    scroll-snap-align: var(--_snap, center);
+  }
+
+  :where(.snap-stop) {
+    scroll-snap-stop: always;
+  }
+
+  :where(.truncate) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  :where(.visually-hidden, .sr-only) {
+    inline-size: 0;
+    block-size: 0;
+    overflow: hidden;
+  }
+
+  /* todo: */
+  /* align/justify/place content/items? */
+  /* success, warning, danger, etc? */
+
+  /* question: make these or rely on uno, tw, etc to gen them? */
+  /* portrait, landscape, text-align, tight lineheight, nowrap, shrinkwrap */
+}
+
+@layer base.demo {
+  .Section {
+    --_padding-block: var(--size-6);
+    --_gap: var(--size-8);
+
+    justify-items: center;
+    align-content: start;
+    grid-template-rows: auto 1fr;
+    min-block-size: 100dvh;
+  }
+
+  .RankContainer {
+    --_column: 2;
+    --_container: 900px;
+    align-items: center;
+
+    grid-template-columns: repeat(var(--_column), 1fr);
+    gap: var(--size-8);
+
+    @media (width > 1280px) {
+      --_container: 1200px;
+    }
+
+    @media (width < 600px) {
+      --_column: 1;
+    }
+  }
+
+  .Button {
+    --_border-size: var(--border-size-3);
+    --_border-color: var(--gray-10);
+    --_rounded: var(--radius-3);
+
+    position: relative;
+    aspect-ratio: var(--ratio-square);
+    padding: 0;
+    background: var(--gradient-8);
+
+    &:hover {
+      outline: var(--border-size-2) solid var(--link);
+      transition: outline-offset 145ms var(--ease-2);
+    }
+
+    &:not(:active):hover {
+      outline-offset: 5px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      background-image: var(--gradient-8);
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: var(--layer-3);
+
+      /* <Suspense> */
+      animation: var(--animation-fade-out) 1s forwards;
+    }
+  }
+
+  .ImgContainer {
+    outline: var(--border-size-2) solid transparent;
+    > * {
+      grid-area: 1/1;
+    }
+  }
+
+  .Wrapper {
+    justify-items: center;
+    --_gap: var(--size-3);
+  }
+}
+
+.fade-out {
+  animation: fade-out 0.25s forwards;
+}
+
+/* Keyframe animations */
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
