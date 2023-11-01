@@ -1,0 +1,157 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+
+@import 'https://unpkg.com/open-props/normalize.light.min.css'
+  layer(base.normalize);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+@layer base.override-normalize {
+  :root {
+    font-family: 'Inter', sans-serif;
+    --surface-1: white;
+    --text-1: black;
+  }
+}
+
+@layer base.demo {
+  header {
+    position: fixed;
+    z-index: var(--layer-3);
+    display: flex;
+    inset-inline: 0;
+
+    padding: var(--size-fluid-3);
+    justify-content: end;
+    align-items: center;
+
+    & a {
+      color: var(--surface-1);
+      text-decoration: underline;
+    }
+  }
+
+  #hero {
+    block-size: 100dvh;
+    overflow-y: auto;
+
+    /* Hide scrollbar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & figure {
+      block-size: 100dvh;
+      inline-size: 100%;
+
+      inset-block-start: 0;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+
+      /* Fix for Firefox sticky bug */
+      @supports not (-moz-appearance: none) {
+        position: sticky;
+      }
+    }
+
+    :is(picture, img) {
+      inline-size: 100%;
+      block-size: 100%;
+    }
+
+    & img {
+      object-position: center center;
+      object-fit: cover;
+      background: var(--gradient-6);
+    }
+
+    .controls {
+      position: fixed;
+      z-index: var(--layer-important);
+      inset-block-end: calc(50% - var(--size-11) / 2);
+
+      inset-inline-end: var(--size-3);
+      display: grid;
+      align-items: center;
+      & button {
+        background-color: transparent;
+        color: oklch(1 0 0 / 0.8);
+
+        font-size: var(--font-size-7);
+        padding: var(--size-0);
+        line-height: var(--font-lineheight-1);
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--surface-1);
+        }
+      }
+
+      @media (width < 800px) {
+        inset-block-end: 5%;
+      }
+    }
+
+    #progress {
+      position: fixed;
+      inset-inline-start: 0;
+      inset-block-end: 0;
+      inline-size: 100%;
+      block-size: var(--border-size-4);
+      background: var(--surface-1);
+      z-index: var(--layer-3);
+      transform-origin: 0 50%;
+    }
+  }
+}
+
+@layer animation.scroll-driven {
+  #hero {
+    scroll-snap-type: y mandatory;
+    scroll-timeline: --hero block;
+    scroll-behavior: smooth;
+    overscroll-behavior-block: contain;
+
+    & figure {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+
+    .button-up {
+      animation: auto prev ease;
+      animation-timeline: --hero;
+    }
+
+    .button-down {
+      animation: auto next ease;
+      animation-timeline: --hero;
+    }
+
+    #progress {
+      animation: auto grow-progress linear forwards;
+      animation-timeline: --hero;
+    }
+  }
+
+  @keyframes grow-progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes prev {
+    from {
+      visibility: hidden;
+    }
+  }
+
+  @keyframes next {
+    to {
+      visibility: hidden;
+    }
+  }
+}

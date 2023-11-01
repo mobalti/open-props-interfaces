@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hero Section Stick Slides - Open Props</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="#">Sign up for happiness</a>
+    </header>
+    <section id="hero">
+      <div id="progress"></div>
+      <div class="controls">
+        <button class="button-up" onclick="hero.scrollBy(0, -100)">
+          <i class="ri-arrow-up-circle-line"></i>
+        </button>
+        <button class="button-down" onclick="hero.scrollBy(0, 100)">
+          <i class="ri-arrow-down-circle-line"></i>
+        </button>
+      </div>
+
+      <figure>
+        <picture>
+          <source
+            srcset="/images/img-1-desktop.avif"
+            type="image/avif"
+            media="(width > 1024px)"
+          />
+          <source srcset="/images/img-1-mobile.avif" type="image/avif" />
+          <source
+            srcset="/images/img-1-desktop.webp"
+            media="(width > 1024px)"
+            type="image/webp"
+          />
+          <img src="/images/img-1-mobile.webp" alt="fashion store" />
+        </picture>
+      </figure>
+      <figure>
+        <picture>
+          <source
+            srcset="/images/img-2-desktop.avif"
+            type="image/avif"
+            media="(width > 1024px)"
+          />
+          <source srcset="/images/img-2-mobile.avif" type="image/avif" />
+          <source
+            srcset="/images/img-2-desktop.webp"
+            media="(width > 1024px)"
+            type="image/webp"
+          />
+          <img src="/images/img-2-mobile.webp" alt="fashion store" />
+        </picture>
+      </figure>
+      <figure>
+        <picture>
+          <source
+            srcset="/images/img-3-desktop.avif"
+            type="image/avif"
+            media="(width > 1024px)"
+          />
+          <source srcset="/images/img-3-mobile.avif" type="image/avif" />
+          <source
+            srcset="/images/img-3-desktop.webp"
+            media="(width > 1024px)"
+            type="image/webp"
+          />
+          <img src="/images/img-3-mobile.webp" alt="fashion store" />
+        </picture>
+      </figure>
+    </section>
+  </body>
+</html>
