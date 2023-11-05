@@ -23,3 +23,6 @@ A collection of customizable and responsive interfaces built with [Open Props](h
 1.  Sidenav with View Transitions API [`Demo`](https://codepen.io/mobalti/full/qBLrKpW)
 1.  Carousel with Scroll-Driven Animations [`Demo`](https://codepen.io/mobalti/full/GRPMpyj)
 1.  Next Store - (Storefront with **next.js**) - [`Demo`](https://op-next-store.vercel.app/)
+1.  Image Gallery - View Transitions API & Scroll-Driven Animations [`Demo`](https://codepen.io/mobalti/full/ExGBdpd)
+1.  Halloween Rank Pairs - hybrid utility + props [`Demo`](https://codepen.io/mobalti/full/vYbORVP)
+1.  Hero Section Sticky Slides with Scroll-driven Animations [`Demo`](https://codepen.io/mobalti/full/YzBWgpW)
