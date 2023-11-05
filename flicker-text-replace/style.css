@@ -1,0 +1,70 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(base.normalize);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+
+@layer override.normalize {
+  :root {
+    font-family: 'Inter', sans-serif;
+    --surface-1: black;
+
+    --brand: oklch(0.65 0.24 17.72);
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  :is(ul, li) {
+    padding: 0;
+  }
+}
+
+@layer base.demo {
+  section {
+    --size: 10rem;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    min-block-size: 100dvh;
+    padding: var(--size-fluid-2);
+
+    & li {
+      opacity: 0;
+    }
+
+    :is(.version, li) {
+      line-height: 1;
+      font-size: clamp(2rem, 12vw, var(--size));
+
+      font-weight: var(--font-weight-9);
+      text-align: center;
+      color: var(--brand);
+    }
+
+    .props {
+      display: grid;
+      place-content: center;
+
+      > * {
+        grid-area: 1/1;
+      }
+    }
+
+    @media (width < 1600px) {
+      --size: 8rem;
+      .logo {
+        max-inline-size: var(--size-content-3);
+      }
+    }
+
+    @media (width < 724px) {
+      grid-template-rows: 1fr auto 1fr;
+      .props {
+        margin-block-end: auto;
+      }
+    }
+  }
+}
