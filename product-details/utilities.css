@@ -1,0 +1,176 @@
+/* These utilities serve as a foundation for declaring the initial layout state */
+
+/* block */
+:where(.block) {
+  display: grid;
+}
+
+:where(.block-start-start) {
+  display: grid;
+  align-items: start;
+  justify-items: start;
+}
+
+:where(.block-start-center) {
+  display: grid;
+  align-items: start;
+  justify-items: center;
+}
+
+:where(.block-start-end) {
+  display: grid;
+  align-items: start;
+  justify-items: end;
+}
+
+:where(.block-center-start) {
+  display: grid;
+  align-items: center;
+  justify-items: start;
+}
+
+:where(.block-center-center) {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+:where(.block-center-end) {
+  display: grid;
+  align-items: center;
+  justify-items: end;
+}
+
+:where(.block-end-start) {
+  display: grid;
+  align-items: end;
+  justify-items: start;
+}
+
+:where(.block-end-center) {
+  display: grid;
+  align-items: end;
+  justify-items: center;
+}
+
+:where(.block-end-end) {
+  display: grid;
+  align-items: end;
+  justify-items: end;
+}
+
+/* inline */
+:where(.inline) {
+  display: grid;
+  grid-auto-flow: column;
+}
+
+:where(.inline-start-start) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: start;
+  justify-items: start;
+}
+
+:where(.inline-start-center) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: start;
+  justify-items: center;
+}
+
+:where(.inline-start-end) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: start;
+  justify-items: end;
+}
+
+:where(.inline-center-start) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: start;
+}
+
+:where(.inline-center-center) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: center;
+}
+
+:where(.inline-center-end) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-items: end;
+}
+
+:where(.inline-end-start) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: end;
+  justify-items: start;
+}
+
+:where(.inline-end-center) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: end;
+  justify-items: center;
+}
+
+:where(.inline-end-end) {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: end;
+  justify-items: end;
+}
+
+/* The only use of flex is here */
+:where(.inline-wrap) {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* This is the only class that manipulates the space between content */
+:where(.space-between) {
+  justify-content: space-between;
+}
+
+/* Rarely used */
+:where(.space-between-block) {
+  align-content: space-between;
+}
+
+/* If you want to manipulate the space between content as center, start, or end, 
+  just wrap them in a div block or inline so you shift all the space 
+  and let the parent of the wrapper handle the placement */
+
+/* Gap */
+:where(.gap-sm) {
+  --_gap: initial;
+  gap: var(--_gap, 1rem);
+}
+
+:where(.gap-md) {
+  --_gap: initial;
+  gap: var(--_gap, 1.5rem);
+}
+
+:where(.gap-lg) {
+  --_gap: initial;
+  gap: var(--_gap, 2rem);
+}
+
+/* Content */
+:where(.content-sm) {
+  inline-size: min(100%, 370px);
+}
+:where(.content-md) {
+  inline-size: min(100%, 1270px);
+}
+:where(.content-lg) {
+  inline-size: min(100%, 1600px);
+}
