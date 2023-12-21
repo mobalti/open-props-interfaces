@@ -1,0 +1,170 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(base.normalize);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&family=Pacifico&display=swap');
+
+@import 'https://www.unpkg.com/layout-craft@0.1.1/dist/utilities.css'
+  layer(design.utilities);
+
+@layer base.normalize-overrides {
+  :root {
+    font-family: 'Inter', sans-serif;
+    --surface-1: white;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  :is(ul, li) {
+    padding: 0;
+  }
+
+  li {
+    max-inline-size: unset;
+  }
+}
+
+@layer base.app {
+  :root {
+    --surface-1: white;
+    --brand: oklch(0.64 0.25 12.6);
+  }
+
+  .Home {
+    --block-size: max(500px, 100dvb);
+  }
+
+  .Brand {
+    block-size: var(--block-size);
+    overflow: clip;
+    align-content: center;
+    position: relative;
+    container-type: inline-size;
+    background-color: black;
+  }
+
+  .Content {
+    grid-template-rows: repeat(2, calc(var(--block-size) / 2));
+
+    .ArrowsContainer {
+      background-color: var(--brand);
+    }
+
+    .Wrapper {
+      overflow: hidden;
+      container-type: inline-size;
+      block-size: 100%;
+    }
+
+    .Arrows {
+      transform: translateX(-50%);
+      animation: scroll-to-inline-end 5s linear infinite;
+
+      will-change: transform;
+
+      img {
+        padding: 9cqi;
+        min-inline-size: 50cqi;
+      }
+    }
+  }
+
+  .PropsContainer {
+    container-type: size;
+    block-size: 100%;
+    overflow: hidden;
+  }
+
+  .Props {
+    block-size: 100%;
+    background-color: white;
+    animation: reveal 14s var(--ease-in-out-4) forwards infinite;
+
+    > li {
+      block-size: 100cqb;
+      background-color: white;
+      color: black;
+      font-size: clamp(2rem, 12cqi, 7rem);
+      font-weight: var(--font-weight-5);
+      text-transform: capitalize;
+    }
+  }
+
+  .OpenProps {
+    color: oklch(0.51 0 0);
+    font-size: clamp(1rem, 4cqi, 2.5rem);
+    font-weight: var(--font-weight-7);
+    inset-block-end: var(--size-3);
+    inset-inline: 0;
+    padding-inline: var(--size-3);
+    position: absolute;
+    text-align: end;
+  }
+
+  @media (width < 768px) {
+    .Home {
+      grid-auto-flow: row;
+    }
+
+    .OpenProps {
+      text-align: center;
+    }
+  }
+
+  @media (width >= 768px) {
+    .Home {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@keyframes scroll-to-inline-end {
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes reveal {
+  8.3333% {
+    transform: translateY(-100%);
+  }
+  16.6666% {
+    transform: translateY(-200%);
+  }
+  25% {
+    transform: translateY(-300%);
+  }
+  33.3333% {
+    transform: translateY(-400%);
+  }
+  41.6666% {
+    transform: translateY(-500%);
+  }
+  50% {
+    transform: translateY(-600%);
+  }
+  58.3333% {
+    transform: translateY(-700%);
+  }
+  66.6666% {
+    transform: translateY(-800%);
+  }
+  75% {
+    transform: translateY(-900%);
+  }
+  83.3333% {
+    transform: translateY(-1000%);
+  }
+  91.6666% {
+    transform: translateY(-1100%);
+  }
+  100% {
+    transform: translateY(-1200%);
+  }
+}
