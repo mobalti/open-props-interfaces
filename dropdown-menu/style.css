@@ -1,0 +1,260 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.dark.min.css'
+  layer(base.normalize);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&family=Pacifico&display=swap');
+
+@import 'https://www.unpkg.com/layout-craft@0.1.1/dist/utilities.css'
+  layer(design.utilities);
+
+@layer base.normalize-overrides {
+  :root {
+    font-family: 'Inter', sans-serif;
+
+    --brand: oklch(64% 0.24 18);
+
+    --nav-block-size: 4.625rem;
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  :is(ul, li) {
+    padding: 0;
+  }
+
+  li {
+    max-inline-size: unset;
+  }
+
+  figure {
+    all: unset;
+  }
+}
+
+@layer base.app {
+  body {
+    background: black;
+  }
+}
+
+@layer base.containers {
+  .Navbar {
+    min-block-size: var(--nav-block-size);
+    justify-items: center;
+    padding-inline: var(--size-fluid-3);
+    background-color: black;
+  }
+
+  .Menu {
+    @media (width < 1024px) {
+      position: fixed;
+      inset-inline: 0;
+      inset-block-end: 0;
+      block-size: var(--nav-block-size);
+      overflow-x: auto;
+
+      .ItemContent {
+        display: none;
+      }
+    }
+
+    @media (width >= 768px) {
+      .NavIcon {
+        display: none;
+      }
+    }
+
+    @media (width < 768px) {
+      .NavLink:hover {
+        text-decoration: none;
+      }
+      .NavLinkTitle {
+        display: none;
+      }
+    }
+  }
+  .NavItem {
+    block-size: 100%;
+    position: relative;
+  }
+
+  .ItemContent {
+    background-color: white;
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-4);
+    inline-size: max(100%, 370px);
+    inset-block-start: var(--nav-block-size);
+    opacity: 0;
+    padding: var(--size-8);
+    position: absolute;
+    transition: 0.2s ease;
+    visibility: hidden;
+    z-index: var(--layer-3);
+
+    a {
+      color: black;
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+      gap: var(--size-5);
+      transition: 0.2s ease;
+
+      &::after {
+        font-family: 'Inter', sans-serif;
+        content: '\2191';
+        font-weight: bold;
+        color: var(--brand);
+        display: inline-flex;
+        rotate: 90deg;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: 0.2s ease;
+      }
+
+      &:is(:focus-visible, :hover) {
+        color: var(--brand);
+
+        &::after {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+    }
+
+    .NavItem:hover & {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .NavItem:focus-within & {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  .Main {
+    grid-template-rows: 1fr min-content;
+
+    :is(img, picture) {
+      object-fit: cover;
+      block-size: 100%;
+      inline-size: 100%;
+
+      background: var(--gradient-8);
+    }
+  }
+
+  .CarouselWrapper {
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .Carousel {
+    animation: slide 20s cubic-bezier(0.77, 0, 0.18, 1) forwards infinite;
+
+    > figure {
+      inline-size: 100dvi;
+      block-size: calc(100dvb - var(--nav-block-size) - var(--size-9));
+      overflow: hidden;
+    }
+  }
+
+  footer {
+    block-size: var(--size-9);
+    @media (width < 1024px) {
+      display: none;
+    }
+  }
+}
+
+@layer base.components {
+  .Logo {
+    inline-size: var(--size-11);
+
+    margin: 0;
+    padding: 0;
+  }
+
+  .NavLink {
+    padding-inline: var(--size-4);
+    block-size: 100%;
+
+    color: white;
+    background-color: inherit;
+    font-size: var(--font-size-2);
+
+    text-decoration-color: currentColor;
+    font-weight: var(--font-weight-6);
+    text-underline-offset: 1ex;
+
+    @media (width > 1024px) {
+      :is(.NavItem:focus-within, .NavItem:hover) & {
+        text-decoration: underline;
+        color: var(--brand);
+      }
+    }
+  }
+
+  .ButtonLink {
+    color: white;
+
+    background: var(--gradient-21);
+
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-6);
+    padding: var(--size-relative-2) var(--size-relative-5);
+    border-radius: var(--radius-4);
+    text-decoration: none;
+    transition: filter 0.2s ease;
+
+    &:hover {
+      filter: contrast(200%);
+    }
+  }
+
+  .ItemTitle {
+    color: var(--brand);
+  }
+
+  .NavIcon {
+    font-size: var(--font-size-5);
+    font-weight: var(--font-weight-4);
+
+    .NavLink:focus & {
+      color: var(--brand);
+    }
+  }
+
+  .CodePen {
+    padding-inline: var(--size-fluid-3);
+    block-size: 100%;
+  }
+}
+
+@keyframes slide {
+  20% {
+    transform: translateX(-100%);
+  }
+  40% {
+    transform: translateX(-200%);
+  }
+  60% {
+    transform: translateX(-300%);
+  }
+  80% {
+    transform: translateX(-400%);
+  }
+  100% {
+    transform: translateX(-500%);
+  }
+}
