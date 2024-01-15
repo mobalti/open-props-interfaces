@@ -1,0 +1,235 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.light.min.css'
+  layer(base.normalize);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+
+@import 'https://www.unpkg.com/layout-craft@0.1.1/dist/utilities.css'
+  layer(design.utilities);
+/* Source code of these utilities: https://github.com/mobalti/layout-craft/blob/main/lib/utilities.css */
+
+@layer base.normalize-overrides {
+  :root {
+    font-family: 'Inter', sans-serif;
+
+    /* Colors picked with oklch.com
+    If you prefer not to have decimals when picking colors,
+    you can use gradient.style */
+
+    --surface-1: oklch(97.07% 0.003 286.35);
+    --text-1: oklch(23.16% 0.004 286.1);
+    --text-2: oklch(53.99% 0.008 286.14);
+  }
+
+  body {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  :is(ul, li) {
+    padding: 0;
+  }
+
+  li {
+    max-inline-size: unset;
+  }
+
+  a {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@layer base.app {
+  body {
+    padding-block: var(--size-fluid-5);
+  }
+
+  .Section {
+    /* Typography */
+    :is(h1, h2, h3, h4) {
+      font-weight: var(--font-weight-7);
+    }
+
+    /* h1 set to "text-wrap: balance" out of the box by Open Props normalize; :) */
+    :is(h2, h3, h4) {
+      text-wrap: pretty;
+    }
+
+    :is(h1, h2) {
+      font-size: var(--font-size-4);
+    }
+
+    :is(h3, h4) {
+      font-size: 1.1875rem;
+    }
+
+    small {
+      font-weight: var(--font-weight-6);
+      color: var(--text-2);
+    }
+
+    header {
+      padding-block: var(--size-3);
+    }
+
+    /* --lg-n-only */
+    @media (768px <= width <= 1024px) {
+      :is(h1, h2) {
+        font-size: calc(var(--font-size-3) + var(--font-size-00));
+      }
+    }
+
+    /* --lg-n-above */
+    @media (width > 1024px) {
+      h1 {
+        font-size: var(--font-size-6);
+      }
+      h2 {
+        font-size: var(--font-size-5);
+      }
+      h3 {
+        font-size: var(--font-size-4);
+      }
+    }
+  }
+
+  .Container {
+    --_content: 280px;
+
+    /* --lg-n-above */
+    @media (width >= 1024px) {
+      --_content: 975px;
+    }
+    /* --lg-only */
+    @media (768px <= width <= 1024px) {
+      --_content: 695px;
+    }
+  }
+}
+
+@layer base.components {
+  .BentoGrid {
+    --columns: 1;
+    --card-min-block-size: 360px;
+    --_gap: calc(var(--size-7) + var(--size-1));
+    grid-template-columns: repeat(var(--columns), 1fr);
+
+    /* --lg-only */
+    @media (768px <= width <= 1024px) {
+      --columns: 2;
+    }
+    /* --lg-n-above */
+    @media (width >= 1024px) {
+      --columns: 12;
+    }
+  }
+
+  .Card {
+    background-color: white;
+    border-radius: 14px;
+    min-block-size: var(--card-min-block-size);
+    overflow: clip;
+
+    .Content {
+      block-size: 100%;
+      padding: var(--size-6);
+      grid-template-rows: auto 1fr auto;
+    }
+
+    &.Hero {
+      grid-column: span var(--columns);
+    }
+
+    &:not(.Hero) {
+      grid-template-rows: 1fr 1fr;
+
+      .Visual {
+        container-type: size;
+        overflow: clip;
+        inline-size: 100%;
+        block-size: 100%;
+
+        img {
+          block-size: 100cqb;
+          background-color: white;
+          object-fit: contain;
+        }
+      }
+
+      .Content {
+        :is(h3, h4) {
+          align-self: start;
+        }
+      }
+    }
+
+    /* --md-n-above  */
+    @media (width >= 768px) {
+      &.Hero {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* --lg-only */
+    @media (768px <= width <= 1024px) {
+      &.Hero {
+        min-block-size: calc(var(--card-min-block-size) * 1.125);
+      }
+    }
+
+    /* --lg-n-above */
+    @media (width >= 1024px) {
+      grid-column: span calc(var(--columns) / 3);
+
+      &.Hero {
+        grid-column: span var(--columns);
+        min-block-size: calc(var(--card-min-block-size) * 1.5);
+      }
+
+      &:nth-child(n + 2):nth-child(-n + 5) {
+        grid-column: span calc(var(--columns) / 2);
+        min-block-size: calc(var(--card-min-block-size) * 1.25);
+      }
+    }
+
+    /* --motionOK and --mouse  */
+    @media (prefers-reduced-motion: no-preference) and (hover) and (pointer: fine) {
+      img {
+        opacity: 0;
+        animation: 1s var(--animation-fade-in) forwards;
+        transition: scale 0.4s ease;
+      }
+      &:hover img {
+        scale: 1.03;
+      }
+    }
+  }
+}
+
+@layer animation.reveal {
+  /* --motionOK */
+  @media (prefers-reduced-motion: no-preference) {
+    .Card:not(.Hero) {
+      opacity: 0;
+      will-change: transform;
+    }
+
+    .reveal {
+      /* Animation: fade-in from Open Props */
+      animation: fade-in 660ms ease forwards,
+        slide-up 1000ms cubic-bezier(0, 0, 0.1, 1) forwards;
+    }
+
+    @keyframes slide-up {
+      from {
+        transform: translateY(100px);
+      }
+    }
+  }
+}
