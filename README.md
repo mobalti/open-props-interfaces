@@ -26,3 +26,10 @@ A collection of customizable and responsive interfaces built with [Open Props](h
 1.  Image Gallery - View Transitions API & Scroll-Driven Animations [`Demo`](https://codepen.io/mobalti/full/ExGBdpd)
 1.  Halloween Rank Pairs - hybrid utility + props [`Demo`](https://codepen.io/mobalti/full/vYbORVP)
 1.  Hero Section Sticky Slides with Scroll-driven Animations [`Demo`](https://codepen.io/mobalti/full/YzBWgpW)
+1.  Hero section with cyber glitch effect [`Demo`](https://codepen.io/mobalti/full/jOdmRbm)
+1.  Landing Page with Scroll-Driven Animations [`Demo`](https://codepen.io/mobalti/full/rNPvMPB)
+1.  Dynamic Content Lockups with Scroll-Driven Animations [`Demo`](https://codepen.io/mobalti/full/Jjxqjxe)
+1.  Open Props Meets Container Queries. (Infinite Scroll Animation) [`Demo`](https://codepen.io/mobalti/full/ExMxPKW)
+1.  Dropdown Menu & Infinite Scroll Animation [`Demo`](https://codepen.io/mobalti/full/QWobMMo)
+1.  Bento Grid (Container Queries, text-wrap: pretty) [`Demo`](https://codepen.io/mobalti/full/jOJymQZ)
+
