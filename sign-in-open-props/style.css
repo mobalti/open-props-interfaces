@@ -24,7 +24,7 @@ https://github.com/mobalti/layout-craft/blob/main/lib/utilities.css
     background-color: white;
 
     @media (width >=800px) {
-      background: url(assets/bg.png) no-repeat;
+      background: url(assets/bg.webp) no-repeat;
       background-size: cover;
 
       &::before {
