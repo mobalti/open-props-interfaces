@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in Form</title>
+    <link rel="preload" as="image" href="assets/bg.png" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main>
+      <section class="Section block-center-center">
+        <form action="" class="Form block-center-center content-3 gap-2">
+          <header class="block-center-center gap-1">
+            <div class="Logo block-center-center">
+              <img src="assets/logo.svg" alt="Open Props logo" />
+            </div>
+            <div class="block-center-center gap-1">
+              <h1>Sign In or Sign Up</h1>
+              <div class="SubHead">Enter your email to get started.</div>
+            </div>
+          </header>
+          <div class="EmailInputContainer block gap-2 content-2">
+            <div class="TextBox block">
+              <input
+                class="TextBoxInput"
+                type="email"
+                id="email"
+                placeholder=""
+              />
+              <label class="TextBoxLabel" for="email">Email or Username</label>
+            </div>
+            <div class="ForgotLink block-center-center">
+              <a href="#">Forgot Username or Password?</a>
+            </div>
+          </div>
+
+          <div class="User">
+            <img src="assets/user.svg" alt="User icon" />
+          </div>
+
+          <p>
+            Your Username information is utilized for secure sign-ins, data
+            access, and for security, support, and reporting. If you consent, it
+            may also be used for marketing emails and communications based on
+            your use of our services.
+            <br />
+            <a href="/"> See how your data is managed...</a>
+          </p>
+          <button class="BtnCustom content-1" type="submit">Continue</button>
+        </form>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

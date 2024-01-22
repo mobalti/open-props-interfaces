@@ -1,0 +1,123 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.light.min.css'
+  layer(base.normalize);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+@import 'https://unpkg.com/open-props/buttons.min.css' layer(base.buttons);
+@import 'https://www.unpkg.com/layout-craft@0.1.1/dist/utilities.css'
+  layer(design.utilities);
+/* Source code of these utilities: 
+https://github.com/mobalti/layout-craft/blob/main/lib/utilities.css 
+*/
+
+@layer base.app {
+  :root {
+    font-family: 'Inter', sans-serif;
+    --radios-custom: 12px;
+    --font-link-custom: 0.875rem;
+  }
+  body {
+    color: var(--stone-12);
+  }
+
+  .Section {
+    min-block-size: 100dvb;
+    background-color: white;
+
+    @media (width >=800px) {
+      background: url(assets/bg.png) no-repeat;
+      background-size: cover;
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        display: block;
+        background-color: oklch(0 0 0 / 20%);
+      }
+    }
+  }
+}
+
+@layer base.components {
+  .Form {
+    --_content: 800px;
+    container-type: inline-size;
+    background-color: white;
+    padding: var(--size-8);
+    border-radius: var(--radius-conditional-3);
+
+    a {
+      text-decoration-color: currentColor;
+      font-weight: var(--font-weight-5);
+      color: var(--indigo-7);
+    }
+
+    p {
+      font-size: var(--font-size-0);
+      color: var(--text-2);
+      text-align: center;
+      text-wrap: pretty;
+    }
+
+    h1 {
+      font-weight: var(--font-weight-6);
+      font-size: var(--size-relative-5);
+      font-size: clamp(1.5rem, 3.5cqi, 2rem);
+    }
+
+    .SubHead {
+      color: var(--stone-7);
+      text-align: center;
+      font-size: clamp(1.125rem, 2.5cqi, 2rem);
+    }
+
+    .ForgotLink {
+      font-size: var(--font-link-custom);
+    }
+
+    .BtnCustom {
+      --_content: 320px;
+      --_bg: linear-gradient(var(--indigo-5), var(--indigo-7));
+      --_border: var(--indigo-6);
+      --_text: var(--indigo-0);
+      --_ink-shadow: 0 1px 0 var(--indigo-9);
+      border-radius: calc(var(--radius-2) * 2);
+    }
+  }
+
+  .TextBox {
+    position: relative;
+    block-size: calc(var(--size-4) * 3);
+
+    :is(.TextBoxInput, .TextBoxLabel) {
+      font-size: var(--font-size-2);
+    }
+
+    .TextBoxInput {
+      padding: var(--size-3);
+      background-color: inherit;
+      border-radius: var(--radios-custom);
+      border: var(--border-size-1) solid rgb(210, 210, 215);
+      color: var(--text-1);
+    }
+
+    .TextBoxLabel {
+      inset-block-start: var(--size-3);
+      inset-inline-start: var(--size-3);
+      position: absolute;
+      color: var(--stone-7);
+      transition: 0.125s ease-in;
+    }
+
+    &:has(.TextBoxInput:focus, .TextBoxInput:not(:placeholder-shown)) {
+      .TextBoxLabel {
+        font-size: var(--font-size-0);
+        inset-block-start: var(--size-2);
+      }
+
+      .TextBoxInput {
+        padding-block-end: 0;
+      }
+    }
+  }
+}
