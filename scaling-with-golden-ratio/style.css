@@ -1,0 +1,327 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200..900&display=swap');
+@import 'https://www.unpkg.com/layout-craft@0.1.1/dist/utilities.css'
+  layer(design.utilities);
+/* Source code of these utilities: https://github.com/mobalti/layout-craft/blob/main/lib/utilities.css  */
+
+@layer base.reset {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  :where(:not(dialog)) {
+    margin: 0;
+  }
+
+  :where(html) {
+    -webkit-text-size-adjust: none;
+
+    /* --motionOK  */
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+
+  :where(body) {
+    -webkit-font-smoothing: antialiased;
+    min-block-size: 100dvb;
+  }
+
+  :where(img, svg) {
+    max-inline-size: 100%;
+    block-size: auto;
+    display: block;
+  }
+
+  :where(ul) {
+    list-style-type: none;
+    padding: 0;
+  }
+}
+
+@layer base.utilities {
+  .container {
+    max-inline-size: 366px;
+
+    /* --lg-only */
+    @media (768px <= width <= 1024px) {
+      max-inline-size: 695px;
+    }
+
+    /* --lg-n-above */
+    @media (width >= 1024px) {
+      max-inline-size: 975px;
+    }
+  }
+}
+
+@layer base.app {
+  :root {
+    font-family: 'Roboto Condensed', sans-serif;
+    --base-font-size: var(--size-fluid-2);
+
+    color-scheme: dark;
+    --surface-1: var(--sand-12);
+    --surface-2: var(--sand-10);
+    --text-1: white;
+    --text-2: var(--stone-5);
+
+    /* Colors picked with gradient.style */
+    --brand-1: oklch(31% 0.15 263);
+    --brand-2: oklch(56% 0.21 261);
+    --brand-3: oklch(84% 0.17 90);
+    --brand-4: oklch(62% 0.25 322);
+  }
+
+  /* ==== Typography ====  */
+
+  h1 {
+    font-size: calc(var(--base-font-size) * pow(var(--ratio-golden), 2));
+    font-weight: var(--font-weight-7);
+    max-inline-size: var(--size-header-1);
+    line-height: var(--font-lineheight-0);
+    text-wrap: balance;
+  }
+
+  h2 {
+    font-size: calc(var(--base-font-size) * var(--ratio-golden));
+    font-weight: var(--font-weight-5);
+  }
+
+  :is(p, figcaption, a) {
+    font-size: var(--base-font-size);
+  }
+
+  p {
+    max-inline-size: var(--size-content-3);
+    text-wrap: pretty;
+  }
+
+  figcaption {
+    font-weight: var(--font-weight-3);
+  }
+
+  a {
+    text-underline-offset: 0.5ex;
+  }
+
+  /* =======  */
+
+  body {
+    background-color: var(--surface-1);
+    color: var(--text-1);
+  }
+
+  main {
+    background-color: var(--brand-1);
+    background: url(/assets/noise.png);
+    padding-inline: var(--size-3);
+    padding-block: var(--size-fluid-3);
+  }
+
+  nav {
+    min-block-size: 3.5rem;
+    background-color: var(--surface-1);
+  }
+
+  section {
+    padding-block: var(--size-10);
+  }
+
+  .Logo {
+    padding-block: var(--size-3);
+    inline-size: var(--size-11);
+  }
+
+  .BackToTopLink {
+    display: none;
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .BackToTopLink {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--size-2);
+      position: fixed;
+      inset-inline-start: 50%;
+      inset-block-start: -3rem;
+      transform: translateX(-50%);
+      transform-origin: 50% 50%;
+      text-wrap: nowrap;
+      background: var(--gray-2);
+      color: black;
+      font-size: var(--font-size-1);
+      text-decoration: none;
+      padding: var(--size-1) var(--size-3);
+      border-radius: var(--radius-4);
+      z-index: var(--layer-important);
+      box-shadow: var(--shadow-6);
+      line-height: var(--font-lineheight-1);
+      transition: background-color 0.2s ease;
+
+      animation: show auto linear;
+      animation-timeline: scroll();
+
+      &:hover {
+        background-color: var(--gray-4);
+      }
+    }
+
+    @keyframes show {
+      0%,
+      10% {
+        inset-block-start: -3rem;
+      }
+
+      30%,
+      100% {
+        inset-block-start: 3rem;
+      }
+    }
+  }
+}
+
+@layer base.components {
+  .Hero {
+    p {
+      line-height: var(--font-lineheight-3);
+    }
+    .CustomButton {
+      max-inline-size: max-content;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+      margin: 0;
+      font-family: inherit;
+      font-size: var(--font-size-3);
+      padding-inline: var(--size-4);
+      padding-block: var(--size-2);
+      border-radius: var(--radius-4);
+      font-weight: var(--font-weight-5);
+      border: 0;
+
+      border-radius: var(--radius-round);
+      background: hsl(239, 55%, 21%);
+      box-shadow: -3px 4px 0px 0px var(--brand-4);
+      font-size: var(--base-font-size);
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: color-mix(in oklab, hsl(239, 55%, 21%) 95%, white 5%);
+      }
+    }
+  }
+  .SectionShowcases {
+    h2 {
+      color: var(--brand-3);
+    }
+
+    .Cards {
+      --columns: 1;
+      --card-min-block-size: 360px;
+      display: grid;
+      gap: calc(var(--size-7) + var(--size-1));
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+
+      /* --lg-only */
+      @media (768px <= width <= 1024px) {
+        --columns: 2;
+      }
+      /* --lg-n-above */
+      @media (width >= 1024px) {
+        --columns: 3;
+        row-gap: var(--size-10);
+      }
+    }
+
+    .Card {
+      margin: 0;
+      text-decoration: none;
+      color: white;
+      position: relative;
+
+      img {
+        border-radius: var(--radius-3);
+        box-shadow: -2px 2px 0px 0px var(--brand-2);
+        transition: scale 0.2s ease;
+      }
+
+      &:hover img {
+        scale: 1.1;
+      }
+    }
+  }
+
+  .SectionFrameworks {
+    p {
+      font-size: calc(var(--base-font-size) * var(--ratio-golden));
+      color: var(--brand-3);
+    }
+    figcaption {
+      font-size: calc(var(--base-font-size) * pow(var(--ratio-golden), 0.5));
+    }
+    picture {
+      overflow: clip;
+    }
+    img {
+      inline-size: 100%;
+    }
+    .Card {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .SectionWhyOpenProps {
+    min-block-size: 600px;
+    figcaption {
+      text-align: center;
+    }
+    .IconList {
+      --columns: 2;
+      inline-size: 100%;
+      align-items: start;
+
+      gap: calc(var(--size-7) + var(--size-1));
+      row-gap: var(--size-10);
+
+      grid-template-columns: repeat(var(--columns), 1fr);
+
+      /* --lg-only */
+      @media (768px <= width <= 1024px) {
+        --columns: 2;
+      }
+      /* --lg-n-above */
+      @media (width >= 1024px) {
+        --columns: 4;
+      }
+    }
+  }
+
+  .Footer {
+    background-color: var(--surface-1);
+    padding-inline: var(--size-3);
+
+    ul {
+      padding-block: var(--size-10);
+      justify-content: center;
+
+      a {
+        color: var(--text-2);
+        text-decoration: none;
+        text-decoration-color: currentColor;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
