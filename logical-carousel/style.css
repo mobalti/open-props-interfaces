@@ -1,0 +1,126 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import 'https://unpkg.com/open-props/normalize.light.min.css'
+  layer(base.normalize);
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..900&display=swap');
+
+@layer base.carousel {
+  section {
+    container-type: inline-size;
+    display: grid;
+    place-items: center;
+    gap: var(--size-7);
+    inline-size: 100%;
+    background-color: white;
+    color: var(--gray-10);
+    padding-block: var(--size-7);
+    padding-inline: var(--size-3);
+  }
+
+  .carousel {
+    display: grid;
+    max-inline-size: var(--size-xl);
+    max-inline-size: 1600px;
+    gap: var(--size-3);
+  }
+
+  header {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
+
+  h3 {
+    font-weight: var(--font-weight-7);
+  }
+
+  .controls {
+    direction: ltr;
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    gap: 0.75rem;
+
+    @media (width < 768px) {
+      display: none;
+    }
+  }
+  button {
+    display: grid;
+    place-items: center;
+    inline-size: var(--size-8);
+    block-size: var(--size-8);
+    border-radius: var(--radius-round);
+    background-color: var(--gray-3);
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--gray-4);
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px var(--indigo-7);
+    }
+
+    &:focus-visible {
+      box-shadow: unset;
+      outline-offset: unset;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  .scroller {
+    display: grid;
+    grid-auto-flow: column;
+    gap: var(--size-3);
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    padding-block-end: var(--size-6);
+    scrollbar-width: thin;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+  }
+
+  .snap {
+    scroll-snap-align: start;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  figure {
+    display: grid;
+    grid-template-rows: 1fr min-content;
+    inline-size: min(100cqi, 500px);
+    place-items: start;
+    gap: var(--size-3);
+  }
+
+  img {
+    aspect-ratio: var(--ratio-square);
+    object-fit: cover;
+    background: var(--gradient-6);
+    block-size: 100%;
+  }
+
+  figcaption {
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-5);
+  }
+}
+
+@layer base.demo {
+  /* just for demo */
+  body {
+    font-family: 'Inter', sans-serif;
+    display: grid;
+    place-items: center;
+    background-color: white;
+  }
+}
