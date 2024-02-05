@@ -19,7 +19,6 @@
 
   .carousel {
     display: grid;
-    max-inline-size: var(--size-xl);
     max-inline-size: 1600px;
     gap: var(--size-3);
   }
@@ -105,7 +104,7 @@
   img {
     aspect-ratio: var(--ratio-square);
     object-fit: cover;
-    background: var(--gradient-6);
+    background-color: white;
     block-size: 100%;
   }
 
