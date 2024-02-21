@@ -1,0 +1,217 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200..700&display=swap');
+
+@import 'https://www.unpkg.com/layout-craft@1.0.1/dist/utilities.css'
+  layer(design.utilities);
+
+@layer base.reset {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  :where(:not(dialog)) {
+    margin: 0;
+    padding: 0;
+  }
+
+  :where(img, svg, video) {
+    max-inline-size: 100%;
+    block-size: auto;
+    display: block;
+  }
+
+  :where(a) {
+    text-decoration: unset;
+    color: inherit;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  :where(ul) {
+    list-style: none;
+  }
+  :where(button) {
+    font-family: inherit;
+    cursor: pointer;
+    border: unset;
+  }
+}
+
+@layer base.app {
+  :root {
+    font-family: 'Inter', sans-serif;
+    color-scheme: dark;
+
+    --surface-1: oklch(0.17 0 0);
+    --surface-2: oklch(0.24 0 0);
+    --surface-3: oklch(0.46 0 0);
+
+    --text-1: oklch(0.97 0 0);
+    --text-2: oklch(0.57 0 0);
+    --text-3: oklch(0.42 0 0);
+
+    --custom-radios: 10px;
+  }
+
+  body {
+    min-block-size: 100dvb;
+    background-color: var(--surface-1);
+    color: var(--text-1);
+  }
+}
+
+@layer base.containers {
+  main {
+    --_content: 700px;
+    padding-inline: var(--size-3);
+  }
+  section {
+    position: relative;
+    inline-size: 100%;
+    border-block: var(--border-size-1) solid oklch(0.97 0 0 / 0.15);
+    padding-block: var(--size-4);
+
+    h2 {
+      font-size: var(--font-size-1);
+      font-weight: var(--font-weight-5);
+    }
+  }
+}
+
+@layer base.components {
+  .UserList {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .Card {
+    scroll-snap-align: start;
+    background-color: var(--surface-2);
+    border-radius: var(--custom-radios);
+    padding: var(--size-4);
+    position: relative;
+    inline-size: 186px;
+    text-decoration: none;
+    figcaption {
+      --_gap: 0.2ex;
+    }
+
+    img {
+      --size: 80px;
+      block-size: var(--size);
+      inline-size: var(--size);
+      border-radius: var(--radius-round);
+      background: var(--gradient-8);
+    }
+
+    .Name {
+      font-size: var(--font-size-1);
+      font-weight: var(--font-weight-6);
+    }
+
+    .Username {
+      color: var(--text-2);
+    }
+
+    :is(.Name, .Username) {
+      max-inline-size: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .RemoveBtn {
+      background: transparent;
+      border: unset;
+      border-radius: var(--radius-round);
+      position: absolute;
+      inset-inline-end: 0.75rem;
+      inset-block-start: var(--size-2);
+      cursor: pointer;
+    }
+
+    .FollowButton {
+      font-size: var(--font-size-1);
+      background-color: var(--text-1);
+      color: var(--surface-1);
+      font-weight: var(--font-weight-5);
+      padding-inline: var(--size-5);
+      border-radius: var(--custom-radios);
+      padding-block: var(--size-2);
+      inline-size: 100%;
+    }
+  }
+
+  .Controls {
+    position: fixed;
+    inset-inline: 0;
+    inset-block: calc(50% - var(--size-3));
+    .Wrapper {
+      --_content: 800px;
+    }
+    @media (width < 768px) {
+      display: none;
+    }
+  }
+
+  .ControlsBtn {
+    inline-size: 44px;
+    block-size: 44px;
+    padding: 0.75rem;
+    border-radius: var(--radius-round);
+    background-color: var(--surface-2);
+    color: var(--text-2);
+    transition: scale 0.2s ease;
+
+    &:hover {
+      scale: 1.07;
+    }
+  }
+}
+
+@layer animation.scrollDriven {
+  body {
+    timeline-scope: --carousel;
+  }
+
+  .Scroller {
+    scroll-timeline: --carousel inline;
+  }
+
+  .next {
+    animation: auto next ease forwards;
+    animation-timeline: --carousel;
+  }
+
+  .previous {
+    animation: auto prev ease forwards;
+    animation-timeline: --carousel;
+  }
+}
+
+@keyframes prev {
+  from {
+    visibility: hidden;
+  }
+}
+
+@keyframes next {
+  100% {
+    visibility: hidden;
+  }
+}
