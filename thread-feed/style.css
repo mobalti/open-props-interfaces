@@ -1,0 +1,784 @@
+@import 'https://unpkg.com/open-props' layer(design.system);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
+@import 'https://www.unpkg.com/layout-craft@1.0.1/dist/utilities.css'
+  layer(base.utilities);
+
+@layer base.reset {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  :where(:not(dialog)) {
+    margin: 0;
+    padding: 0;
+  }
+
+  :where(img, svg, video) {
+    max-inline-size: 100%;
+    block-size: auto;
+    display: block;
+  }
+
+  :where(ul, menu) {
+    list-style: none;
+  }
+
+  :where(button) {
+    border: unset;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: inherit;
+
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  :where(a) {
+    color: inherit;
+    text-decoration: none;
+    font-family: inherit;
+  }
+
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-size: inherit;
+  }
+
+  :where(html) {
+    /* --motionOK */
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer base.app {
+  :root {
+    font-family: 'Inter', sans-serif;
+    color-scheme: dark;
+    --custom-radios: 10px;
+
+    --md-space: 0.75rem;
+
+    --surface-1: oklch(0.17 0 0);
+    --surface-1-alpha-85: oklch(0.17 0 0 / 0.85);
+    --surface-1-alpha-15: oklch(0.97 0 0 / 0.15);
+    --surface-2: oklch(0.21 0 0);
+    --surface-3: oklch(0.32 0 0);
+
+    --surface-4: oklch(0.24 0 0);
+    --surface-5: oklch(0.46 0 0);
+    --surface-6-alpha-05: oklch(1 0 0 / 0.05);
+
+    --text-1: oklch(0.97 0 0);
+    --text-2: oklch(0.57 0 0);
+    --text-3: oklch(0.42 0 0);
+
+    --link: oklch(0.65 0.18 248.22);
+  }
+  body {
+    min-block-size: 100dvb;
+    background-color: var(--surface-1);
+    color: var(--text-1);
+    /* 15px */
+    font-size: 0.9375rem;
+  }
+  .App {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .Main {
+    --_content: 620px;
+    padding-block-end: var(--size-10);
+    @media (width > 700px) {
+      padding-inline: var(--size-5);
+    }
+  }
+}
+
+@layer components.Navbar {
+  .Navbar {
+    --nav-block-size: 74px;
+    --_content: 1230px;
+    position: sticky;
+    block-size: var(--nav-block-size);
+    padding-inline: var(--size-4);
+    isolation: isolate;
+    inset-block-start: 0;
+    z-index: var(--layer-important);
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset-inline: 0;
+      block-size: var(--nav-block-size);
+      background-color: var(--surface-1-alpha-85);
+      backdrop-filter: blur(28.5px);
+      z-index: -1;
+    }
+
+    .NavLink {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+
+      border-radius: calc(var(--radius-3) / 2);
+      block-size: calc(100% - 2px);
+
+      color: var(--text-3);
+      position: relative;
+      padding: var(--size-2);
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        border-radius: inherit;
+        inset: 0;
+        background-color: var(--surface-6-alpha-05);
+        scale: 0.8;
+        transition-property: opacity, scale;
+        transition-duration: 0.1s;
+        transition-timing-function: ease-out;
+        opacity: 0;
+      }
+
+      &:hover {
+        &::before {
+          opacity: 1;
+          scale: 1;
+        }
+      }
+
+      &:active {
+        &::before {
+          opacity: 1;
+          scale: 0.8;
+        }
+      }
+
+      &.active {
+        color: var(--text-1);
+      }
+
+      @media (width > 700px) {
+        padding-inline: var(--size-7);
+        padding-block: var(--size-3);
+      }
+    }
+
+    .MoreButton {
+      border: none;
+      color: var(--text-3);
+      transition-property: opacity;
+      transition-duration: 0.2s;
+      cursor: pointer;
+      block-size: var(--size-8);
+      inline-size: var(--size-8);
+      background: transparent;
+
+      &:hover {
+        color: var(--text-1);
+      }
+    }
+
+    .Logo {
+      color: var(--text-1);
+      scale: 0.9;
+      transition: scale 0.1s ease-out;
+
+      &:hover {
+        scale: 1;
+      }
+    }
+
+    @media (width < 700px) {
+      --nav-block-size: 60px;
+      grid-template-columns: 48px [start-content] 1fr 48px;
+
+      > .Logo {
+        grid-column: 2/3;
+      }
+      > .MoreButton {
+        grid-column: 3/-1;
+      }
+
+      .Menu {
+        position: fixed;
+        inset-block-end: 0;
+        inset-inline: 0;
+        block-size: 68px;
+
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+        background-color: var(--surface-1-alpha-85);
+        backdrop-filter: blur(28.5px);
+      }
+    }
+  }
+}
+
+@layer components.Form {
+  .MainForm {
+    .FormContainer {
+      grid-template-columns: auto 1fr auto;
+      padding-block: var(--size-3);
+      inline-size: 100%;
+    }
+
+    .OpenDialogBtn {
+      inline-size: 100%;
+      text-align: start;
+      cursor: text;
+      border-radius: unset;
+      border: unset;
+      padding-block: var(--size-2);
+      padding-inline: var(--border-size-2);
+      color: var(--text-2);
+      background: inherit;
+      justify-content: start;
+    }
+
+    .Profile {
+      inline-size: 36px;
+      block-size: 36px;
+      background: var(--gradient-8);
+      border-radius: var(--radius-round);
+    }
+
+    .ButtonSubmit {
+      background-color: var(--text-1);
+      color: black;
+      font-family: inherit;
+      border: unset;
+      padding-block: var(--size-2);
+      padding-inline: var(--size-3);
+      border-radius: var(--radius-4);
+      cursor: pointer;
+      font-weight: var(--font-weight-6);
+      &:disabled {
+        background-color: var(--surface-5);
+        cursor: not-allowed;
+      }
+    }
+
+    .Dialog {
+      border: unset;
+      background-color: transparent;
+    }
+
+    :is(.Username, .Controls) {
+      padding-inline-start: var(--size-1);
+    }
+
+    .FormWrapper {
+      grid-template-columns: auto 1fr;
+    }
+
+    .InputText {
+      border-radius: unset;
+      border: unset;
+      padding: var(--size-1);
+      background: inherit;
+      font-size: inherit;
+      outline: unset;
+      inline-size: 100%;
+      padding-inline-start: var(--size-1);
+      &::placeholder {
+        color: var(--text-2);
+      }
+    }
+
+    &:has(input:invalid) {
+      .ButtonSubmit {
+        background-color: var(--surface-5);
+        cursor: not-allowed;
+      }
+    }
+
+    #CloseDialog {
+      position: fixed;
+      inset: 0;
+      inline-size: 100dvi;
+      z-index: -1;
+      background-color: oklch(0 0 0 / 40%);
+    }
+
+    .Form {
+      inline-size: min(600px, 80dvi);
+      fieldset {
+        border: unset;
+      }
+
+      legend {
+        text-align: center;
+      }
+    }
+
+    .DialogFormContainer {
+      background-color: var(--surface-2);
+      margin-block-start: var(--size-5);
+      padding-block: var(--size-6);
+      padding-inline: var(--size-5);
+      border-radius: var(--radius-3);
+      border: var(--border-size-1) solid var(--surface-1-alpha-15);
+    }
+
+    .ControlsButton {
+      --size: var(--size-5);
+      inline-size: var(--size);
+      block-size: var(--size);
+      background-color: inherit;
+      color: var(--text-2);
+    }
+
+    .FieldInputControls {
+      background-color: inherit;
+      color: var(--text-2);
+      cursor: pointer;
+    }
+
+    .AddToThread:disabled {
+      cursor: not-allowed;
+      &::placeholder {
+        color: var(--text-2);
+        opacity: 0.4;
+      }
+    }
+    .AnyoneCanReplyToggle {
+      button {
+        background-color: inherit;
+        color: var(--text-2);
+      }
+    }
+
+    @media (width < 700px) {
+      display: none;
+    }
+  }
+}
+
+@layer components.Recommendation {
+  .SectionRecommendation {
+    position: relative;
+    inline-size: 100%;
+    border-block: var(--border-size-1) solid var(--surface-1-alpha-15);
+    padding-block: var(--size-3);
+    isolation: isolate;
+    h2 {
+      font-weight: var(--font-weight-5);
+
+      @media (width < 700px) {
+        padding-inline-start: var(--md-space);
+      }
+    }
+    .UserList {
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; /* Hide scrollbar */
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      @media (width < 700px) {
+        padding-inline: var(--md-space);
+        scroll-padding-inline: var(--md-space);
+      }
+    }
+    .Card {
+      scroll-snap-align: start;
+      background-color: var(--surface-4);
+      border-radius: var(--custom-radios);
+      padding: var(--size-4);
+      position: relative;
+      inline-size: 156px;
+      block-size: 204px;
+      padding: 0.875rem;
+      text-decoration: none;
+      figcaption {
+        --_gap: 0.2ex;
+      }
+      img {
+        --size: 80px;
+        block-size: var(--size);
+        inline-size: var(--size);
+        border-radius: var(--radius-round);
+        background: var(--gradient-8);
+      }
+      .Name {
+        font-weight: var(--font-weight-6);
+      }
+      .Username {
+        color: var(--text-2);
+      }
+      :is(.Name, .Username) {
+        max-inline-size: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      .RemoveBtn {
+        background: transparent;
+        border: unset;
+        border-radius: var(--radius-round);
+        position: absolute;
+        inset-inline-end: var(--size-2);
+        inset-block-start: var(--md-space);
+        scale: 0.8;
+        cursor: pointer;
+      }
+      .FollowButton {
+        background-color: var(--text-1);
+        color: var(--surface-1);
+        font-weight: var(--font-weight-5);
+        padding-inline: var(--size-5);
+        border-radius: var(--custom-radios);
+        padding-block: var(--size-2);
+        inline-size: 100%;
+      }
+    }
+    .Controls {
+      position: absolute;
+      inset-inline: calc(var(--size-9) * -1);
+      block-size: 204px;
+
+      z-index: -1;
+      .Wrapper {
+        --_content: 700px;
+      }
+      @media (width < 768px) {
+        display: none;
+      }
+    }
+
+    .ControlsBtn {
+      inline-size: calc(var(--size-6) + var(--size-3));
+      block-size: calc(var(--size-6) + var(--size-3));
+      padding: var(--md-space);
+      border-radius: var(--radius-round);
+      background-color: var(--surface-4);
+      color: var(--text-2);
+      transition: 0.2s ease;
+      opacity: 0;
+
+      &:hover {
+        scale: 1.07;
+      }
+      &:active {
+        scale: 1.03;
+      }
+    }
+
+    &:hover {
+      .ControlsBtn {
+        opacity: 1;
+      }
+    }
+  }
+  @layer scrollDrivenAnimation {
+    .SectionRecommendation {
+      timeline-scope: --carousel;
+
+      .Scroller {
+        scroll-timeline: --carousel inline;
+      }
+      .next {
+        animation: auto next ease forwards;
+        animation-timeline: --carousel;
+      }
+      .previous {
+        animation: auto prev ease forwards;
+        animation-timeline: --carousel;
+      }
+    }
+
+    @keyframes prev {
+      from {
+        visibility: hidden;
+      }
+    }
+    @keyframes next {
+      to {
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+@layer components.Post {
+  @layer base {
+    .Post {
+      --_gap: var(--size-1);
+      inline-size: 100%;
+      grid-template-columns: auto 1fr;
+      padding-block-start: var(--size-2);
+      text-decoration: none;
+      cursor: pointer;
+
+      border-block-start: var(--border-size-1) solid var(--surface-3);
+
+      @media (width < 700px) {
+        padding-inline: var(--md-space);
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
+      button {
+        background-color: inherit;
+      }
+
+      header {
+        --_gap: var(--size-1);
+      }
+
+      .ProfileMoreBtn,
+      .InteractionBtn {
+        border-radius: var(--radius-round);
+        aspect-ratio: var(--ratio-square);
+        position: relative;
+        isolation: isolate;
+
+        &::after {
+          display: block;
+          content: '';
+          position: absolute;
+          inset: 0;
+          background-color: var(--surface-4);
+          border-radius: inherit;
+          z-index: -1;
+          scale: 0.8;
+          transition-property: opacity, scale;
+          transition-duration: 0.1s;
+          transition-timing-function: ease-out;
+          opacity: 0;
+        }
+
+        &:hover {
+          &::after {
+            opacity: 1;
+            scale: 1;
+          }
+        }
+
+        &:active {
+          scale: 0.9;
+        }
+      }
+    }
+  }
+
+  .Post {
+    .Avatar {
+      position: relative;
+      img {
+        --_size: 36px;
+        inline-size: var(--_size);
+        block-size: var(--_size);
+        border-radius: var(--radius-round);
+      }
+    }
+
+    .ProfileFollowBtn {
+      background-color: white;
+      border-radius: var(--radius-round);
+      inset-block-end: calc(var(--border-size-3) * -1);
+      inset-inline-end: calc(var(--border-size-3) * -1);
+      border: var(--border-size-2) solid var(--surface-1);
+      position: absolute;
+      overflow: clip;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      inline-size: var(--size-4);
+      block-size: var(--size-4);
+      transition: scale 0.2s ease;
+      color: var(--surface-1);
+
+      .Avatar:hover & {
+        scale: 1.07;
+      }
+
+      .Avatar:active & {
+        scale: 0.85;
+      }
+    }
+
+    .Badge img {
+      block-size: 12px;
+      min-inline-size: 12px;
+    }
+
+    .Date {
+      color: var(--text-2);
+      text-decoration: none;
+
+      font-weight: var(--font-weight-3);
+    }
+    .Username {
+      font-weight: var(--font-weight-5);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-inline-size: 100%;
+    }
+
+    .InteractionBtn {
+      --iconScale: 1;
+      inline-size: calc(var(--size-7) + var(--size-1));
+      block-size: calc(var(--size-7) + var(--size-1));
+    }
+
+    .Profile {
+      padding-block: 0.8ex;
+      img {
+        border: var(--border-size-1) solid var(--text-2);
+      }
+    }
+
+    .InfoWrapper {
+      color: var(--text-2);
+      padding-inline-start: var(--size-2);
+      :is(a, span, button) {
+        color: inherit;
+        font-weight: var(--font-weight-3);
+      }
+
+      span {
+        block-size: var(--border-size-2);
+        inline-size: var(--border-size-2);
+        border-radius: var(--radius-round);
+        background-color: var(--text-2);
+      }
+    }
+    .Thread {
+      font-weight: var(--font-weight-3);
+      max-inline-size: 100%;
+
+      a {
+        color: var(--link);
+        font-weight: var(--font-weight-4);
+      }
+    }
+
+    .Visual {
+      overflow: hidden;
+      padding-block: var(--border-size-1);
+      outline: 1px solid var(--surface-1-alpha-15);
+      outline-offset: -1px;
+      border-radius: calc(var(--radius-3) / 2);
+      > * {
+        max-block-size: 430px;
+        border-radius: calc(var(--radius-3) / 2);
+      }
+    }
+
+    .User {
+      --_gap: var(--size-1);
+    }
+
+    .UserAvatar {
+      block-size: 22px;
+      min-inline-size: 22px;
+      border-radius: var(--radius-round);
+      display: none;
+    }
+
+    .Slot:has(.Content) {
+      justify-self: stretch;
+    }
+
+    .Content {
+      padding-block-end: var(--md-space);
+      > *:not(.FooterControls) {
+        padding-inline-start: var(--size-2);
+      }
+
+      /* Content Inside Content */
+      .Content {
+        border: var(--border-size-1) solid var(--surface-3);
+        padding: var(--size-3);
+
+        > *:not(.FooterControls) {
+          padding-inline-start: unset;
+        }
+
+        .InfoWrapper {
+          padding-inline-start: unset;
+        }
+
+        border-radius: calc(var(--radius-3) / 2);
+        :is(.ProfileMoreBtn, .InteractionControls) {
+          display: none;
+        }
+
+        .UserAvatar {
+          display: block;
+        }
+      }
+    }
+
+    .ProfileMoreBtn {
+      inline-size: var(--size-5);
+      block-size: var(--size-5);
+    }
+
+    .FooterControls {
+      --_gap: var(--size-1);
+    }
+  }
+}
+
+@layer components.ForYouLink {
+  .ForYou {
+    inline-size: 100dvw;
+    position: fixed;
+    inset-block-end: var(--size-7);
+    inset-inline-start: 0;
+    z-index: -1;
+    padding-inline: var(--size-7);
+
+    .ForYouContainer {
+      --_content: 1208px;
+    }
+
+    svg {
+      color: var(--text-2);
+    }
+
+    @media (width < 900px) {
+      display: none;
+    }
+
+    .ForYouLink {
+      --_gap: var(--size-1);
+      background-color: var(--surface-2);
+      border-radius: var(--radius-4);
+      padding-block: var(--size-relative-5);
+      padding-inline: var(--size-relative-7);
+      border: var(--border-size-1) solid var(--surface-4);
+      font-weight: var(--font-weight-5);
+      transition: scale 0.2s ease;
+      &:hover {
+        scale: 1.07;
+      }
+
+      &:active {
+        scale: 0.8;
+      }
+    }
+  }
+}
