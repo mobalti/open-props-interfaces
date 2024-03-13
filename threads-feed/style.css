@@ -1,5 +1,4 @@
 @import 'https://unpkg.com/open-props' layer(design.system);
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap');
 @import 'https://www.unpkg.com/layout-craft@1.0.1/dist/utilities.css'
   layer(base.utilities);
 
@@ -61,7 +60,8 @@
 
 @layer base.app {
   :root {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-sans);
+
     color-scheme: dark;
     --custom-radios: 10px;
 
@@ -83,12 +83,17 @@
 
     --link: oklch(0.65 0.18 248.22);
   }
+
   body {
     min-block-size: 100dvb;
     background-color: var(--surface-1);
     color: var(--text-1);
     /* 15px */
     font-size: 0.9375rem;
+    line-height: calc(1.4 * 1em);
+
+    -webkit-font-smoothing: antialiased;
+    overflow: visible;
   }
   .App {
     position: relative;
@@ -110,7 +115,7 @@
     --_content: 1230px;
     position: sticky;
     block-size: var(--nav-block-size);
-    padding-inline: var(--size-4);
+    padding-inline: var(--size-3);
     isolation: isolate;
     inset-block-start: 0;
     z-index: var(--layer-important);
@@ -179,25 +184,30 @@
     .MoreButton {
       border: none;
       color: var(--text-3);
-      transition-property: opacity;
+      transition-property: color, scale;
       transition-duration: 0.2s;
+      transition-timing-function: ease;
       cursor: pointer;
       block-size: var(--size-8);
       inline-size: var(--size-8);
       background: transparent;
-
-      &:hover {
+      &:is(:hover, :active) {
         color: var(--text-1);
       }
     }
 
     .Logo {
       color: var(--text-1);
-      scale: 0.9;
-      transition: scale 0.1s ease-out;
+      transition: scale 0.2s ease;
+    }
 
+    :is(.Logo, .MoreButton) {
       &:hover {
-        scale: 1;
+        scale: 1.07;
+      }
+
+      &:active {
+        scale: 0.98;
       }
     }
 
@@ -226,151 +236,11 @@
   }
 }
 
-@layer components.Form {
-  .MainForm {
-    .FormContainer {
-      grid-template-columns: auto 1fr auto;
-      padding-block: var(--size-3);
-      inline-size: 100%;
-    }
-
-    .OpenDialogBtn {
-      inline-size: 100%;
-      text-align: start;
-      cursor: text;
-      border-radius: unset;
-      border: unset;
-      padding-block: var(--size-2);
-      padding-inline: var(--border-size-2);
-      color: var(--text-2);
-      background: inherit;
-      justify-content: start;
-    }
-
-    .Profile {
-      inline-size: 36px;
-      block-size: 36px;
-      background: var(--gradient-8);
-      border-radius: var(--radius-round);
-    }
-
-    .ButtonSubmit {
-      background-color: var(--text-1);
-      color: black;
-      font-family: inherit;
-      border: unset;
-      padding-block: var(--size-2);
-      padding-inline: var(--size-3);
-      border-radius: var(--radius-4);
-      cursor: pointer;
-      font-weight: var(--font-weight-6);
-      &:disabled {
-        background-color: var(--surface-5);
-        cursor: not-allowed;
-      }
-    }
-
-    .Dialog {
-      border: unset;
-      background-color: transparent;
-    }
-
-    :is(.Username, .Controls) {
-      padding-inline-start: var(--size-1);
-    }
-
-    .FormWrapper {
-      grid-template-columns: auto 1fr;
-    }
-
-    .InputText {
-      border-radius: unset;
-      border: unset;
-      padding: var(--size-1);
-      background: inherit;
-      font-size: inherit;
-      outline: unset;
-      inline-size: 100%;
-      padding-inline-start: var(--size-1);
-      &::placeholder {
-        color: var(--text-2);
-      }
-    }
-
-    &:has(input:invalid) {
-      .ButtonSubmit {
-        background-color: var(--surface-5);
-        cursor: not-allowed;
-      }
-    }
-
-    #CloseDialog {
-      position: fixed;
-      inset: 0;
-      inline-size: 100dvi;
-      z-index: -1;
-      background-color: oklch(0 0 0 / 40%);
-    }
-
-    .Form {
-      inline-size: min(600px, 80dvi);
-      fieldset {
-        border: unset;
-      }
-
-      legend {
-        text-align: center;
-      }
-    }
-
-    .DialogFormContainer {
-      background-color: var(--surface-2);
-      margin-block-start: var(--size-5);
-      padding-block: var(--size-6);
-      padding-inline: var(--size-5);
-      border-radius: var(--radius-3);
-      border: var(--border-size-1) solid var(--surface-1-alpha-15);
-    }
-
-    .ControlsButton {
-      --size: var(--size-5);
-      inline-size: var(--size);
-      block-size: var(--size);
-      background-color: inherit;
-      color: var(--text-2);
-    }
-
-    .FieldInputControls {
-      background-color: inherit;
-      color: var(--text-2);
-      cursor: pointer;
-    }
-
-    .AddToThread:disabled {
-      cursor: not-allowed;
-      &::placeholder {
-        color: var(--text-2);
-        opacity: 0.4;
-      }
-    }
-    .AnyoneCanReplyToggle {
-      button {
-        background-color: inherit;
-        color: var(--text-2);
-      }
-    }
-
-    @media (width < 700px) {
-      display: none;
-    }
-  }
-}
-
 @layer components.Recommendation {
   .SectionRecommendation {
     position: relative;
     inline-size: 100%;
-    border-block: var(--border-size-1) solid var(--surface-1-alpha-15);
+    border-block-start: 0.5px solid var(--surface-1-alpha-15);
     padding-block: var(--size-3);
     isolation: isolate;
     h2 {
@@ -525,15 +395,18 @@
       --_gap: var(--size-1);
       inline-size: 100%;
       grid-template-columns: auto 1fr;
-      padding-block-start: var(--size-2);
+      padding-block: var(--md-space);
       text-decoration: none;
       cursor: pointer;
 
-      border-block-start: var(--border-size-1) solid var(--surface-3);
-
+      /* all except the first Post */
+      &:not(:nth-of-type(2)) {
+        border-block-start: 0.5px solid var(--surface-1-alpha-15);
+      }
       @media (width < 700px) {
         padding-inline: var(--md-space);
       }
+
       a:hover {
         text-decoration: underline;
       }
@@ -589,6 +462,7 @@
         --_size: 36px;
         inline-size: var(--_size);
         block-size: var(--_size);
+        border: var(--border-size-1) solid var(--surface-3);
         border-radius: var(--radius-round);
       }
     }
@@ -626,8 +500,6 @@
     .Date {
       color: var(--text-2);
       text-decoration: none;
-
-      font-weight: var(--font-weight-3);
     }
     .Username {
       font-weight: var(--font-weight-5);
@@ -654,7 +526,6 @@
       padding-inline-start: var(--size-2);
       :is(a, span, button) {
         color: inherit;
-        font-weight: var(--font-weight-3);
       }
 
       span {
@@ -665,13 +536,16 @@
       }
     }
     .Thread {
-      font-weight: var(--font-weight-3);
       max-inline-size: 100%;
 
       a {
         color: var(--link);
         font-weight: var(--font-weight-4);
       }
+    }
+
+    .AvatarsContainer {
+      padding-block: var(--size-1);
     }
 
     .Visual {
@@ -702,7 +576,8 @@
     }
 
     .Content {
-      padding-block-end: var(--md-space);
+      padding-block-end: var(--size-1);
+
       > *:not(.FooterControls) {
         padding-inline-start: var(--size-2);
       }
@@ -767,10 +642,10 @@
       --_gap: var(--size-1);
       background-color: var(--surface-2);
       border-radius: var(--radius-4);
-      padding-block: var(--size-relative-5);
-      padding-inline: var(--size-relative-7);
+      padding-block: var(--size-relative-6);
+      padding-inline: 2.5ch;
       border: var(--border-size-1) solid var(--surface-4);
-      font-weight: var(--font-weight-5);
+      font-weight: var(--font-weight-6);
       transition: scale 0.2s ease;
       &:hover {
         scale: 1.07;
@@ -779,6 +654,315 @@
       &:active {
         scale: 0.8;
       }
+    }
+  }
+}
+
+@layer components.Form {
+  .MainForm {
+    .FormContainer {
+      grid-template-columns: auto 1fr auto;
+      padding-block: var(--size-3);
+      inline-size: 100%;
+      border-block-end: 0.5px solid var(--surface-1-alpha-15);
+    }
+
+    .OpenDialogBtn {
+      inline-size: 100%;
+      text-align: start;
+      cursor: text;
+      border-radius: unset;
+      border: unset;
+      padding-block: var(--size-2);
+      padding-inline: var(--border-size-2);
+      color: var(--text-2);
+      background: inherit;
+      justify-content: start;
+    }
+
+    .Profile {
+      inline-size: 36px;
+      block-size: 36px;
+      background: var(--gradient-8);
+      border-radius: var(--radius-round);
+    }
+
+    .ButtonSubmit {
+      background-color: var(--text-1);
+      color: black;
+      font-family: inherit;
+      border: unset;
+      padding-block: var(--size-2);
+      padding-inline: var(--size-3);
+      border-radius: var(--radius-4);
+      cursor: pointer;
+      font-weight: var(--font-weight-6);
+      &:disabled {
+        background-color: var(--surface-5);
+        cursor: not-allowed;
+      }
+    }
+
+    .Dialog {
+      border: unset;
+      background-color: transparent;
+
+      max-inline-size: unset;
+      max-block-size: unset;
+      block-size: 100%;
+      inline-size: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .DialogWrapper {
+      min-block-size: 100dvb;
+      position: relative;
+      isolation: isolate;
+    }
+
+    #CloseDialog {
+      background-color: inherit;
+      position: absolute;
+      inset-inline-end: var(--size-3);
+      inset: 0;
+      z-index: -1;
+      background-color: transparent;
+      inline-size: 100%;
+    }
+
+    :is(.Username, .Controls) {
+      padding-inline-start: var(--size-1);
+    }
+
+    .FormWrapper {
+      grid-template-columns: auto 1fr;
+    }
+
+    .InputText {
+      border-radius: unset;
+      border: unset;
+      padding: var(--size-1);
+      background: inherit;
+      font-size: inherit;
+      outline: unset;
+      inline-size: 100%;
+      padding-inline-start: var(--size-1);
+      &::placeholder {
+        color: var(--text-2);
+      }
+    }
+
+    &:has(input:invalid) {
+      .ButtonSubmit {
+        background-color: var(--surface-5);
+        cursor: not-allowed;
+      }
+    }
+
+    .Form {
+      inline-size: min(618px, 80dvi);
+    }
+
+    .Fieldset {
+      border: unset;
+    }
+
+    .CancelBtn {
+      text-align: start;
+      font-size: var(--font-size-2);
+      background-color: inherit;
+    }
+
+    .NewTread {
+      justify-self: center;
+      font-size: var(--font-size-1);
+      font-weight: var(--font-weight-7);
+    }
+
+    .DialogFormContainer {
+      background-color: var(--surface-2);
+      padding-block: var(--size-6);
+
+      padding-inline: var(--size-5);
+
+      @media (width < 700px) {
+        block-size: 100%;
+        padding-block-end: var(--md-space);
+      }
+      @media (width >= 700px) {
+        border-radius: var(--radius-3);
+        border: var(--border-size-1) solid var(--surface-1-alpha-15);
+      }
+    }
+
+    .ControlsButton {
+      --size: var(--size-5);
+      inline-size: var(--size);
+      block-size: var(--size);
+      background-color: inherit;
+      color: var(--text-2);
+    }
+
+    .FieldInputControls {
+      background-color: inherit;
+      color: var(--text-2);
+      cursor: pointer;
+    }
+
+    .AddToThread:disabled {
+      cursor: not-allowed;
+      &::placeholder {
+        color: var(--text-2);
+        opacity: 0.4;
+      }
+    }
+    .AnyoneCanReplyToggle {
+      button {
+        background-color: inherit;
+        color: var(--text-2);
+      }
+    }
+
+    .MobileFeedControls {
+      a {
+        text-align: center;
+        padding-block: var(--size-3);
+        color: var(--text-2);
+        border-bottom: var(--border-size-1) solid var(--surface-1-alpha-15);
+      }
+
+      a.active {
+        color: var(--text-1);
+        border-color: currentColor;
+      }
+    }
+
+    @media (width < 700px) {
+      .Form {
+        --header-block-size: 46px;
+        min-block-size: 100dvb;
+        grid-template-rows: min-content 1fr;
+        background-color: var(--surface-2);
+
+        block-size: 100%;
+        inline-size: 100%;
+      }
+
+      .FormHeader {
+        block-size: var(--header-block-size);
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-inline: var(--size-5);
+      }
+
+      .DialogFormContainer {
+        block-size: calc(100dvb - var(--header-block-size));
+        align-content: space-between;
+      }
+
+      .FormContainer {
+        display: none;
+      }
+
+      #CloseDialog {
+        display: none;
+      }
+
+      .Dialog {
+        margin: 0;
+        inset: 0;
+        padding: 0;
+        min-block-size: 100%;
+        min-inline-size: 100%;
+        block-size: 100dvb;
+      }
+    }
+
+    @media (width >= 700px) {
+      .Fieldset {
+        gap: var(--size-6);
+      }
+      .MobileFeedControls {
+        display: none;
+      }
+
+      .CancelBtn {
+        display: none;
+      }
+    }
+  }
+}
+
+@layer dialog-animation {
+  .Dialog {
+    animation: dialogDisappear 0.5s ease forwards;
+  }
+
+  .Dialog[open] {
+    animation: dialogAppear 0.5s ease forwards;
+  }
+
+  .Dialog::backdrop {
+    animation: backdropFadeOut 0.5s ease forwards;
+  }
+
+  .Dialog[open]::backdrop {
+    animation: backdropFadeIn 0.5s ease forwards;
+  }
+
+  @keyframes dialogAppear {
+    0% {
+      opacity: 0;
+      scale: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      scale: 1;
+      display: block;
+    }
+  }
+
+  @keyframes dialogDisappear {
+    0% {
+      opacity: 1;
+      scale: 1;
+      display: block;
+    }
+    60% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+      scale: 0;
+      display: none;
+    }
+  }
+
+  @keyframes backdropFadeIn {
+    0% {
+      background-color: oklch(0 0 0 / 0%);
+    }
+
+    100% {
+      background-color: oklch(0 0 0 / 40%);
+      display: block;
+    }
+  }
+
+  @keyframes backdropFadeOut {
+    0% {
+      background-color: oklch(0 0 0 / 40%);
+      display: block;
+    }
+
+    100% {
+      background-color: oklch(0 0 0 / 0%);
+      display: none;
     }
   }
 }
