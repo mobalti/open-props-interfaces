@@ -1,0 +1,236 @@
+@layer library, reset, base, components;
+@import 'https://unpkg.com/open-props@beta.5' layer(library);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@layer base {
+  :root {
+    font-family: 'Inter', sans-serif;
+
+    --palette-hue: 14;
+    --palette-hue-rotate-by: 0;
+    --palette-chroma: 0;
+
+    --brand-1: oklch(0.6 0.24 var(--palette-hue));
+    --brand-2: oklch(93% 0.13 117);
+    --sm-font-size: 0.875rem;
+  }
+  body {
+    min-block-size: 100dvb;
+    background-color: white;
+    color: black;
+    -webkit-font-smoothing: antialiased;
+    display: grid;
+    place-items: center;
+  }
+}
+
+@layer components {
+  .section {
+    display: grid;
+    place-items: center;
+    inline-size: 100%;
+    background-color: white;
+    padding-block: var(--size-fluid-4);
+  }
+
+  .container {
+    display: grid;
+    place-items: center;
+    gap: var(--size-7);
+    background-color: white;
+    padding: var(--size-7);
+    block-size: 100%;
+    inline-size: min(100%, 1152px);
+  }
+
+  .wrapper {
+    display: grid;
+    gap: var(--size-7);
+  }
+
+  .heading-2 {
+    font-size: var(--font-size-5);
+    @media (width >= 768px) {
+      font-size: var(--font-size-6);
+    }
+  }
+
+  .highlight {
+    color: var(--brand-1);
+  }
+
+  .content {
+    display: grid;
+    gap: var(--size-7);
+
+    @media (width >= 1024px) {
+      grid-template-columns: 44ch 1fr;
+    }
+  }
+
+  .main-card {
+    display: grid;
+    gap: var(--size-3);
+    background-color: var(--brand-2);
+    font: inherit;
+    color: inherit;
+    padding: var(--size-6);
+    border-radius: var(--radius-3);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+    @media (width >= 1024px) {
+      grid-template-rows: 1fr min-content;
+    }
+
+    @media (768px <= width <= 1024px) {
+      grid-template-columns: 260px 1fr;
+    }
+  }
+
+  .main-card-visual {
+    container-type: size;
+    inline-size: 100%;
+    @media (width < 1024px) {
+      block-size: 218px;
+    }
+  }
+
+  .main-card-image {
+    object-fit: contain;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: inherit;
+
+    transition: scale 0.3s var(--ease-1);
+    &:hover {
+      scale: 1.07;
+    }
+  }
+
+  .meta {
+    display: grid;
+    gap: var(--size-5);
+  }
+
+  .heading-1 {
+    font-size: var(--font-size-5);
+    max-inline-size: var(--size-content-1);
+    text-wrap: balance;
+    @media (width >= 768px) {
+      font-size: var(--font-size-6);
+    }
+  }
+
+  .controls {
+    display: grid;
+    place-items: center start;
+  }
+
+  .button-link {
+    display: inline-grid;
+    place-items: center;
+    text-align: center;
+    font-weight: var(--font-weight-7);
+    font-size: var(--sm-font-size);
+    background-color: black;
+    padding-inline: var(--size-3);
+    color: white;
+    padding-block: var(--size-4);
+    border-radius: var(--radius-4);
+    transition: background-color 0.2s var(--ease-1);
+    &:not(:active):hover {
+      background-color: var(--color-13);
+    }
+    @media (width >= 1024px) {
+      font-size: var(--font-size-1);
+    }
+  }
+  .cards {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--size-7);
+  }
+
+  .card {
+    display: grid;
+    gap: var(--size-7);
+    text-decoration: none;
+    font: inherit;
+    color: inherit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media (width >= 768px) {
+      grid-template-columns: min-content 1fr;
+    }
+  }
+
+  .padding-end {
+    padding-block-end: 2.5rem;
+    border-bottom: var(--border-size-1) solid var(--color-3);
+  }
+
+  .card-visual {
+    border-radius: var(--radius-3);
+    overflow: clip;
+    block-size: 218px;
+    inline-size: 100%;
+    @media (width >= 768px) {
+      block-size: 135px;
+      inline-size: 194px;
+    }
+  }
+
+  .card-image {
+    object-fit: cover;
+    inline-size: 100%;
+    block-size: 100%;
+    border-radius: inherit;
+    transition: scale 0.2s var(--ease-1);
+    &:hover {
+      scale: 1.07;
+    }
+  }
+
+  .heading-3 {
+    font-size: var(--font-size-4);
+    text-wrap: pretty;
+    @media (768px <= width <= 1024px) {
+      max-inline-size: 25ch;
+    }
+  }
+}
+
+@layer reset {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  :where(:not(dialog)) {
+    margin: 0;
+  }
+
+  :where(img, svg, video) {
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  :where(input, button, textarea, select) {
+    font: inherit;
+  }
+
+  :where(html) {
+    -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+}
