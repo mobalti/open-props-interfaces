@@ -32,4 +32,9 @@ A collection of customizable and responsive interfaces built with [Open Props](h
 1.  Open Props Meets Container Queries. (Infinite Scroll Animation) [`Demo`](https://codepen.io/mobalti/full/ExMxPKW)
 1.  Dropdown Menu & Infinite Scroll Animation [`Demo`](https://codepen.io/mobalti/full/QWobMMo)
 1.  Bento Grid (Container Queries, text-wrap: pretty) [`Demo`](https://codepen.io/mobalti/full/jOJymQZ)
-
+1.  Typography: Scaling with the Golden Ratio [`Demo`](https://codepen.io/mobalti/full/ExMwqmG)
+1.  Logical Carousel [`Demo`](https://codepen.io/mobalti/full/MWxBYBW)
+1.  Dialog Animation (allow-discrete ) [`Demo`](https://codepen.io/mobalti/full/poYqeQp)
+1.  Recommendation Carousel (Scroll-Driven Animations) [`Demo`](https://codepen.io/mobalti/full/poYmvqj)
+1.  Threads Feed Simulation [`Demo`](https://codepen.io/mobalti/full/MWReZoR)
+1.  Services Section - Open Props V2 [`Demo`](https://codepen.io/mobalti/full/gOyxvea)
