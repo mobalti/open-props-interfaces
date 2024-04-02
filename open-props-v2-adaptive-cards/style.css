@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: light dark;
     font-family: 'Inter', sans-serif;
 
     /* Open Props - oklch colors v2 config */
@@ -14,13 +14,12 @@
     --palette-chroma: 0;
 
     /* Open Props Tokenization  */
-    --surface-1: white;
-    --surface-2: var(--color-2);
-    --surface-3: var(--color-6);
-
-    --text-1: black;
-    --text-2: var(--color-7);
-    --border-color: var(--color-4);
+    --surface-1: light-dark(white, var(--color-15));
+    --surface-2: light-dark(var(--color-2), var(--color-13));
+    --surface-3: light-dark(var(--color-6), var(--color-10));
+    --text-1: light-dark(black, var(--color-2));
+    --text-2: light-dark(var(--color-7), var(--color-7));
+    --border-color: light-dark(var(--color-4), var(--color-12));
     --link: oklch(65% 0.18 var(--palette-hue));
 
     --space-xxs: var(--size-1);
@@ -40,17 +39,8 @@
     --line-height-body: calc(1.4 * 1em);
     --font-weight-normal: var(--font-weight-4);
     --font-weight-bold: var(--font-weight-6);
-
-    @media (prefers-color-scheme: dark) {
-      color-scheme: dark;
-      --surface-1: var(--color-15);
-      --surface-2: var(--color-13);
-      --surface-3: var(--color-10);
-      --text-1: var(--color-2);
-      --text-2: var(--color-7);
-      --border-color: var(--color-12);
-    }
   }
+
   body {
     -webkit-font-smoothing: antialiased;
     background-color: var(--surface-1);
