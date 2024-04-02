@@ -1,4 +1,5 @@
 @import 'https://unpkg.com/open-props' layer(design.system);
+/* Source code of these utilities: https://github.com/mobalti/layout-craft/blob/main/lib/utilities.css */
 @import 'https://www.unpkg.com/layout-craft@1.0.1/dist/utilities.css'
   layer(base.utilities);
 
@@ -63,7 +64,7 @@
     font-family: var(--font-sans);
 
     color-scheme: dark;
-    --custom-radios: 10px;
+    --custom-radius: 10px;
 
     --md-space: 0.75rem;
 
@@ -101,9 +102,9 @@
   }
 
   .Main {
-    --_content: 620px;
     padding-block-end: var(--size-10);
-    @media (width > 700px) {
+    @media (width >= 700px) {
+      --_content: 620px;
       padding-inline: var(--size-5);
     }
   }
@@ -175,7 +176,7 @@
         color: var(--text-1);
       }
 
-      @media (width > 700px) {
+      @media (width >= 700px) {
         padding-inline: var(--size-7);
         padding-block: var(--size-3);
       }
@@ -213,7 +214,8 @@
 
     @media (width < 700px) {
       --nav-block-size: 60px;
-      grid-template-columns: 48px [start-content] 1fr 48px;
+      grid-template-columns: var(--size-8) 1fr var(--size-8);
+      padding-inline: 0.875rem;
 
       > .Logo {
         grid-column: 2/3;
@@ -244,7 +246,7 @@
     padding-block: var(--size-3);
     isolation: isolate;
     h2 {
-      font-weight: var(--font-weight-5);
+      font-weight: var(--font-weight-6);
 
       @media (width < 700px) {
         padding-inline-start: var(--md-space);
@@ -269,7 +271,7 @@
     .Card {
       scroll-snap-align: start;
       background-color: var(--surface-4);
-      border-radius: var(--custom-radios);
+      border-radius: var(--custom-radius);
       padding: var(--size-4);
       position: relative;
       inline-size: 156px;
@@ -314,9 +316,9 @@
       .FollowButton {
         background-color: var(--text-1);
         color: var(--surface-1);
-        font-weight: var(--font-weight-5);
+        font-weight: var(--font-weight-6);
         padding-inline: var(--size-5);
-        border-radius: var(--custom-radios);
+        border-radius: var(--custom-radius);
         padding-block: var(--size-2);
         inline-size: 100%;
       }
@@ -502,7 +504,7 @@
       text-decoration: none;
     }
     .Username {
-      font-weight: var(--font-weight-5);
+      font-weight: var(--font-weight-6);
       text-overflow: ellipsis;
       overflow: hidden;
       max-inline-size: 100%;
@@ -687,6 +689,13 @@
       border-radius: var(--radius-round);
     }
 
+    .Username {
+      font-weight: var(--font-weight-6);
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-inline-size: var(--size-content-1);
+    }
+
     .ButtonSubmit {
       background-color: var(--text-1);
       color: black;
@@ -778,6 +787,7 @@
       justify-self: center;
       font-size: var(--font-size-1);
       font-weight: var(--font-weight-7);
+      white-space: nowrap;
     }
 
     .DialogFormContainer {
@@ -825,11 +835,13 @@
     }
 
     .MobileFeedControls {
+      grid-template-columns: 1fr 1fr;
       a {
-        text-align: center;
-        padding-block: var(--size-3);
-        color: var(--text-2);
+        block-size: calc(var(--size-8) + var(--border-size-1));
         border-bottom: var(--border-size-1) solid var(--surface-1-alpha-15);
+        color: var(--text-2);
+        font-weight: var(--font-weight-6);
+        text-align: center;
       }
 
       a.active {

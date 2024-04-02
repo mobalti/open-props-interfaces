@@ -5,6 +5,8 @@
 @layer base {
   :root {
     font-family: 'Inter', sans-serif;
+    /* Open Props - oklch colors v2 config */
+    /* https://codepen.io/argyleink/pen/eYxJJbr */
 
     --palette-hue: 14;
     --palette-hue-rotate-by: 0;
@@ -85,7 +87,7 @@
       grid-template-rows: 1fr min-content;
     }
 
-    @media (768px <= width <= 1024px) {
+    @media (768px <= width < 1024px) {
       grid-template-columns: 260px 1fr;
     }
   }

@@ -18,6 +18,9 @@
   :where(html) {
     -webkit-text-size-adjust: none;
 
+    --shadow-color: 220 3% 15%;
+    --shadow-strength: 1%;
+
     /* --motionOK  */
     @media (prefers-reduced-motion: no-preference) {
       scroll-behavior: smooth;
@@ -110,13 +113,14 @@
   /* =======  */
 
   body {
-    background-color: var(--surface-1);
+    background-color: var(--brand-1);
+
     color: var(--text-1);
   }
 
   main {
     background-color: var(--brand-1);
-    background: url(/assets/noise.png);
+    background: url(https://github.com/mobalti/open-props-interfaces/raw/main/scaling-with-golden-ratio/assets/noise.png);
     padding-inline: var(--size-3);
     padding-block: var(--size-fluid-3);
   }
