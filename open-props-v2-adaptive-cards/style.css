@@ -1,0 +1,208 @@
+@layer library, reset, base, components;
+@import 'https://unpkg.com/open-props@beta.5' layer(library);
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+@layer base {
+  :root {
+    color-scheme: light;
+    font-family: 'Inter', sans-serif;
+
+    /* Open Props - oklch colors v2 config */
+    /* https://codepen.io/argyleink/pen/eYxJJbr */
+    --palette-hue: 249;
+    --palette-hue-rotate-by: 0;
+    --palette-chroma: 0;
+
+    /* Open Props Tokenization  */
+    --surface-1: white;
+    --surface-2: var(--color-2);
+    --surface-3: var(--color-6);
+
+    --text-1: black;
+    --text-2: var(--color-7);
+    --border-color: var(--color-4);
+    --link: oklch(65% 0.18 var(--palette-hue));
+
+    --space-xxs: var(--size-1);
+    --space-xs: var(--size-2);
+    --space-sm: calc(var(--size-1) + var(--size-2));
+    --space-md: var(--size-3);
+    --space-lg: var(--size-5);
+    --space-xl: var(--size-7);
+    --space-xxl: var(--size-8);
+
+    --radius-sm: var(--radius-2);
+    --radius-md: calc(var(--radius-2) * 2);
+    --radius-lg: var(--radius-3);
+
+    /* 15px */
+    --font-size-body: 0.9375rem;
+    --line-height-body: calc(1.4 * 1em);
+    --font-weight-normal: var(--font-weight-4);
+    --font-weight-bold: var(--font-weight-6);
+
+    @media (prefers-color-scheme: dark) {
+      color-scheme: dark;
+      --surface-1: var(--color-15);
+      --surface-2: var(--color-13);
+      --surface-3: var(--color-10);
+      --text-1: var(--color-2);
+      --text-2: var(--color-7);
+      --border-color: var(--color-12);
+    }
+  }
+  body {
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--surface-1);
+    color: var(--text-1);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-body);
+    min-block-size: 100dvb;
+  }
+}
+
+@layer components.cards {
+  .section {
+    display: grid;
+    place-items: center;
+    padding-block: var(--space-xxl);
+  }
+
+  .button-link {
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    color: var(--text-1);
+    cursor: pointer;
+    display: inline-grid;
+    font-weight: var(--font-weight-bold);
+    gap: var(--space-xs);
+    grid-auto-flow: column;
+    min-block-size: 34px;
+    min-inline-size: 100px;
+    outline: none;
+    padding-inline: var(--space-lg);
+    place-items: center;
+    text-align: center;
+    text-decoration: none;
+    text-size-adjust: 100%;
+    text-wrap: nowrap;
+    touch-action: manipulation;
+    transition: background-color 0.2s var(--ease-1);
+    user-select: none;
+    white-space: nowrap;
+
+    &.primary {
+      background: var(--text-1);
+      border-color: inherit;
+      color: var(--surface-1);
+      outline-color: var(--surface-1);
+      text-decoration-color: var(--surface-1);
+
+      &:hover {
+        background-color: color-mix(
+          in oklch,
+          oklch(0 0 0 / 0%) 20%,
+          var(--text-1)
+        );
+      }
+    }
+  }
+
+  .card-list {
+    display: grid;
+    gap: var(--space-lg);
+    list-style: none;
+    max-inline-size: 980px;
+    padding: var(--space-md);
+
+    @media (width > 692px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+
+  .card {
+    background-color: var(--surface-2);
+    block-size: 100%;
+    border-radius: var(--radius-md);
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    overflow: clip;
+  }
+
+  .content {
+    align-content: space-between;
+    display: grid;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    place-items: start;
+  }
+
+  .meta {
+    display: grid;
+    gap: var(--space-xs);
+  }
+
+  .title {
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .desc {
+    font-size: var(--font-size-body);
+  }
+
+  .category {
+    color: var(--text-2);
+    font-size: var(--font-size-0);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .visual {
+    block-size: 180px;
+    background-color: var(--surface-3);
+  }
+
+  .card-image {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+@layer reset {
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  :where(:not(dialog)) {
+    margin: 0;
+  }
+
+  :where(img, svg, video) {
+    max-inline-size: 100%;
+    block-size: auto;
+  }
+
+  :where(input, button, textarea, select) {
+    font: inherit;
+  }
+
+  :where(html) {
+    -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+    @media (prefers-reduced-motion: no-preference) {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+/* just for demo */
+body {
+  display: grid;
+  place-items: center;
+}
