@@ -1,4 +1,4 @@
-@layer library, reset, base, components;
+@layer library, reset, base, components, theme-overrides;
 @import 'https://unpkg.com/open-props@beta.5' layer(library);
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
@@ -29,13 +29,18 @@
     --space-lg: var(--size-5);
     --space-xl: var(--size-7);
     --space-xxl: var(--size-8);
+    --space-fluid-md: var(--size-fluid-6);
 
     --radius-sm: var(--radius-2);
     --radius-md: calc(var(--radius-2) * 2);
     --radius-lg: var(--radius-3);
 
-    /* 15px */
-    --font-size-body: 0.9375rem;
+    --border-thin: var(--border-size-1);
+
+    --timing-function-slow-ease: var(--ease-1);
+
+    --font-size-sm: var(--font-size-0);
+    --font-size-body: 0.9375rem; /* 15px */
     --line-height-body: calc(1.4 * 1em);
     --font-weight-normal: var(--font-weight-4);
     --font-weight-bold: var(--font-weight-6);
@@ -55,7 +60,10 @@
   .section {
     display: grid;
     place-items: center;
-    padding-block: var(--space-xxl);
+    padding-block: var(--space-fluid-md);
+    background-color: var(--surface-1);
+    color: var(--text-1);
+    inline-size: 100%;
   }
 
   .button-link {
@@ -63,7 +71,7 @@
     -webkit-tap-highlight-color: transparent;
     background: transparent;
     border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
+    border: var(--border-thin) solid var(--border-color);
     color: var(--text-1);
     cursor: pointer;
     display: inline-grid;
@@ -80,7 +88,7 @@
     text-size-adjust: 100%;
     text-wrap: nowrap;
     touch-action: manipulation;
-    transition: background-color 0.2s var(--ease-1);
+    transition: background-color 0.2s var(--timing-function-slow-ease);
     user-select: none;
     white-space: nowrap;
 
@@ -146,7 +154,7 @@
 
   .category {
     color: var(--text-2);
-    font-size: var(--font-size-0);
+    font-size: var(--font-size-sm);
     font-weight: var(--font-weight-bold);
   }
 
@@ -160,6 +168,16 @@
     inline-size: 100%;
     object-fit: cover;
     object-position: center;
+  }
+}
+
+@layer theme-overrides {
+  .light {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
   }
 }
 
@@ -189,10 +207,4 @@
       scroll-behavior: smooth;
     }
   }
-}
-
-/* just for demo */
-body {
-  display: grid;
-  place-items: center;
 }
