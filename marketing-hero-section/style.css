@@ -1,6 +1,3 @@
-@import 'https://www.unpkg.com/layout-craft@1.0.1/dist/utilities.css'
-  layer(utilities);
-
 @import 'https://unpkg.com/open-props@beta.5' layer(library);
 
 @layer reset {
