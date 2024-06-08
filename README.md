@@ -36,5 +36,4 @@ A collection of customizable and responsive interfaces built with [Open Props](h
 1.  Logical Carousel [`Demo`](https://codepen.io/mobalti/full/MWxBYBW)
 1.  Dialog Animation (allow-discrete ) [`Demo`](https://codepen.io/mobalti/full/poYqeQp)
 1.  Recommendation Carousel (Scroll-Driven Animations) [`Demo`](https://codepen.io/mobalti/full/poYmvqj)
-1.  Threads Feed Simulation [`Demo`](https://codepen.io/mobalti/full/MWReZoR)
 1.  Services Section - Open Props V2 [`Demo`](https://codepen.io/mobalti/full/gOyxvea)
