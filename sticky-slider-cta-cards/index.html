@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sticky Slider CTA Cards</title>
+    <meta
+      name="description"
+      content="Sticky Slider CTA Cards with Scroll-Driven Animations & Container Queries"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="slider" id="scroller">
+            <div class="card card-1">
+              <div class="visual">
+                <img
+                  class="img"
+                  width="400"
+                  height="400"
+                  src="/assets/img-1.avif"
+                  alt="A 3D rendering of a futuristic hotel created by AI"
+                />
+              </div>
+              <div class="content">
+                <div class="meta">
+                  <h2 class="title">Search for anything</h2>
+                  <div class="desc">
+                    Ask any question — short or long, specific or vague. Then
+                    follow-up in chat.
+                  </div>
+                </div>
+
+                <div class="card-actions">
+                  <a class="btn common-btn primary" href="#">Try Open Props</a>
+                  <a class="btn common-btn" href="#">Learn tips & tricks</a>
+                </div>
+              </div>
+            </div>
+            <div class="card card-2">
+              <div class="visual">
+                <img
+                  class="img"
+                  width="400"
+                  height="400"
+                  src="/assets/img-2.avif"
+                  alt="A 3D rendering of a futuristic hotel created by AI"
+                />
+              </div>
+              <div class="content">
+                <div class="meta">
+                  <h2 class="title">Expand your world</h2>
+                  <div class="desc">
+                    Visualize your ideas. Generate custom images with ease.
+                  </div>
+                </div>
+
+                <div class="card-actions">
+                  <a class="btn common-btn primary" href="#">Try Open Props</a>
+                  <a class="btn common-btn" href="#">Learn tips & tricks</a>
+                </div>
+              </div>
+            </div>
+            <div class="card card-3">
+              <div class="visual">
+                <img
+                  class="img"
+                  width="400"
+                  height="400"
+                  src="/assets/img-3.avif"
+                  alt="A 3D rendering of a futuristic hotel created by AI"
+                />
+              </div>
+              <div class="content">
+                <div class="meta">
+                  <h2 class="title">Keep exploring</h2>
+                  <div class="desc">
+                    Perfect your vision. Fine-tune images to match your style.
+                  </div>
+                </div>
+
+                <div class="card-actions">
+                  <a class="btn common-btn primary" href="#">Try Open Props</a>
+                  <a class="btn common-btn" href="#">Learn tips & tricks</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="slider-controls">
+            <div class="slider-controls-wrapper">
+              <button
+                class="control-button prev"
+                aria-label="Go to previous"
+                onclick="scroller.scrollBy(-100, 0)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="40px"
+                  viewBox="0 -960 960 960"
+                  width="40px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="m414.67-480.67 170 170q9.66 9.67 9.33 23.34-.33 13.66-10 23.33-9.67 9.67-23.67 9.67-14 0-23.66-9.67L343.33-457.33q-5.33-5.34-7.5-11-2.16-5.67-2.16-12.34 0-6.66 2.16-12.33 2.17-5.67 7.5-11l194-194q9.67-9.67 23.67-9.67 14 0 23.67 9.67 9.66 9.67 9.66 23.67 0 14-9.66 23.66l-170 170Z"
+                  />
+                </svg>
+              </button>
+              <button
+                class="control-button next"
+                aria-label="Go to next"
+                onclick="scroller.scrollBy(100, 0)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="40px"
+                  viewBox="0 -960 960 960"
+                  width="40px"
+                  fill="#5f6368"
+                >
+                  <path
+                    d="m521.33-480.67-170-170q-9.66-9.66-9.33-23.33.33-13.67 10-23.33 9.67-9.67 23.67-9.67 14 0 23.66 9.67L592.67-504q5.33 5.33 7.5 11 2.16 5.67 2.16 12.33 0 6.67-2.16 12.34-2.17 5.66-7.5 11l-194 194q-9.67 9.66-23.34 9.33-13.66-.33-23.33-10-9.67-9.67-9.67-23.67 0-14 9.67-23.66l169.33-169.34Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="pagination">
+            <div class="pagination-wrapper">
+              <span class="marker marker-1"></span>
+              <span class="marker marker-2"></span>
+              <span class="marker marker-3"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

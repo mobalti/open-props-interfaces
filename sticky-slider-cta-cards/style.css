@@ -1,0 +1,298 @@
+@layer library, reset, base, utilities, components, layout, override;
+@import 'https://unpkg.com/open-props' layer(library.design-system);
+@import 'https://unpkg.com/open-props/normalize.light.min.css'
+  layer(library.normalize);
+@import 'https://unpkg.com/open-props/buttons.light.min.css'
+  layer(library.buttons);
+
+@layer demo {
+  .section {
+    background-color: white;
+    display: grid;
+    min-block-size: 800px;
+    padding-block: var(--size-px-7);
+    padding-inline: var(--size-px-7);
+    place-items: center;
+  }
+
+  .container {
+    container-type: inline-size;
+    display: grid;
+    inline-size: min(100%, 1064px);
+    > * {
+      grid-area: 1/1;
+    }
+  }
+
+  .slider {
+    -ms-overflow-style: none;
+    border-radius: var(--radius-3);
+    display: grid;
+    grid-auto-flow: column;
+    inline-size: 100%;
+    overflow-x: auto;
+    position: relative;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-timeline: --section-wrapper inline;
+    scrollbar-width: none;
+
+    /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .card {
+    background-image: linear-gradient(122deg, lavenderblush, lavender);
+    border-radius: var(--radius-3);
+    display: grid;
+    gap: var(--size-px-5);
+    inline-size: 100cqi;
+    inset-inline-start: 0;
+    padding-block: var(--size-px-10);
+    padding-inline: var(--size-px-6);
+    place-items: start;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    @supports not (-moz-appearance: none) {
+      position: sticky;
+    }
+
+    @container (width >=860px) {
+      gap: var(--size-px-9);
+      grid-template-columns: 1fr 1fr;
+      padding-inline: var(--size-px-10);
+      place-items: center;
+    }
+  }
+
+  .visual {
+    aspect-ratio: var(--ratio-square);
+    border-radius: var(--radius-3);
+    box-shadow: var(--shadow-6);
+    overflow: clip;
+    @container (width >=860px) {
+      max-block-size: 400px;
+    }
+  }
+
+  .img {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  .content {
+    display: grid;
+    gap: var(--size-px-8);
+
+    @container (width >=860px) {
+      gap: var(--size-px-5);
+      place-items: center start;
+    }
+  }
+
+  .meta {
+    display: grid;
+    gap: var(--size-px-2);
+  }
+
+  .title {
+    font-family: var(--font-neo-grotesque);
+    font-size: 1.75rem;
+    font-weight: var(--font-weight-4);
+
+    @container (width >=860px) {
+      font-size: var(--font-size-5);
+    }
+  }
+
+  .desc {
+    font-family: var(--font-neo-grotesque);
+    font-size: var(--font-size-2);
+    max-inline-size: var(--size-content-2);
+  }
+
+  .card-actions {
+    display: grid;
+    gap: var(--size-px-2);
+    place-items: start;
+
+    @container (width >=860px) {
+      gap: var(--size-px-3);
+      grid-auto-flow: column;
+    }
+  }
+
+  .common-btn {
+    --_bg: linear-gradient(aliceblue, aliceblue),
+      linear-gradient(to right, deepskyblue, royalblue);
+    --_border: transparent;
+    --_ink-shadow: none;
+    background-clip: padding-box, border-box;
+    background-origin: border-box;
+    border-radius: var(--radius-4);
+    font-family: var(--font-neo-grotesque);
+    font-size: 0.875rem;
+    font-weight: var(--font-weight-5);
+    inline-size: max-content;
+    min-block-size: 40px;
+    text-decoration: none;
+  }
+
+  .primary {
+    --_bg: linear-gradient(deepskyblue, royalblue);
+    --_border: deepskyblue;
+    --_text: white;
+    border-width: 0;
+  }
+
+  .slider-controls {
+    display: grid;
+    place-items: center;
+    padding-block: var(--size-px-9);
+  }
+
+  .slider-controls-wrapper {
+    display: grid;
+    grid-auto-flow: column;
+    inline-size: calc(100% + 2rem);
+    justify-content: space-between;
+    place-items: center;
+
+    @container (width >=860px) {
+      inline-size: 100%;
+      padding: var(--size-px-2);
+    }
+
+    /* Remove this block to show slider controls on mobile */
+    @container (width < 860px) {
+      display: none;
+    }
+  }
+
+  .control-button {
+    block-size: var(--size-px-8);
+    border-radius: var(--radius-round);
+    display: inline-grid;
+    inline-size: var(--size-px-8);
+    padding: var(--size-px-1);
+    place-items: center;
+    z-index: var(--layer-4);
+
+    & svg {
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  @supports (animation-timeline: view()) {
+    /* 
+  The markers are highlighted based on the scroll position of the slider
+  using scroll-driven animations.
+
+  To determine the animation range for each marker, we rely on container 
+  queries to get the inline size of the nearest container, which in this case 
+  is the `slider container`.
+
+  Since we have 3 cards, each card occupies 100% of the container's inline size, 
+  which translates to 100cqi. This is why we increment the animation range for 
+  each marker by 100cqi:
+  - `.marker-1` highlights when the scroll position is within the first 100cqi 
+    of the slider's width.
+  - `.marker-2` highlights when the scroll position is between 100cqi and 
+    200cqi of the slider's width.
+  - `.marker-3` highlights when the scroll position is between 200cqi and 
+    300cqi of the slider's width.
+
+  For more examples and information on scroll-driven animations, check out 
+  https://scroll-driven-animations.style/ by @bramus.
+*/
+
+    body {
+      timeline-scope: --slider;
+    }
+
+    .pagination {
+      display: grid;
+      inset-block-end: 0;
+      inset-inline: 0;
+      padding-block: var(--size-px-7);
+      place-items: center;
+      position: absolute;
+    }
+
+    .pagination-wrapper {
+      display: grid;
+      gap: var(--size-px-3);
+      grid-auto-flow: column;
+      z-index: var(--layer-important);
+    }
+
+    .marker {
+      background-color: black;
+      block-size: 12px;
+      border-radius: var(--radius-round);
+      display: block;
+      inline-size: 12px;
+      z-index: var(--layer-important);
+    }
+
+    .slider {
+      scroll-timeline-axis: --inline;
+      scroll-timeline-name: --slider;
+    }
+
+    .marker {
+      animation-name: highlight-dot;
+      animation-timeline: --slider;
+      background-color: black;
+      opacity: 0.3;
+    }
+
+    .marker-1 {
+      animation-range-end: 100cqi;
+    }
+    .marker-2 {
+      animation-range: 100cqi 200cqi;
+    }
+    .marker-3 {
+      animation-range: 200cqi 300cqi;
+    }
+
+    @keyframes highlight-dot {
+      0%,
+      100% {
+        opacity: 0.9;
+      }
+    }
+
+    /* Handle control button visibility depend on the slider position using Scroll-Driven Animations */
+
+    .control-button {
+      animation-fill-mode: forwards;
+      animation-timeline: --slider;
+    }
+
+    .next {
+      animation-name: hideEnd;
+    }
+    .prev {
+      animation-name: showStart;
+    }
+
+    @keyframes showStart {
+      from {
+        visibility: hidden;
+      }
+    }
+
+    @keyframes hideEnd {
+      to {
+        visibility: hidden;
+      }
+    }
+  }
+}
