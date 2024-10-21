@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="wrapper">
+        <div class="large-screen-layout-wrapper">
+          <div class="section-content">
+            <header class="header">
+              <h2 class="section-title">New Collection</h2>
+            </header>
+
+            <div class="section-visual-group">
+              <div
+                id="scroller"
+                class="horizontal-scroller"
+                role="group"
+                aria-label="Items Scroller"
+                aria-live="polite"
+              >
+                <div
+                  class="visual snapped"
+                  aria-label="1 of 4"
+                  aria-roledescription="item"
+                >
+                  <img
+                    class="scroller-img"
+                    src="/images/img-1.avif"
+                    alt="Person Smiling While Skiing"
+                  />
+                </div>
+                <div
+                  class="visual"
+                  aria-label="2 of 4"
+                  aria-roledescription="item"
+                >
+                  <img
+                    class="scroller-img"
+                    src="/images/img-2.avif"
+                    alt="Person Wearing Ski Boots"
+                  />
+                </div>
+                <div
+                  class="visual"
+                  aria-label="3 of 4"
+                  aria-roledescription="item"
+                >
+                  <img
+                    class="scroller-img"
+                    src="/images/img-3.avif"
+                    alt="Person Skiing"
+                  />
+                </div>
+                <div
+                  class="visual last-visual"
+                  aria-label="4 of 4"
+                  aria-roledescription="item"
+                >
+                  <img
+                    class="scroller-img"
+                    src="/images/img-4.avif"
+                    alt="Person Walking on Snow Carrying Ski Boards"
+                  />
+                </div>
+              </div>
+              <a href="#" class="btn-base cta-btn">
+                <span class="btn-group">
+                  <span class="btn-text">Buy Now</span>
+                  <svg
+                    aria-hidden="true"
+                    class="btn-svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="24px"
+                    viewBox="0 -960 960 960"
+                    width="24px"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="small-screen-layout-wrapper">
+          <ul class="cards">
+            <li class="card">
+              <figure class="figure">
+                <picture class="picture">
+                  <img
+                    class="card-img"
+                    src="/images/img-1.avif"
+                    alt="Person Smiling While Skiing
+                "
+                  />
+                </picture>
+                <figcaption class="figcaption">
+                  <h3 class="card-title">New Collection</h3>
+                </figcaption>
+              </figure>
+              <a href="#" class="btn-base">Buy Now</a>
+            </li>
+            <li class="card">
+              <figure class="figure">
+                <picture class="picture">
+                  <img
+                    class="card-img"
+                    src="/images/img-2.avif"
+                    alt="Person Wearing Ski Boots"
+                  />
+                </picture>
+                <figcaption class="figcaption">
+                  <h3 class="card-title">New Collection</h3>
+                </figcaption>
+              </figure>
+              <a href="#" class="btn-base">Buy Now</a>
+            </li>
+            <li class="card">
+              <figure class="figure">
+                <picture class="picture">
+                  <img
+                    class="card-img"
+                    src="/images/img-3.avif"
+                    alt="Person Skiing"
+                  />
+                </picture>
+                <figcaption class="figcaption">
+                  <h3 class="card-title">New Collection</h3>
+                </figcaption>
+              </figure>
+              <a href="#" class="btn-base">Buy Now</a>
+            </li>
+            <li class="card">
+              <figure class="figure">
+                <picture class="picture">
+                  <img
+                    class="card-img"
+                    src="/images/img-4.avif"
+                    alt="Person Walking on Snow Carrying Ski Boards"
+                  />
+                </picture>
+                <figcaption class="figcaption">
+                  <h3 class="card-title">New Collection</h3>
+                </figcaption>
+              </figure>
+              <a href="#" class="btn-base">Buy Now</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="section-controls">
+          <div class="scroller-controls">
+            <button
+              id="prevBtn"
+              onclick="scroller.scrollBy(-380, 0)"
+              class="scroller-controls-btn prev-btn"
+              aria-label="Previous Item"
+              title="Previous Item"
+            >
+              <svg
+                aria-hidden="true"
+                width="61"
+                height="40"
+                viewBox="0 0 61 40"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M20 38C10.0589 38 2 29.9411 2 20C2 10.0589 10.0589 2 20 2C29.9411 2 38 10.0589 38 20C38 29.9411 29.9411 38 20 38ZM20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40Z"
+                />
+                <path
+                  class="arrow"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M21.25 25.3923L16 20.1962L21.25 15V19.1962H61V21.1962H21.25V25.3923Z"
+                />
+              </svg>
+            </button>
+            <button
+              id="nextBtn"
+              onclick="scroller.scrollBy(380, 0)"
+              class="scroller-controls-btn next-btn"
+              aria-label="Next Item"
+              title="Next Item"
+            >
+              <svg
+                aria-hidden="true"
+                width="62"
+                height="40"
+                viewBox="0 0 62 40"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  class="circle"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M41.5001 38C51.4412 38 59.5001 29.9411 59.5001 20C59.5001 10.0589 51.4412 2 41.5001 2C31.559 2 23.5001 10.0589 23.5001 20C23.5001 29.9411 31.559 38 41.5001 38ZM41.5001 40C52.5458 40 61.5001 31.0457 61.5001 20C61.5001 8.9543 52.5458 0 41.5001 0C30.4544 0 21.5001 8.9543 21.5001 20C21.5001 31.0457 30.4544 40 41.5001 40Z"
+                />
+                <path
+                  class="arrow"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M40.2501 25.3923L45.5001 20.1962L40.2501 15V19.1962H0.500122V21.1962H40.2501V25.3923Z"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <a href="#" class="btn-redirection">
+            <span class="btn-redirection-content-group">
+              <svg
+                aria-hidden="true"
+                class="btn-redirection-svg"
+                width="23"
+                height="10"
+                viewBox="0 0 23 10"
+                fill="var(--brand-color)"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M17.75 9.52628L23 4.76314L17.75 0V4.26314H0V5.26314H17.75V9.52628Z"
+                />
+              </svg>
+              <span class="btn-redirection-text">Go to online store</span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section
+      style="block-size: 1200px; background-color: navajowhite"
+    ></section> -->
+    <script src="script.js"></script>
+  </body>
+</html>
