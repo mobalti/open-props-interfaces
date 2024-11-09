@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500&display=swap');
+@import 'https://unpkg.com/open-props' layer(design-system);
+
+@layer reset {
+
+    *,
+    ::before,
+    ::after {
+        box-sizing: border-box;
+    }
+
+    :where(:not(dialog)) {
+        margin: 0;
+    }
+}
+
+@layer base {
+    .base {
+        color-scheme: dark;
+        --placeholder-font-headline: 'Bebas Neue';
+        --placeholder-font-body: "Roboto";
+        --headline-large-screen: oblique var(--font-weight-7) 8.5rem/0.65 var(--placeholder-font-headline), var(--font-neo-grotesque);
+        --headline-small-screen: oblique var(--font-weight-7) var(--size-fluid-7)/0.65 var(--placeholder-font-headline), var(--font-neo-grotesque);
+        --label-large: var(--font-weight-5) var(--font-size-2) var(--placeholder-font-body), var(--font-neo-grotesque);
+        --surface-1: black;
+        --on-surface: white;
+        --primary: oklch(0.59 0.24 30);
+        --on-primary: oklch(1 0 0);
+        --headline-shadow-color: oklch(0.5 0 0);
+
+
+
+
+        --button-icon-large-screen-size: 56px;
+        --button-icon-padding: 4px;
+        --button-icon-small-screen-size: 48px;
+        --button-primary-min-block-size: 40px;
+        --button-primary-min-inline-size: 112px;
+        --button-primary-padding-block: 8px;
+        --button-primary-padding-inline: 24px;
+
+    }
+}
+
+
+
+
+
+@layer layouts {
+    .section {
+        background-color: var(--surface-1);
+        color: var(--on-surface);
+        inline-size: 100%;
+        block-size: max(500px, 100svb);
+        display: grid;
+        place-items: center;
+
+        @media (width >=786px) {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (width < 786px) {
+            grid-template-rows: min-content 1fr;
+        }
+    }
+
+    .headline-1 {
+        grid-area: 1/1;
+        font: var(--headline-small-screen);
+        color: black;
+        -webkit-text-stroke: 2px var(--headline-shadow-color);
+        text-shadow: 1px 1px var(--headline-shadow-color), 2px 2px var(--headline-shadow-color),
+            3px 3px var(--headline-shadow-color), 4px 4px var(--headline-shadow-color), 5px 5px var(--headline-shadow-color),
+            6px 6px var(--headline-shadow-color), 7px 7px var(--headline-shadow-color), 8px 8px var(--headline-shadow-color),
+            9px 9px var(--headline-shadow-color), 10px 10px var(--headline-shadow-color);
+
+        text-transform: uppercase;
+        paint-order: stroke;
+        text-align: start;
+
+
+
+        @media (width >=786px) {
+            font: var(--headline-large-screen);
+        }
+    }
+
+    .visual {
+        overflow: clip;
+        inline-size: 100%;
+        position: relative;
+        display: grid;
+
+
+        @media (width >=786px) {
+            block-size: 100%;
+        }
+
+    }
+
+    .visual-wrapper {
+        filter: grayscale();
+        display: grid;
+        grid-area: 1/1;
+        block-size: 100%;
+        max-block-size: 100svb;
+    }
+
+    .img {
+        grid-area: 1/1;
+        display: block;
+        inline-size: 100%;
+        object-fit: cover;
+        block-size: 200px;
+        object-position: center top;
+
+        @media (width >=786px) {
+            block-size: 100%;
+        }
+    }
+
+
+    /* Experiment with `--noise-filter-{1-5}` to find the best fit for your image.
+       Each filter level forces colors and noise to collide in different intensities */
+
+    .effect-overlay {
+        grid-area: 1/1;
+        filter: var(--noise-filter-4);
+        mix-blend-mode: screen;
+    }
+
+    .effect-image {
+        opacity: 0;
+    }
+
+    .content {
+        inline-size: 100%;
+    }
+
+    .content-wrapper {
+        display: grid;
+        place-items: center;
+        gap: var(--size-8);
+        background-color: var(--surface-1);
+        padding-block: var(--size-8);
+        inline-size: 100%;
+    }
+
+    .controls {
+        grid-area: 1/1;
+        padding: var(--size-3);
+        place-self: start end;
+
+        @media (width >=786px) {
+            padding: var(--size-7);
+            place-self: end start;
+        }
+    }
+}
+
+
+
+
+
+
+@layer components.base {
+    .btn-base {
+        --_state: oklch(from var(--surface-1) l c h / 0%);
+        display: inline-grid;
+        isolation: isolate;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        cursor: pointer;
+        overflow: clip;
+        user-select: none;
+        white-space: nowrap;
+        padding: 0;
+        place-items: center;
+
+        &::before {
+            grid-area: 1/1;
+            content: '';
+            display: block;
+            inline-size: 100%;
+            block-size: 100%;
+            background-color: var(--_state);
+
+
+            transition-property: background-color, box-shadow;
+            transition-duration: 0.2s;
+            transition-timing-function: var(--ease-3);
+
+        }
+
+
+        &:hover {
+            --_state: oklch(from var(--surface-1) l c h / 8%);
+            box-shadow: var(--shadow-2);
+        }
+
+        &:is(:active, :disabled, :focus-within) {
+            --_state: oklch(from var(--on-primary) l c h / 12%);
+        }
+    }
+}
+
+
+
+@layer components {
+    .btn-primary {
+        font: var(--label-large);
+        background-color: var(--primary);
+        color: var(--on-primary);
+        border-radius: var(--radius-4);
+        border-width: 0;
+
+        .text {
+            min-block-size: var(--button-primary-min-block-size);
+            padding-block: var(--button-primary-padding-block);
+            padding-inline: var(--button-primary-padding-inline);
+            min-inline-size: var(--button-primary-min-inline-size);
+            grid-area: 1/1;
+            z-index: var(--layer-1);
+        }
+
+    }
+
+    .btn-icon {
+        background-color: transparent;
+        border-color: currentColor;
+        color: var(--on-surface);
+        inline-size: var(--button-icon-small-screen-size);
+        block-size: var(--button-icon-small-screen-size);
+        padding: var(--button-icon-padding);
+        border-width: 0;
+
+        @media (width > 768px) {
+            inline-size: var(--button-icon-large-screen-size);
+            block-size: var(--button-icon-large-screen-size);
+        }
+
+
+        &::before {
+            border-radius: var(--radius-round);
+        }
+
+        &:not(:active):hover {
+            --_state: oklch(from var(--on-surface) l c h / 8%);
+            box-shadow: var(--shadow-2);
+        }
+
+        &:is(:active, :disabled, :focus-within) {
+            --_state: oklch(from var(--surface-1) l c h / 12%);
+        }
+
+        .icon-group {
+            z-index: var(--layer-1);
+            grid-area: 1/1;
+            display: inline-grid;
+            place-items: center;
+            inline-size: 100%;
+            block-size: 100%;
+            border-radius: var(--radius-round);
+            border-style: solid;
+            border-width: var(--border-size-2);
+
+        }
+    }
+}

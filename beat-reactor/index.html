@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beat Reactor + 3D Text (paint-Order)</title>
+    <meta
+      name="description"
+      content="Hero section with Beat Reactor audio visualizer and 3D text effect, built using Open Props"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="base section">
+      <div class="visual">
+        <div class="visual-wrapper">
+          <img
+            class="img"
+            src="/assets/hero-img.jpg"
+            alt="Rock band performing live on stage"
+            width="720"
+            height="938"
+          />
+        </div>
+        <div class="controls">
+          <button
+            class="btn-base btn-icon"
+            id="playPauseBtn"
+            aria-label="play"
+            aria-live="polite"
+            title="play"
+          >
+            <span class="icon-group">
+              <span class="play-icon" id="playIcon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"
+                  />
+                </svg>
+              </span>
+              <span id="pauseIcon" class="pause-icon" style="display: none">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 -960 960 960"
+                  width="24px"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+        </div>
+        <audio
+          id="audioPlayer"
+          src="/assets/Lost in Shadows.mp3"
+          crossorigin="anonymous"
+        ></audio>
+      </div>
+      <div class="content">
+        <div class="content-wrapper">
+          <h1 class="headline-1 font-bold">
+            <span class="span-1">Music</span><br />
+            <span class="span-2">That</span><br />
+            <span class="span-3">Rock</span><br />
+            <span class="span-4">You</span><br />
+          </h1>
+          <button class="btn-base btn-primary">
+            <span class="text">Contact Us</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <script src="/script.js"></script>
+  </body>
+</html>
