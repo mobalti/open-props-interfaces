@@ -1,3 +1,5 @@
+@layer design-system, reset, base, utilities, components, layout, overrides;
+
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500&display=swap');
 @import 'https://unpkg.com/open-props' layer(design-system);
 
@@ -16,11 +18,13 @@
 
 @layer base {
     .base {
+
         color-scheme: dark;
-        --placeholder-font-headline: 'Bebas Neue';
+        --placeholder-font-display: "Bebas Neue";
         --placeholder-font-body: "Roboto";
-        --headline-large-screen: oblique var(--font-weight-7) 8.5rem/0.65 var(--placeholder-font-headline), var(--font-neo-grotesque);
-        --headline-small-screen: oblique var(--font-weight-7) var(--size-fluid-7)/0.65 var(--placeholder-font-headline), var(--font-neo-grotesque);
+
+        --headline-large-screen: italic var(--font-weight-7) 8.5rem/0.65 var(--placeholder-font-display), var(--font-neo-grotesque);
+        --headline-small-screen: italic var(--font-weight-7) var(--size-fluid-7)/0.65 var(--placeholder-font-display), var(--font-neo-grotesque);
         --label-large: var(--font-weight-5) var(--font-size-2) var(--placeholder-font-body), var(--font-neo-grotesque);
         --surface-1: black;
         --on-surface: white;
@@ -32,8 +36,8 @@
 
 
         --button-icon-large-screen-size: 56px;
-        --button-icon-padding: 4px;
         --button-icon-small-screen-size: 48px;
+        --button-icon-padding: 4px;
         --button-primary-min-block-size: 40px;
         --button-primary-min-inline-size: 112px;
         --button-primary-padding-block: 8px;
@@ -42,11 +46,7 @@
     }
 }
 
-
-
-
-
-@layer layouts {
+@layer layout {
     .section {
         background-color: var(--surface-1);
         color: var(--on-surface);
@@ -55,36 +55,17 @@
         display: grid;
         place-items: center;
 
-        @media (width >=786px) {
+        @media (width >=768px) {
             grid-template-columns: 1fr 1fr;
         }
 
-        @media (width < 786px) {
+        @media (width < 768px) {
             grid-template-rows: min-content 1fr;
         }
     }
+}
 
-    .headline-1 {
-        grid-area: 1/1;
-        font: var(--headline-small-screen);
-        color: black;
-        -webkit-text-stroke: 2px var(--headline-shadow-color);
-        text-shadow: 1px 1px var(--headline-shadow-color), 2px 2px var(--headline-shadow-color),
-            3px 3px var(--headline-shadow-color), 4px 4px var(--headline-shadow-color), 5px 5px var(--headline-shadow-color),
-            6px 6px var(--headline-shadow-color), 7px 7px var(--headline-shadow-color), 8px 8px var(--headline-shadow-color),
-            9px 9px var(--headline-shadow-color), 10px 10px var(--headline-shadow-color);
-
-        text-transform: uppercase;
-        paint-order: stroke;
-        text-align: start;
-
-
-
-        @media (width >=786px) {
-            font: var(--headline-large-screen);
-        }
-    }
-
+@layer layout {
     .visual {
         overflow: clip;
         inline-size: 100%;
@@ -92,7 +73,7 @@
         display: grid;
 
 
-        @media (width >=786px) {
+        @media (width >=768px) {
             block-size: 100%;
         }
 
@@ -114,7 +95,7 @@
         block-size: 200px;
         object-position: center top;
 
-        @media (width >=786px) {
+        @media (width >=768px) {
             block-size: 100%;
         }
     }
@@ -133,6 +114,22 @@
         opacity: 0;
     }
 
+
+    .controls {
+        grid-area: 1/1;
+        padding: var(--size-3);
+        place-self: start end;
+
+        @media (width >=768px) {
+            padding: var(--size-7);
+            place-self: end start;
+        }
+    }
+}
+
+
+@layer layout {
+
     .content {
         inline-size: 100%;
     }
@@ -146,20 +143,40 @@
         inline-size: 100%;
     }
 
-    .controls {
+    .headline-1 {
         grid-area: 1/1;
-        padding: var(--size-3);
-        place-self: start end;
+        font: var(--headline-small-screen);
+        color: black;
+        -webkit-text-stroke: 2px var(--headline-shadow-color);
+        text-shadow: 1px 1px var(--headline-shadow-color), 2px 2px var(--headline-shadow-color),
+            3px 3px var(--headline-shadow-color), 4px 4px var(--headline-shadow-color), 5px 5px var(--headline-shadow-color),
+            6px 6px var(--headline-shadow-color), 7px 7px var(--headline-shadow-color), 8px 8px var(--headline-shadow-color),
+            9px 9px var(--headline-shadow-color), 10px 10px var(--headline-shadow-color);
 
-        @media (width >=786px) {
-            padding: var(--size-7);
-            place-self: end start;
+        text-transform: uppercase;
+        paint-order: stroke;
+
+
+
+        text-align: center;
+
+        /* Adjust padding for "Rocks" text overflow; adapt/remove for custom headlines */
+        padding-inline-end: 0.6ch;
+
+        @media (width >=768px) {
+            font: var(--headline-large-screen);
         }
     }
 }
 
 
-
+@layer overrides {
+    .text-align-start {
+        display: inline-block;
+        inline-size: 100%;
+        text-align: start;
+    }
+}
 
 
 
@@ -233,6 +250,7 @@
         block-size: var(--button-icon-small-screen-size);
         padding: var(--button-icon-padding);
         border-width: 0;
+        border-radius: var(--radius-round);
 
         @media (width > 768px) {
             inline-size: var(--button-icon-large-screen-size);
@@ -241,7 +259,7 @@
 
 
         &::before {
-            border-radius: var(--radius-round);
+            border-radius: inherit;
         }
 
         &:not(:active):hover {
@@ -260,7 +278,7 @@
             place-items: center;
             inline-size: 100%;
             block-size: 100%;
-            border-radius: var(--radius-round);
+            border-radius: inherit;
             border-style: solid;
             border-width: var(--border-size-2);
 
