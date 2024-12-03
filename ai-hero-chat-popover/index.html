@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Hero Chat - Popover API Example</title>
+    <meta
+      name="description"
+      content="AI Hero Chat example using the Popover API, built with Open Props."
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="section">
+      <div class="section-container">
+        <div class="section-wrapper">
+          <header class="section-header">
+            <div class="logo">
+              <img src="/assets/logo.png" alt="Ocean AI logo" />
+            </div>
+            <hgroup class="hgroup">
+              <h1 class="headline-1">The ultimate AI tool. Just imagine.</h1>
+              <p class="subheading">
+                Create stunning text and images effortlessly with Ocean AI. Dream it. Create it.
+                Easy.
+              </p>
+            </hgroup>
+            <div class="cta-group">
+              <a href="#" class="btn filled primary"
+                ><span class="state-layer">Start your 30-day free trial</span></a
+              >
+              <a href="#" class="btn filled secondary">
+                <span class="state-layer">Get Ocean AI for free</span>
+              </a>
+            </div>
+          </header>
+
+          <ul class="section-cards">
+            <li class="card">
+              <button popovertarget="chat-popover" class="card-wrap">
+                <figure class="figure">
+                  <div class="visual">
+                    <img
+                      class="img"
+                      width="222"
+                      height="175"
+                      src="/assets/img-1.jpg"
+                      alt="Christmas background 3D cartoon"
+                    />
+                  </div>
+                  <div class="figcaption">Create compelling content now</div>
+                </figure>
+              </button>
+            </li>
+            <li class="card">
+              <button popovertarget="chat-popover" class="card-wrap">
+                <figure class="figure">
+                  <div class="visual">
+                    <img
+                      class="img"
+                      width="222"
+                      height="175"
+                      src="/assets/img-2.jpg"
+                      alt="A beautiful glowing flower"
+                    />
+                  </div>
+                  <div class="figcaption">Design stunning visuals effortlessly</div>
+                </figure>
+              </button>
+            </li>
+            <li class="card">
+              <button popovertarget="chat-popover" class="card-wrap">
+                <figure class="figure">
+                  <div class="visual">
+                    <img
+                      class="img"
+                      width="222"
+                      height="175"
+                      src="/assets/img-3.jpg"
+                      alt="A magical leopard"
+                    />
+                  </div>
+                  <div class="figcaption">Edit with ready-made templates</div>
+                </figure>
+              </button>
+            </li>
+            <li class="card">
+              <button popovertarget="chat-popover" class="card-wrap">
+                <figure class="figure">
+                  <div class="visual">
+                    <img
+                      class="img"
+                      width="222"
+                      height="175"
+                      src="/assets/img-4.jpg"
+                      alt="A female 3D cartoon holding a wrapped gift box"
+                    />
+                  </div>
+                  <div class="figcaption">Explore your custom creations</div>
+                </figure>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div popover id="chat-popover" class="chat">
+        <div class="chat-content-wrapper">
+          <header class="chat-header">
+            <button
+              popovertarget="chat-popover"
+              popovertargetaction="hide"
+              class="chat-popover-close-btn"
+              aria-label="Close Chat"
+              title="Close Chat"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                width="24"
+                height="24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  d="M11.9997 10.5865L16.9495 5.63672L18.3637 7.05093L13.4139 12.0007L18.3637 16.9504L16.9495 18.3646L11.9997 13.4149L7.04996 18.3646L5.63574 16.9504L10.5855 12.0007L5.63574 7.05093L7.04996 5.63672L11.9997 10.5865Z"
+                ></path>
+              </svg>
+            </button>
+          </header>
+
+          <section class="chat-section">
+            <div class="result"></div>
+            <form action="">
+              <div class="chat-input-container">
+                <textarea
+                  autofocus
+                  class="chat-textarea"
+                  placeholder="Ask me anything"
+                  type="text"
+                ></textarea>
+                <button
+                  type="submit"
+                  class="chat-submit-btn"
+                  aria-label="Chat Submit"
+                  title="Chat Submit"
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <g clip-path="url(#clip0_208_691)">
+                      <path
+                        d="M2.5664 3.26059C2.32007 2.76794 2.51587 2.5663 3.02256 2.81964L21.0172 11.8169C21.5155 12.0661 21.5206 12.4896 21.0494 12.7513L3.69739 22.3914C3.21698 22.6582 2.98859 22.4559 3.18594 21.9427L6.36304 13.6822L16.2625 12.268L6.36306 10.8538L2.5664 3.26059Z"
+                      />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_208_691">
+                        <rect width="24" height="24" fill="white" />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
