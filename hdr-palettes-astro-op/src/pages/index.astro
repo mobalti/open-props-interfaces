@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import img1 from '../assets/images/img-1.avif';
+import img2 from '../assets/images/img-2.avif';
+import img3 from '../assets/images/img-3.avif';
+import img4 from '../assets/images/img-4.avif';
+import img5 from '../assets/images/img-5.avif';
+import img6 from '../assets/images/img-6.avif';
+---
+
+<Layout>
+  <section class="section">
+    <ul class="cards">
+      <li class="card">
+        <div class="visual">
+          <Image class="img" src={img1} alt="Meeting" />
+        </div>
+        <div class="content">
+          <div class="content-wrapper">
+            <h3 class="title">AI-Powered Supply Chains</h3>
+            <p class="desc">
+              Explore how real-time data and automation are transforming logistics and redefining global supply chain
+              resilience.
+            </p>
+          </div>
+          <a href="" class="card-link"> Learn more </a>
+        </div>
+      </li>
+      <li class="card">
+        <div class="visual">
+          <Image class="img" src={img2} alt="Meeting" />
+        </div>
+        <div class="content">
+          <div class="content-wrapper">
+            <h3 class="title">Building Trust with Responsible AI</h3>
+            <p class="desc">Companies are putting transparency and ethics at the center of their AI development.</p>
+          </div>
+          <a href="" class="card-link"> Learn more </a>
+        </div>
+      </li>
+      <li class="card">
+        <div class="visual">
+          <Image class="img" src={img3} alt="Meeting" />
+        </div>
+        <div class="content">
+          <div class="content-wrapper">
+            <h3 class="title">Energy Innovation at Scale</h3>
+            <p class="desc">
+              Digital twins and analytics are helping speed up the transition to cleaner energy systems.
+            </p>
+          </div>
+          <a href="" class="card-link"> Learn more </a>
+        </div>
+      </li>
+      <li class="card">
+        <div class="visual">
+          <Image class="img" src={img4} alt="Meeting" />
+        </div>
+        <div class="content">
+          <div class="content-wrapper">
+            <h3 class="title">The Future of Smart Manufacturing</h3>
+            <p class="desc">See how automation and IoT are enabling fast, precise production at scale.</p>
+          </div>
+          <a href="" class="card-link"> Learn more </a>
+        </div>
+      </li>
+      <li class="card">
+        <div class="visual">
+          <Image class="img" src={img5} alt="Meeting" />
+        </div>
+        <div class="content">
+          <div class="content-wrapper">
+            <h3 class="title">Connected Construction</h3>
+            <p class="desc">
+              See how real-time collaboration tools and automation are streamlining complex building projects from
+              design to delivery.
+            </p>
+          </div>
+          <a href="" class="card-link"> Learn more </a>
+        </div>
+      </li>
+      <li class="card">
+        <div class="visual">
+          <Image class="img" src={img6} alt="Meeting" />
+        </div>
+        <div class="content">
+          <div class="content-wrapper">
+            <h3 class="title">Financial Services Reimagined</h3>
+            <p class="desc">AI and cloud infrastructure are redefining fraud detection and client experiences.</p>
+          </div>
+          <a href="" class="card-link"> Learn more </a>
+        </div>
+      </li>
+    </ul>
+  </section>
+</Layout>
+
+<style>
+  @layer base {
+    .section {
+      container-type: inline-size;
+      min-block-size: 100svb;
+
+      background: var(--ui-surface-container) url('../assets/images/hero.avif') no-repeat center / cover;
+
+      inline-size: 100%;
+
+      display: grid;
+      place-items: center;
+      column-gap: var(--ui-spacing-xs);
+      row-gap: var(--ui-spacing-lg);
+      padding-block: var(--ui-spacing-xxl);
+    }
+
+    .cards {
+      display: grid;
+      gap: var(--ui-spacing-sm);
+      grid-auto-flow: column;
+      grid-column: 2/-1;
+      grid-template-rows: 200px 1fr;
+      inline-size: 100%;
+      list-style: none;
+      min-block-size: 600px;
+      overflow-inline: auto;
+      overscroll-behavior-inline: contain;
+      padding-block: var(--ui-spacing-lg);
+      padding-inline: var(--ui-spacing-lg);
+      scroll-behavior: smooth;
+      scroll-padding-inline: var(--ui-spacing-lg);
+      scroll-snap-type: inline mandatory;
+    }
+
+    .card {
+      scroll-snap-align: start;
+      /* scroll-snap-stop: always; */
+      background-color: var(--ui-surface);
+      border-radius: var(--ui-card-radius);
+      box-shadow: var(--ui-card-shadow);
+      display: grid;
+      grid-row: 1/-1;
+      grid-template-rows: subgrid;
+      padding: var(--ui-spacing-xs);
+      inline-size: min(90cqi, 400px);
+    }
+
+    .visual {
+      border-radius: var(--ui-visual-radius);
+      overflow: clip;
+    }
+
+    .img {
+      display: block;
+      inline-size: 100%;
+      block-size: 100%;
+      object-fit: cover;
+      /* fallback */
+      background-color: var(--ui-surface-container);
+    }
+
+    .content {
+      display: grid;
+      align-content: space-between;
+      padding: var(--ui-spacing-sm);
+      gap: var(--ui-spacing-lg);
+      color: var(--ui-on-surface);
+    }
+
+    .content-wrapper {
+      display: grid;
+      gap: var(--ui-spacing-sm);
+    }
+
+    .title {
+      font: var(--ui-title);
+      text-wrap: pretty;
+    }
+
+    .desc {
+      font: var(--ui-body);
+      text-wrap: pretty;
+    }
+
+    .card-link {
+      --_icon-bg: var(--ui-primary);
+      font: var(--ui-label);
+      color: var(--ui-primary);
+      text-decoration: none;
+      display: flex;
+      gap: var(--ui-spacing-xs);
+      align-items: center;
+
+      &:hover {
+        --_icon-bg: color-mix(in oklch, var(--ui-primary), var(--ui-on-surface) 8%);
+      }
+
+      &::before {
+        display: grid;
+        place-items: center;
+        background-color: var(--_icon-bg);
+        color: oklch(from var(--ui-primary) var(--contrast-fn) 0 h);
+        inline-size: var(--ui-icon-size);
+        block-size: var(--ui-icon-size);
+        border-radius: var(--ui-btn-radius);
+        font: var(--icon-font-small);
+        content: 'arrow_forward_ios' / 'Arrow';
+      }
+    }
+  }
+
+  @supports (scroll-marker-group: after) {
+    .cards {
+      anchor-name: --carousel;
+      scrollbar-width: none;
+      &::scroll-button(*) {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        background-color: transparent;
+        block-size: var(--ui-scroll-btn-size);
+        border-radius: var(--ui-scroll-btn-radius);
+        color: var(--ui-primary);
+        cursor: pointer;
+        display: inline grid;
+        font: var(--icon-font-medium);
+        inline-size: var(--ui-scroll-btn-size);
+        outline-width: 0;
+        place-items: center;
+        position-anchor: --carousel;
+        inset-block-end: calc(anchor(end) - calc(var(--ui-spacing-xs) + var(--ui-scroll-btn-size)));
+        inset-inline-start: calc(anchor(start) + var(--ui-spacing-lg));
+        position: absolute;
+        user-select: none;
+        border: var(--ui-scroll-btn-border);
+      }
+
+      &::scroll-button(*):focus:not(:disabled) {
+        outline: var(--ui-scroll-btn-outline);
+      }
+
+      &::scroll-button(*):disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+      }
+
+      &::scroll-button(*):not(:disabled):hover {
+        background-color: oklch(from var(--ui-on-surface) l c h / 8%);
+      }
+
+      &::scroll-button(inline-start) {
+        content: 'arrow_back' / 'Scroll back';
+      }
+
+      &::scroll-button(inline-end) {
+        content: 'arrow_forward' / 'Scroll forward';
+        inset-inline-start: calc(
+          anchor(start) + var(--ui-spacing-xs) + var(--ui-scroll-btn-size) + var(--ui-spacing-lg)
+        );
+      }
+    }
+  }
+</style>

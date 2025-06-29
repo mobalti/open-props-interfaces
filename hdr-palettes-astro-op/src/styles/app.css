@@ -1,0 +1,28 @@
+@layer design-system, reset, base, utilities, components, layout, overrides;
+@import './global-tokens.css' layer(base);
+
+@layer reset {
+
+    *,
+    ::before,
+    ::after {
+        box-sizing: border-box;
+    }
+
+    :where(:not(dialog)) {
+        margin: 0;
+    }
+
+    :where(html) {
+        -webkit-text-size-adjust: none;
+
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
+        }
+    }
+
+    :where(body) {
+        min-block-size: 100svb;
+        -webkit-font-smoothing: antialiased;
+    }
+}

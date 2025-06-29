@@ -1,0 +1,376 @@
+html {
+
+  /* Progressive hue rotation across all tonal steps */
+  --palette-hue-rotate-by: 0;
+
+  /* Base chroma for all palettes, except natural tones (gray and stone) */
+  --palette-chroma: 0.9;
+
+  /* Chroma control specifically for natural tones (gray and stone) */
+  --gray-chroma: 0.01;
+
+  /* Base hue angle (0–360) for each color palette */
+  --gray-hue: 248;
+  --stone-hue: 197;
+  --red-hue: 26;
+  --pink-hue: 18;
+  --purple-hue: 323;
+  --violet-hue: 288;
+  --indigo-hue: 279;
+  --blue-hue: 254;
+  --cyan-hue: 220;
+  --teal-hue: 203;
+  --green-hue: 147;
+  --lime-hue: 132;
+  --yellow-hue: 90;
+  --orange-hue: 71;
+  --choco-hue: 45;
+  --brown-hue: 57;
+  --sand-hue: 86;
+  --camo-hue: 108;
+  --jungle-hue: 127;
+
+
+
+  /* Gray */
+  --hdr-gray-0: oklch(99% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-1: oklch(98% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-2: oklch(96% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-3: oklch(91% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-4: oklch(83% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-5: oklch(74% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-6: oklch(66% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-7: oklch(57% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-8: oklch(49% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-9: oklch(44% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-10: oklch(40% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-11: oklch(36% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-12: oklch(31% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-13: oklch(27% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-14: oklch(23% var(--gray-chroma, none) var(--gray-hue, none));
+  --hdr-gray-15: oklch(18% var(--gray-chroma, none) var(--gray-hue, none));
+
+  /* Stone */
+  --hdr-stone-0: oklch(99% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-1: oklch(98% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-2: oklch(96% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-3: oklch(91% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-4: oklch(83% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-5: oklch(74% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-6: oklch(66% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-7: oklch(57% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-8: oklch(49% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-9: oklch(44% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-10: oklch(40% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-11: oklch(36% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-12: oklch(31% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-13: oklch(27% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-14: oklch(23% var(--gray-chroma, none) var(--stone-hue, none));
+  --hdr-stone-15: oklch(18% var(--gray-chroma, none) var(--stone-hue, none));
+
+  /* Red */
+  --hdr-red-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--red-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-red-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--red-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-red-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--red-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-red-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--red-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-red-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--red-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-red-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--red-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-red-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--red-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-red-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--red-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-red-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--red-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-red-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--red-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-red-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--red-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-red-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--red-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-red-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--red-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-red-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--red-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-red-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--red-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-red-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--red-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Pink */
+  --hdr-pink-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-pink-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-pink-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-pink-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-pink-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-pink-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-pink-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-pink-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-pink-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-pink-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-pink-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-pink-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-pink-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-pink-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-pink-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-pink-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--pink-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Purple */
+  --hdr-purple-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-purple-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-purple-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-purple-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-purple-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-purple-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-purple-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-purple-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-purple-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-purple-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-purple-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-purple-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-purple-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-purple-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-purple-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-purple-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--purple-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Violet */
+  --hdr-violet-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-violet-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-violet-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-violet-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-violet-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-violet-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-violet-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-violet-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-violet-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-violet-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-violet-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-violet-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-violet-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-violet-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-violet-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-violet-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--violet-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Indigo */
+  --hdr-indigo-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-indigo-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--indigo-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Blue */
+  --hdr-blue-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-blue-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-blue-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-blue-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-blue-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-blue-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-blue-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-blue-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-blue-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-blue-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-blue-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-blue-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-blue-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-blue-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-blue-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-blue-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--blue-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Cyan */
+  --hdr-cyan-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-cyan-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--cyan-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Teal */
+  --hdr-teal-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-teal-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-teal-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-teal-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-teal-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-teal-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-teal-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-teal-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-teal-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-teal-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-teal-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-teal-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-teal-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-teal-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-teal-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-teal-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--teal-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Green */
+  --hdr-green-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--green-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-green-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--green-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-green-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--green-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-green-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--green-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-green-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--green-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-green-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--green-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-green-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--green-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-green-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--green-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-green-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--green-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-green-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--green-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-green-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--green-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-green-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--green-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-green-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--green-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-green-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--green-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-green-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--green-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-green-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--green-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Lime */
+  --hdr-lime-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-lime-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-lime-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-lime-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-lime-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-lime-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-lime-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-lime-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-lime-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-lime-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-lime-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-lime-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-lime-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-lime-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-lime-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-lime-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--lime-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Yellow */
+  --hdr-yellow-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-yellow-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--yellow-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Orange */
+  --hdr-orange-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-orange-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-orange-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-orange-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-orange-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-orange-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-orange-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-orange-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-orange-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-orange-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-orange-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-orange-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-orange-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-orange-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-orange-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-orange-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--orange-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Choco */
+  --hdr-choco-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-choco-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-choco-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-choco-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-choco-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-choco-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-choco-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-choco-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-choco-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-choco-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-choco-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-choco-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-choco-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-choco-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-choco-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-choco-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--choco-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Brown */
+  --hdr-brown-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-brown-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-brown-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-brown-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-brown-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-brown-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-brown-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-brown-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-brown-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-brown-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-brown-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-brown-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-brown-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-brown-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-brown-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-brown-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--brown-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Sand */
+  --hdr-sand-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-sand-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-sand-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-sand-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-sand-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-sand-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-sand-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-sand-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-sand-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-sand-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-sand-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-sand-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-sand-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-sand-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-sand-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-sand-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--sand-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Camo */
+  --hdr-camo-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-camo-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-camo-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-camo-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-camo-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-camo-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-camo-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-camo-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-camo-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-camo-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-camo-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-camo-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-camo-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-camo-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-camo-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-camo-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--camo-hue) + (15 * var(--palette-hue-rotate-by))));
+
+  /* Jungle */
+  --hdr-jungle-0: oklch(99% calc(0.03 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (0 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-1: oklch(98% calc(0.06 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (1 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-2: oklch(96% calc(0.1 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (2 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-3: oklch(91% calc(0.12 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (3 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-4: oklch(83% calc(0.16 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (4 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-5: oklch(74% calc(0.19 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (5 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-6: oklch(66% calc(0.2 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (6 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-7: oklch(57% calc(0.21 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (7 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-8: oklch(49% calc(0.2 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (8 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-9: oklch(44% calc(0.19 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (9 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-10: oklch(40% calc(0.17 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (10 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-11: oklch(36% calc(0.15 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (11 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-12: oklch(31% calc(0.12 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (12 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-13: oklch(27% calc(0.09 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (13 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-14: oklch(23% calc(0.07 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (14 * var(--palette-hue-rotate-by))));
+  --hdr-jungle-15: oklch(18% calc(0.05 * var(--palette-chroma, 1)) calc(var(--jungle-hue) + (15 * var(--palette-hue-rotate-by))));
+}

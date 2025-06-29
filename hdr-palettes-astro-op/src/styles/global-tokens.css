@@ -1,0 +1,58 @@
+html {
+  /* Adjust the chroma for all palettes */
+  --palette-chroma: 1;
+
+
+  /* Contrast function based on perceptual lightness (OKLCH) */
+  --contrast-fn: min(max(((l - 0.651) * -infinity), 0), 1);
+
+
+
+  /* Semantic tokens */
+  --ui-surface: var(--hdr-purple-15);
+  --ui-surface-container: var(--hdr-purple-14);
+  --ui-on-surface: oklch(from var(--ui-surface) var(--contrast-fn) 0 h);
+  --ui-primary: var(--hdr-orange-2);
+
+  --ui-spacing-none: 0;
+  --ui-spacing-xxs: var(--size-1);
+  --ui-spacing-xs: var(--size-2);
+  --ui-spacing-sm: var(--size-3);
+  --ui-spacing-md: var(--size-5);
+  --ui-spacing-lg: var(--size-7);
+  --ui-spacing-xl: var(--size-8);
+  --ui-spacing-xxl: var(--size-11);
+
+  --base-font: var(--font-roboto, '');
+  --ui-label: var(--font-weight-5) var(--font-size-1) / var(--font-lineheight-0) var(--base-font), var(--font-system-ui);
+  --ui-body: var(--font-weight-4) var(--font-size-2) / var(--font-lineheight-3) var(--base-font), var(--font-system-ui);
+  --ui-title: var(--font-weight-5) var(--font-size-4) / var(--font-lineheight-1) var(--base-font), var(--font-system-ui);
+
+  --ui-icon-font-family: var(--font-material-symbols);
+  --icon-font-small: var(--font-weight-6) var(--font-size-1) / 1 var(--ui-icon-font-family);
+  --icon-font-medium: var(--font-weight-4) var(--font-size-4) / 0 var(--ui-icon-font-family);
+
+
+
+  /* Force dark theme shadow values in light mode */
+  /* OSlight */
+  @media (prefers-color-scheme: light) {
+    --shadow-color: 220 40% 2%;
+    --shadow-strength: 25%;
+  }
+
+  /* Component-specific token */
+  --ui-scroll-btn-radius: var(--radius-4);
+  --ui-scroll-btn-layer: var(--layer-3);
+  --ui-scroll-btn-outline: var(--border-size-2) dashed var(--ui-primary);
+  --ui-scroll-btn-border: var(--border-size-1) solid var(--ui-primary);
+  --ui-scroll-btn-size: var(--size-px-9);
+
+
+  --ui-card-radius: calc(var(--ui-visual-radius) * 1.25);
+  --ui-visual-radius: var(--radius-3);
+  --ui-btn-radius: var(--radius-2);
+  --ui-icon-size: var(--size-7);
+  --ui-card-shadow: var(--shadow-2);
+
+}
