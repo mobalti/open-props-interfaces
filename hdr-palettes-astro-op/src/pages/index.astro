@@ -97,7 +97,7 @@ import img6 from '../assets/images/img-6.avif';
 </Layout>
 
 <style>
-  @layer base {
+  @layer layout {
     .section {
       container-type: inline-size;
       min-block-size: 100svb;
@@ -130,8 +130,9 @@ import img6 from '../assets/images/img-6.avif';
       scroll-behavior: smooth;
       scroll-padding-inline: var(--_carousel-inline-padding);
       scroll-snap-type: inline mandatory;
+
       /* md-n-above */
-      @media (width >= 768px) {
+      @media (width >=768px) {
         --_carousel-inline-padding: var(--ui-spacing-lg);
       }
     }
@@ -211,55 +212,56 @@ import img6 from '../assets/images/img-6.avif';
         content: 'arrow_forward_ios' / 'Arrow';
       }
     }
-  }
 
-  @supports (scroll-marker-group: after) {
-    .cards {
-      anchor-name: --carousel;
-      scrollbar-width: none;
-      &::scroll-button(*) {
-        -webkit-tap-highlight-color: transparent;
-        -webkit-touch-callout: none;
-        background-color: transparent;
-        block-size: var(--ui-scroll-btn-size);
-        border-radius: var(--ui-scroll-btn-radius);
-        color: var(--ui-primary);
-        cursor: pointer;
-        display: inline grid;
-        font: var(--icon-font-medium);
-        inline-size: var(--ui-scroll-btn-size);
-        outline-width: 0;
-        place-items: center;
-        position-anchor: --carousel;
-        inset-block-end: calc(anchor(end) - calc(var(--ui-spacing-xs) + var(--ui-scroll-btn-size)));
-        inset-inline-start: calc(anchor(start) + var(--_carousel-inline-padding));
-        position: absolute;
-        user-select: none;
-        border: var(--ui-scroll-btn-border);
-      }
+    @supports (scroll-marker-group: after) {
+      .cards {
+        anchor-name: --carousel;
+        scrollbar-width: none;
 
-      &::scroll-button(*):focus:not(:disabled) {
-        outline: var(--ui-scroll-btn-outline);
-      }
+        &::scroll-button(*) {
+          -webkit-tap-highlight-color: transparent;
+          -webkit-touch-callout: none;
+          background-color: transparent;
+          block-size: var(--ui-scroll-btn-size);
+          border-radius: var(--ui-scroll-btn-radius);
+          color: var(--ui-primary);
+          cursor: pointer;
+          display: inline grid;
+          font: var(--icon-font-medium);
+          inline-size: var(--ui-scroll-btn-size);
+          outline-width: 0;
+          place-items: center;
+          position-anchor: --carousel;
+          inset-block-end: calc(anchor(end) - calc(var(--ui-spacing-xs) + var(--ui-scroll-btn-size)));
+          inset-inline-start: calc(anchor(start) + var(--_carousel-inline-padding));
+          position: absolute;
+          user-select: none;
+          border: var(--ui-scroll-btn-border);
+        }
 
-      &::scroll-button(*):disabled {
-        cursor: not-allowed;
-        opacity: 0.4;
-      }
+        &::scroll-button(*):focus:not(:disabled) {
+          outline: var(--ui-scroll-btn-outline);
+        }
 
-      &::scroll-button(*):not(:disabled):hover {
-        background-color: oklch(from var(--ui-on-surface) l c h / 8%);
-      }
+        &::scroll-button(*):disabled {
+          cursor: not-allowed;
+          opacity: 0.4;
+        }
 
-      &::scroll-button(inline-start) {
-        content: 'arrow_back' / 'Scroll back';
-      }
+        &::scroll-button(*):not(:disabled):hover {
+          background-color: oklch(from var(--ui-on-surface) l c h / 8%);
+        }
 
-      &::scroll-button(inline-end) {
-        content: 'arrow_forward' / 'Scroll forward';
-        inset-inline-start: calc(
-          anchor(start) + var(--ui-spacing-xs) + var(--ui-scroll-btn-size) + var(--_carousel-inline-padding)
-        );
+        &::scroll-button(inline-start) {
+          content: 'arrow_back' / 'Scroll back';
+        }
+
+        &::scroll-button(inline-end) {
+          content: 'arrow_forward' / 'Scroll forward';
+          inset-inline-start: calc(
+            anchor(start) + var(--ui-spacing-xs) + var(--ui-scroll-btn-size) + var(--_carousel-inline-padding)
+          );
+        }
       }
     }
   }
