@@ -114,6 +114,7 @@ import img6 from '../assets/images/img-6.avif';
     }
 
     .cards {
+      --_carousel-inline-padding: var(--ui-spacing-sm);
       display: grid;
       gap: var(--ui-spacing-sm);
       grid-auto-flow: column;
@@ -125,10 +126,14 @@ import img6 from '../assets/images/img-6.avif';
       overflow-inline: auto;
       overscroll-behavior-inline: contain;
       padding-block: var(--ui-spacing-lg);
-      padding-inline: var(--ui-spacing-lg);
+      padding-inline: var(--_carousel-inline-padding);
       scroll-behavior: smooth;
-      scroll-padding-inline: var(--ui-spacing-lg);
+      scroll-padding-inline: var(--_carousel-inline-padding);
       scroll-snap-type: inline mandatory;
+      /* md-n-above */
+      @media (width >= 768px) {
+        --_carousel-inline-padding: var(--ui-spacing-lg);
+      }
     }
 
     .card {
@@ -141,7 +146,7 @@ import img6 from '../assets/images/img-6.avif';
       grid-row: 1/-1;
       grid-template-rows: subgrid;
       padding: var(--ui-spacing-xs);
-      inline-size: min(90cqi, 400px);
+      inline-size: min(75cqi, 400px);
     }
 
     .visual {
@@ -227,7 +232,7 @@ import img6 from '../assets/images/img-6.avif';
         place-items: center;
         position-anchor: --carousel;
         inset-block-end: calc(anchor(end) - calc(var(--ui-spacing-xs) + var(--ui-scroll-btn-size)));
-        inset-inline-start: calc(anchor(start) + var(--ui-spacing-lg));
+        inset-inline-start: calc(anchor(start) + var(--_carousel-inline-padding));
         position: absolute;
         user-select: none;
         border: var(--ui-scroll-btn-border);
@@ -253,7 +258,7 @@ import img6 from '../assets/images/img-6.avif';
       &::scroll-button(inline-end) {
         content: 'arrow_forward' / 'Scroll forward';
         inset-inline-start: calc(
-          anchor(start) + var(--ui-spacing-xs) + var(--ui-scroll-btn-size) + var(--ui-spacing-lg)
+          anchor(start) + var(--ui-spacing-xs) + var(--ui-scroll-btn-size) + var(--_carousel-inline-padding)
         );
       }
     }
