@@ -43,3 +43,4 @@ A collection of customizable and responsive interfaces built with [Open Props](h
 1.  Slider with Scroll Snap Events [`Demo`](https://codepen.io/mobalti/full/XWvaYZx)
 1.  Beat Reactor + 3D Text (paint-Order) [`Demo`](https://codepen.io/mobalti/full/MWNZebV)
 1.  AI Hero Chat - Popover API Example [`Demo`](https://codepen.io/mobalti/full/EaYVJgr)
+1.  CSS Carousel with HDR Palettes (Astro) [`Demo`](https://astro-open-props-hdr.netlify.app/)
